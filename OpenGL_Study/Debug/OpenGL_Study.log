@@ -1,0 +1,9 @@
+﻿  SimpleTriangle.cpp
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating Code...
+  Compiling...
+  main.cpp
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating Code...
+  OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.exe
+  OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.pdb (Partial PDB)
