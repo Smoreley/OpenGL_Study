@@ -11,3 +11,4 @@ void main(void)
 {
 	gl_Position = position;
 	vs_out.color = position + vec4(0.5, 0.5, 0.5, 1.0);
+}

@@ -17,7 +17,7 @@ protected:
 
 public:
 
-	virtual void start() = 0;
-	virtual void end() = 0;
-	virtual void render(double dt) = 0;
+	virtual int start() = 0;
+	virtual int end() = 0;
+	virtual int render(double dt) = 0;
 };

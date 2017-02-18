@@ -117,11 +117,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SimpleCube.cpp" />
     <ClCompile Include="SimpleTriangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Helper.h" />
     <ClInclude Include="Progbase.h" />
+    <ClInclude Include="SimpleCube.h" />
     <ClInclude Include="SimpleTriangle.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>

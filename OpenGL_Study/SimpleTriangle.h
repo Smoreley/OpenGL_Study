@@ -8,7 +8,7 @@ private:
 	GLuint buffer;
 
 public:
-	void start();
-	void end();
-	void render(double dt);
+	int start();
+	int end();
+	int render(double dt);
 };
