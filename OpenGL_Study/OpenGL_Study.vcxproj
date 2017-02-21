@@ -118,18 +118,21 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SimpleCube.cpp" />
+    <ClCompile Include="SimpleTransform.cpp" />
     <ClCompile Include="SimpleTriangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Helper.h" />
     <ClInclude Include="Progbase.h" />
     <ClInclude Include="SimpleCube.h" />
+    <ClInclude Include="SimpleTransform.h" />
     <ClInclude Include="SimpleTriangle.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="simpletriangle.frag" />
+    <None Include="simpletcolor.frag" />
     <None Include="simpletriangle.vert" />
+    <None Include="simpletransform.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

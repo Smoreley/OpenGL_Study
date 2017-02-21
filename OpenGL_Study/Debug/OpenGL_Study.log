@@ -1,4 +1,12 @@
-﻿  SimpleCube.cpp
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+﻿  SimpleTriangle.cpp
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simpletriangle.cpp(38): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simpletriangle.cpp(38): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+  SimpleTransform.cpp
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simpletransform.cpp(20): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simpletransform.cpp(20): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+  SimpleCube.cpp
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simplecube.cpp(66): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simplecube.cpp(66): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+  Generating Code...
   OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.exe
   OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.pdb (Partial PDB)

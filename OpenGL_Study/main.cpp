@@ -4,6 +4,7 @@
 #include "progbase.h"
 #include "SimpleTriangle.h"
 #include "SimpleCube.h"
+#include "SimpleTransform.h"
 
 // Window
 static const GLint WINDOW_WIDTH = 1280, WINDOW_HEIGHT = 720;
@@ -88,18 +89,21 @@ int main(void) {
 	// Custom print versions
 	printVersion();
 
-	// Initialize my program
-	/*Progbase* studyProgram = new SimpleTriangle();*/
-	//studyProgram->start();
+	// Initialize my programs
 	studyContainer.push_back(new SimpleTriangle());
 	studyContainer.push_back(new SimpleCube());
+	studyContainer.push_back(new SimpleTransform());
 
-	//Progbase* studys[] = { new SimpleTriangle(), new SimpleTriangle() };
+	// Set current running program and start it
 	currentStudyProgram = studyContainer[0];
 	currentStudyProgram->start();
 
 	// Keyboard input
 	glfwSetKeyCallback(window, key_callback);
+
+	// Performance calculation
+	double lastTime = glfwGetTime();
+	int nbFrames = 0;
 
 	// Loop until user closes window
 	while (!glfwWindowShouldClose(window)) {
@@ -107,6 +111,15 @@ int main(void) {
 		currentTime = glfwGetTime();
 		double delta = currentTime - previousTime;
 
+		// Performance Calculation
+		nbFrames++;
+		if (currentTime - lastTime >= 1.0) {
+			printf("%f ms/frame\n", 1000.0 / double(nbFrames));
+			nbFrames = 0;
+			lastTime += 1.0;
+		}
+
+		// Run study program
 		currentStudyProgram->render(delta);
 
 		// Swap front and back buffers

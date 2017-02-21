@@ -1,15 +1,9 @@
 #pragma once
-
+#include "stdafx.h"
 #include "Helper.h"
-
-#include <iostream>>
-
-#include <Gl/glew.h>
-#include <glm\glm.hpp>
 
 class Progbase {
 private:
-
 
 protected:
 	// 

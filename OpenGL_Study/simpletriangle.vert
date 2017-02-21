@@ -1,6 +1,7 @@
 #version 430 core
 
 in vec4 position;
+in vec4 colors;
 
 out VS_OUT
 {

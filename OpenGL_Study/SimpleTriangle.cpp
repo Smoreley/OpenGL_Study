@@ -2,7 +2,7 @@
 
 int SimpleTriangle::start() {
 	std::cout << "Simple Triangle Study" << std::endl;
-	rendering_program = Helper::compileShaders("simpletriangle.vert", "simpletriangle.frag");
+	rendering_program = Helper::compileShaders("simpletriangle.vert", "simpletcolor.frag");
 
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
@@ -26,17 +26,17 @@ int SimpleTriangle::start() {
 }
 
 int SimpleTriangle::end() {
+	glDeleteBuffers(1, &buffer);
 	glDeleteVertexArrays(1, &vao);
 	glDeleteProgram(rendering_program);
-	glDeleteBuffers(1, &buffer);
 
 	return EXIT_SUCCESS;
 }
 
 int SimpleTriangle::render(double dt) {
 	// Clear
-	static const GLfloat clearColor[] = { 0.0, 0.0, 0.0, 1.0 };
-	glClearBufferfv(GL_COLOR, 0, clearColor);
+	static const GLfloat clear_color[] = { 0.415, 0.568, 0.431, 1.0 };
+	glClearBufferfv(GL_COLOR, 0, clear_color);
 
 	// Activate our program
 	glUseProgram(rendering_program);

@@ -33,6 +33,9 @@
     <ClCompile Include="SimpleCube.cpp">
       <Filter>Source Files\Study Source</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleTransform.cpp">
+      <Filter>Source Files\Study Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleTriangle.h">
@@ -50,12 +53,18 @@
     <ClInclude Include="SimpleCube.h">
       <Filter>Header Files\Study Files</Filter>
     </ClInclude>
+    <ClInclude Include="SimpleTransform.h">
+      <Filter>Header Files\Study Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="simpletriangle.vert">
       <Filter>Resource Files\Shader Files</Filter>
     </None>
-    <None Include="simpletriangle.frag">
+    <None Include="simpletransform.vert">
+      <Filter>Resource Files\Shader Files</Filter>
+    </None>
+    <None Include="simpletcolor.frag">
       <Filter>Resource Files\Shader Files</Filter>
     </None>
   </ItemGroup>
