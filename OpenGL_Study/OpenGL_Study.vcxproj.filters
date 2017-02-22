@@ -22,6 +22,12 @@
     <Filter Include="Source Files\Study Source">
       <UniqueIdentifier>{c99cdbfd-4235-4bb3-81dd-d3748c425deb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Shader Files\Fragment Files">
+      <UniqueIdentifier>{2307b465-8280-45b1-899c-5856791c4869}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shader Files\Vertex Files">
+      <UniqueIdentifier>{419fe07e-79a5-4ca5-8849-0ea56b97ad38}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -58,14 +64,17 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="simplecolor.frag">
+      <Filter>Resource Files\Shader Files\Fragment Files</Filter>
+    </None>
     <None Include="simpletriangle.vert">
-      <Filter>Resource Files\Shader Files</Filter>
+      <Filter>Resource Files\Shader Files\Vertex Files</Filter>
     </None>
     <None Include="simpletransform.vert">
-      <Filter>Resource Files\Shader Files</Filter>
+      <Filter>Resource Files\Shader Files\Vertex Files</Filter>
     </None>
-    <None Include="simpletcolor.frag">
-      <Filter>Resource Files\Shader Files</Filter>
+    <None Include="depthvisualization.frag">
+      <Filter>Resource Files\Shader Files\Fragment Files</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -130,7 +130,8 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="simpletcolor.frag" />
+    <None Include="depthvisualization.frag" />
+    <None Include="simplecolor.frag" />
     <None Include="simpletriangle.vert" />
     <None Include="simpletransform.vert" />
   </ItemGroup>

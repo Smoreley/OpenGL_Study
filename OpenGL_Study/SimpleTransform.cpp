@@ -4,6 +4,14 @@ int SimpleTransform::start() {
 	std::cout << "Simple Transform Study" << std::endl;
 	rendering_program = Helper::compileShaders("simpletransform.vert", "simplecolor.frag");
 
+	// Pyramid vertex positions
+	static const GLfloat vertex_positions[] = {
+		// Bottom
+		-1,-1, -1,
+		-1,-1, 1,
+		1,-1, 1
+	};
+
 
 	return EXIT_SUCCESS;
 }
@@ -21,6 +29,7 @@ int SimpleTransform::render(double dt) {
 	glClearBufferfv(GL_COLOR, 0, clear_color);
 
 	// Draw
+	// TODO: Implement drawing ode
 
 	return EXIT_SUCCESS;
 }

@@ -1,12 +1,10 @@
-﻿  SimpleTriangle.cpp
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simpletriangle.cpp(38): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simpletriangle.cpp(38): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
-  SimpleTransform.cpp
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simpletransform.cpp(20): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simpletransform.cpp(20): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
-  SimpleCube.cpp
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simplecube.cpp(66): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simplecube.cpp(66): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+﻿  SimpleCube.cpp
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simplecube.cpp(167): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simplecube.cpp(167): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+  Generating Code...
+  Compiling...
+  main.cpp
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\main.cpp(134): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
   OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.exe
   OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.pdb (Partial PDB)
