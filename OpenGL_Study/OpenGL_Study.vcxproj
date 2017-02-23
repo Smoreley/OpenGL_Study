@@ -124,6 +124,7 @@
   <ItemGroup>
     <ClInclude Include="Helper.h" />
     <ClInclude Include="Progbase.h" />
+    <ClInclude Include="QuickPrimitives.h" />
     <ClInclude Include="SimpleCube.h" />
     <ClInclude Include="SimpleTransform.h" />
     <ClInclude Include="SimpleTriangle.h" />

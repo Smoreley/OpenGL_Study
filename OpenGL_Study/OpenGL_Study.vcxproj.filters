@@ -62,6 +62,9 @@
     <ClInclude Include="SimpleTransform.h">
       <Filter>Header Files\Study Files</Filter>
     </ClInclude>
+    <ClInclude Include="QuickPrimitives.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="simplecolor.frag">

@@ -7,13 +7,9 @@
 #include <stdio.h>
 #include <vector>
 
-namespace Helper {
+#include "QuickPrimitives.h"
 
-	//struct Shader {
-	//	const char* filename;
-	//	GLenum type;
-	//	GLchar* source;
-	//};
+namespace Helper {
 
 	// Given shaderHandle 
 	static int loadShader(const char* fileName, GLuint* shaderHandle) {
@@ -80,15 +76,6 @@ namespace Helper {
 		GLuint fs = glCreateShader(GL_FRAGMENT_SHADER);
 		loadShader(fsfilename, &fs);
 
-		// Genericly compile the shaders (do not need to know)
-		//for (int i = 0; i < shaderInfo.size(); i++) {
-		//	Shader &s = shaderInfo[i];
-
-		//	GLuint shandle = glCreateShader(s.type);
-		//	loadShader(s.filename, &shandle);
-		//	glAttachShader(program, shandle);
-		//}
-
 		// Create program 
 		GLuint program = glCreateProgram();
 
@@ -98,6 +85,9 @@ namespace Helper {
 
 		// Link all attached shaders to the program object together
 		glLinkProgram(program);
+
+		glDetachShader(program, vs);
+		glDetachShader(program, fs);
 
 		// Delete the shaders, since the program has them now
 		glDeleteShader(vs);

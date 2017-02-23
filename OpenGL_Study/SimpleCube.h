@@ -15,9 +15,6 @@ private:
 	GLint mv_location;
 	GLint proj_location;
 
-	//GLuint ibo;	// Index buffer object
-	//std::vector<unsigned int> indices;
-
 public:
 	int start();
 	int end();

@@ -10,7 +10,8 @@ int SimpleTriangle::start() {
 	static const GLfloat vertex_positions[] = {
 		-0.5, 0.5, 0,
 		-0.5, -0.5, 0,
-		0.5, -0.5, 0};
+		0.5, -0.5, 0
+	};
 
 	// Generate buffer
 	glGenBuffers(1, &buffer);

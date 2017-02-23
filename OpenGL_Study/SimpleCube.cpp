@@ -9,64 +9,6 @@ int SimpleCube::start() {
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
 
-	// Cube vertex Positions
-	static const GLfloat vertex_positions[] = {
-		// Front
-		-0.5, 0.5, 0.5,
-		0.5, 0.5, 0.5,
-		-0.5, -0.5, 0.5,
-
-		0.5, -0.5, 0.5,
-		-0.5, -0.5, 0.5,
-		0.5, 0.5, 0.5,
-
-		// Top
-		-0.5, 0.5, 0.5,
-		-0.5, 0.5, -0.5,
-		0.5, 0.5, -0.5,
-
-		0.5, 0.5, 0.5,
-		-0.5, 0.5, 0.5,
-		0.5, 0.5, -0.5,
-		
-		// Back
-		-0.5, 0.5, -0.5,
-		-0.5, -0.5, -0.5,
-		0.5, 0.5, -0.5,
-
-		0.5, -0.5, -0.5,
-		0.5, 0.5, -0.5,
-		-0.5, -0.5, -0.5,
-
-		// Bottom
-		-0.5, -0.5, 0.5,
-		0.5, -0.5, -0.5,
-		-0.5, -0.5, -0.5,
-
-		0.5, -0.5, 0.5,
-		0.5, -0.5, -0.5,
-		-0.5, -0.5, 0.5,
-
-		// Left
-		-0.5, -0.5, -0.5,
-		-0.5, 0.5, -0.5,
-		-0.5, 0.5, 0.5,
-
-		-0.5, -0.5, 0.5,
-		-0.5, -0.5, -0.5,
-		-0.5, 0.5, 0.5,
-
-		// Right
-		0.5, -0.5, -0.5,
-		0.5, 0.5, 0.5,
-		0.5, 0.5, -0.5,
-
-		0.5, -0.5, 0.5,
-		0.5, 0.5, 0.5,
-		0.5, -0.5, -0.5
-
-	};
-
 	// Vertex Colors
 	static const GLfloat vertex_colors[] = {
 		// Front
@@ -133,7 +75,7 @@ int SimpleCube::start() {
 	// Now bind it to the context using the GL_ARRAY_BUFFER binding point
 	glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer);
 	// used to allocate memory using a buffer object
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertex_positions), vertex_positions, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Helper::cube_vp), Helper::cube_vp, GL_STATIC_DRAW);
 	// Tell OpenGL where in the buffer object our data is
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	// Enable automatic filling of the attribute
@@ -148,7 +90,7 @@ int SimpleCube::start() {
 
 	// Enable
 	glEnable(GL_CULL_FACE);
-	glFrontFace(GL_CW);
+	glFrontFace(GL_CCW);
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
 
@@ -183,7 +125,7 @@ int SimpleCube::render(double dt) {
 	mv_matrix = glm::translate(mv_matrix, glm::vec3(
 		0.0f,
 		0.0f,
-		-6.0f + 5 * glm::sin(glfwGetTime())
+		-6.0f + 2 * glm::sin(glfwGetTime())
 	));
 
 	// Rotate along an axis

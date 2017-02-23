@@ -1,5 +1,5 @@
 #pragma once
-#include "progbase.h"
+#include "Progbase.h"
 
 class SimpleTriangle : public Progbase {
 private:
