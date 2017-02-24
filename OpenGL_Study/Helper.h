@@ -1,13 +1,10 @@
 #pragma once
-#include <GL/glew.h>
-#include <fstream>
-#include <streambuf>
-#include <sstream>
-#include <iostream>
-#include <stdio.h>
-#include <vector>
+#include "stdafx.h"
 
-#include "QuickPrimitives.h"
+#include <fstream>
+#include <sstream>
+
+#include "PrebuiltPrimitives.h"
 
 namespace Helper {
 

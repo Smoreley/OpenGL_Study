@@ -62,8 +62,17 @@
     <ClInclude Include="SimpleTransform.h">
       <Filter>Header Files\Study Files</Filter>
     </ClInclude>
-    <ClInclude Include="QuickPrimitives.h">
+    <ClInclude Include="SimpleTexture.h">
+      <Filter>Header Files\Study Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FlyingCamera.h">
+      <Filter>Header Files\Study Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PrebuiltPrimitives.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ModifiedPhongModel.h">
+      <Filter>Header Files\Study Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

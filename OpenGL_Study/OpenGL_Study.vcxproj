@@ -122,10 +122,13 @@
     <ClCompile Include="SimpleTriangle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FlyingCamera.h" />
     <ClInclude Include="Helper.h" />
+    <ClInclude Include="ModifiedPhongModel.h" />
     <ClInclude Include="Progbase.h" />
-    <ClInclude Include="QuickPrimitives.h" />
+    <ClInclude Include="PrebuiltPrimitives.h" />
     <ClInclude Include="SimpleCube.h" />
+    <ClInclude Include="SimpleTexture.h" />
     <ClInclude Include="SimpleTransform.h" />
     <ClInclude Include="SimpleTriangle.h" />
     <ClInclude Include="stdafx.h" />
