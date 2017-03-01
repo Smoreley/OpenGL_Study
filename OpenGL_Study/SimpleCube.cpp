@@ -88,9 +88,11 @@ int SimpleCube::start() {
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, NULL);
 	glEnableVertexAttribArray(1);
 
-	// Enable
+	// Enables
 	glEnable(GL_CULL_FACE);
 	glFrontFace(GL_CCW);
+
+	// Depth test for multiple objects so further object are occluded
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
 

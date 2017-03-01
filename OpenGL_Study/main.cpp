@@ -5,6 +5,7 @@
 #include "SimpleTriangle.h"
 #include "SimpleCube.h"
 #include "SimpleTransform.h"
+#include "FlyingCamera.h"
 
 // Window
 static const GLint WINDOW_WIDTH = 1280, WINDOW_HEIGHT = 720;
@@ -93,6 +94,7 @@ int main(void) {
 	studyContainer.push_back(new SimpleTriangle());
 	studyContainer.push_back(new SimpleCube());
 	studyContainer.push_back(new SimpleTransform());
+	studyContainer.push_back(new FlyingCamera());
 
 	// Set current running program and start it
 	currentStudyProgram = studyContainer[0];
@@ -114,7 +116,7 @@ int main(void) {
 		// Performance Calculation
 		nbFrames++;
 		if (currentTime - lastTime >= 1.0) {
-			printf("%f ms/frame\n", 1000.0 / double(nbFrames));
+			std::cerr << 1000.0 / double(nbFrames) << "ms/frames" << std::endl;
 			nbFrames = 0;
 			lastTime += 1.0;
 		}

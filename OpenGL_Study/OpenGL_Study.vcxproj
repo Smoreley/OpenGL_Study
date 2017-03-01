@@ -71,6 +71,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>C:\vs_dev_lib\glm-0.9.7.6;C:\vs_dev_lib\glew-2.0.0\include;C:\vs_dev_lib\glfw-3.2.1\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\vs_dev_lib\glew-2.0.0\lib\Release\x86;C:\vs_dev_lib\glfw-3.2.1\lib\x86;$(LibraryPath)</LibraryPath>
+    <IntDir>$(Configuration)\Tmp\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -116,6 +117,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FlyingCamera.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SimpleCube.cpp" />
     <ClCompile Include="SimpleTransform.cpp" />
@@ -134,7 +136,9 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="coordinatesystem.vert" />
     <None Include="depthvisualization.frag" />
+    <None Include="simple.vert" />
     <None Include="simplecolor.frag" />
     <None Include="simpletriangle.vert" />
     <None Include="simpletransform.vert" />

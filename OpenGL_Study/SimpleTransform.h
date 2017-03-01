@@ -1,7 +1,7 @@
 #pragma once
 #include "ProgBase.h"
 
-// Demonstration of translation, rotation, and scaling
+// Demo of translation, rotation, and scaling
 class SimpleTransform : public Progbase {
 private:
 	GLuint rendering_program;
@@ -11,6 +11,7 @@ private:
 	GLuint vertex_buffer;
 	GLuint color_buffer;
 
+	// Model View Matrix and Projection Matrix
 	GLuint mv_location;
 	GLuint proj_location;
 
