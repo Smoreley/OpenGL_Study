@@ -45,6 +45,9 @@
     <ClCompile Include="FlyingCamera.cpp">
       <Filter>Source Files\Study Source</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleTexture.cpp">
+      <Filter>Source Files\Study Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleTriangle.h">
@@ -82,19 +85,19 @@
     <None Include="simplecolor.frag">
       <Filter>Resource Files\Shader Files\Fragment Files</Filter>
     </None>
-    <None Include="simpletriangle.vert">
-      <Filter>Resource Files\Shader Files\Vertex Files</Filter>
-    </None>
-    <None Include="simpletransform.vert">
-      <Filter>Resource Files\Shader Files\Vertex Files</Filter>
-    </None>
     <None Include="depthvisualization.frag">
       <Filter>Resource Files\Shader Files\Fragment Files</Filter>
     </None>
-    <None Include="coordinatesystem.vert">
+    <None Include="texture.frag">
+      <Filter>Resource Files\Shader Files\Fragment Files</Filter>
+    </None>
+    <None Include="camera.vert">
       <Filter>Resource Files\Shader Files\Vertex Files</Filter>
     </None>
     <None Include="simple.vert">
+      <Filter>Resource Files\Shader Files\Vertex Files</Filter>
+    </None>
+    <None Include="transform.vert">
       <Filter>Resource Files\Shader Files\Vertex Files</Filter>
     </None>
   </ItemGroup>

@@ -2,7 +2,7 @@
 
 int SimpleTransform::start() {
 	std::cout << "Simple Transform Study" << std::endl;
-	rendering_program = Helper::compileShaders("simpletransform.vert", "simplecolor.frag");
+	rendering_program = Helper::compileShaders("transform.vert", "simplecolor.frag");
 
 	// Vertex Array Object
 	glGenVertexArrays(1, &vao);

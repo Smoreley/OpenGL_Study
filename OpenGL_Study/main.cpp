@@ -5,6 +5,7 @@
 #include "SimpleTriangle.h"
 #include "SimpleCube.h"
 #include "SimpleTransform.h"
+#include "SimpleTexture.h"
 #include "FlyingCamera.h"
 
 // Window
@@ -94,6 +95,7 @@ int main(void) {
 	studyContainer.push_back(new SimpleTriangle());
 	studyContainer.push_back(new SimpleCube());
 	studyContainer.push_back(new SimpleTransform());
+	studyContainer.push_back(new SimpleTexture());
 	studyContainer.push_back(new FlyingCamera());
 
 	// Set current running program and start it

@@ -120,6 +120,7 @@
     <ClCompile Include="FlyingCamera.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SimpleCube.cpp" />
+    <ClCompile Include="SimpleTexture.cpp" />
     <ClCompile Include="SimpleTransform.cpp" />
     <ClCompile Include="SimpleTriangle.cpp" />
   </ItemGroup>
@@ -136,12 +137,12 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="coordinatesystem.vert" />
+    <None Include="camera.vert" />
     <None Include="depthvisualization.frag" />
-    <None Include="simple.vert" />
     <None Include="simplecolor.frag" />
-    <None Include="simpletriangle.vert" />
-    <None Include="simpletransform.vert" />
+    <None Include="simple.vert" />
+    <None Include="transform.vert" />
+    <None Include="texture.frag" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

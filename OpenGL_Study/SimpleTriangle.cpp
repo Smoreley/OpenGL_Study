@@ -2,7 +2,7 @@
 
 int SimpleTriangle::start() {
 	std::cout << "Simple Triangle Study" << std::endl;
-	rendering_program = Helper::compileShaders("simpletriangle.vert", "simplecolor.frag");
+	rendering_program = Helper::compileShaders("simple.vert", "simplecolor.frag");
 
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);

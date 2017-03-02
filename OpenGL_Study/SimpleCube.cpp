@@ -4,7 +4,7 @@ int SimpleCube::start() {
 	std::cout << "Simple Cube Study" << std::endl;
 
 	// Program
-	rendering_program = Helper::compileShaders("simpletransform.vert", "simplecolor.frag");
+	rendering_program = Helper::compileShaders("transform.vert", "simplecolor.frag");
 
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
@@ -100,7 +100,7 @@ int SimpleCube::start() {
 }
 
 int SimpleCube::end() {
-
+	glUseProgram(0);
 	glDeleteVertexArrays(1, &vao);
 	glDeleteProgram(rendering_program);
 
@@ -127,7 +127,7 @@ int SimpleCube::render(double dt) {
 	mv_matrix = glm::translate(mv_matrix, glm::vec3(
 		0.0f,
 		0.0f,
-		-6.0f + 2 * glm::sin(glfwGetTime())
+		-4.0f + 2 * glm::sin(glfwGetTime())
 	));
 
 	// Rotate along an axis
