@@ -92,4 +92,65 @@ namespace Helper {
 
 		return program;
 	}
+
+	// Create load and create texture
+	static GLuint createTexture(const char* filename) {
+
+		// Load texture from file
+		gli::texture tex = gli::load(filename);
+
+		// early bail-out if texture empty
+		if (tex.empty())
+			return 0;
+
+		// GL translation class to convert GLI enums into OpenGL
+		gli::gl GL(gli::gl::PROFILE_GL33);
+
+		// Convert GLI formats into OpenGL texture formats
+		gli::gl::format const tex_format = GL.translate(tex.format(), tex.swizzles());
+		// Convert GLI targets into OpenGL texture targets
+		GLenum tex_target = GL.translate(tex.target());
+
+		// Name for Texture, gen, and bind
+		GLuint tex_name = 0;
+		glGenTextures(1, &tex_name);
+		glBindTexture(tex_target, tex_name);
+
+		// Dimensions of texture
+		glm::tvec3<GLsizei> const tex_extent(tex.extent());
+
+		// Set Parameters
+		// Specifies the index of the lowest defined mipmap level
+		glTexParameteri(tex_target, GL_TEXTURE_BASE_LEVEL, 0);
+		// Sets the index of highest mipmap level
+		glTexParameteri(tex_target, GL_TEXTURE_MAX_LEVEL, static_cast<GLint>(tex.levels() - 1));
+		// Specifying the order of the color components 
+		glTexParameteriv(tex_target, GL_TEXTURE_SWIZZLE_RGBA, &tex_format.Swizzles[0]);
+		
+		// Make room in storage
+		glTexStorage2D(tex_target, static_cast<GLint>(tex.levels()), tex_format.Internal, tex_extent.x, tex_extent.y);
+
+		GLint tex_level = 0;
+
+		if (gli::is_compressed(tex.format())) {
+			glCompressedTexSubImage2D(
+				tex_target,
+				tex_level,
+				0,
+				0,
+				tex_extent.x,
+				tex_extent.y,
+				tex_format.Internal,
+				tex.size(tex_level),
+				tex.data(0, 0, tex_level)
+			);
+		}
+		else {
+			glTexSubImage2D(tex_target, tex_level, 0, 0,
+				tex_extent.x, tex_extent.y,
+				tex_format.Internal, tex_format.Type, tex.data(0, 0, 0)
+			);
+		}
+		return tex_name;
+	} // End of createTexture
 }

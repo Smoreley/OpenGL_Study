@@ -4,6 +4,9 @@
 * Visual Studio 2015
 
 ## Libraries
-* glew (initializing OpenGL)
-* glfw (window context creation)
-* glm (math)
+* glew  (initializing OpenGL)
+* glfw  (window context creation)
+* glm   (mathematics library for graphics)
+* gli   (texture manipulation)
+
+### 

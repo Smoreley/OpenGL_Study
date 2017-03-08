@@ -1,5 +1,34 @@
-﻿  SimpleCube.cpp
+﻿  FlyingCamera.cpp
+c:\vs_dev_lib\glm-0.9.7.6\glm\simd\platform.h(106): warning C4005: 'GLM_COMPILER_GCC60': macro redefinition
+  c:\vs_dev_lib\glm-0.9.7.6\glm\detail\setup.hpp(156): note: see previous definition of 'GLM_COMPILER_GCC60'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\flyingcamera.cpp(28): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\flyingcamera.cpp(28): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+  Generating Code...
+  Compiling...
+  main.cpp
+c:\vs_dev_lib\glm-0.9.7.6\glm\simd\platform.h(106): warning C4005: 'GLM_COMPILER_GCC60': macro redefinition
+  c:\vs_dev_lib\glm-0.9.7.6\glm\detail\setup.hpp(156): note: see previous definition of 'GLM_COMPILER_GCC60'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\main.cpp(138): warning C4018: '<': signed/unsigned mismatch
+  SimpleTriangle.cpp
+c:\vs_dev_lib\glm-0.9.7.6\glm\simd\platform.h(106): warning C4005: 'GLM_COMPILER_GCC60': macro redefinition
+  c:\vs_dev_lib\glm-0.9.7.6\glm\detail\setup.hpp(156): note: see previous definition of 'GLM_COMPILER_GCC60'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simpletriangle.cpp(39): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simpletriangle.cpp(39): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+  SimpleTransform.cpp
+c:\vs_dev_lib\glm-0.9.7.6\glm\simd\platform.h(106): warning C4005: 'GLM_COMPILER_GCC60': macro redefinition
+  c:\vs_dev_lib\glm-0.9.7.6\glm\detail\setup.hpp(156): note: see previous definition of 'GLM_COMPILER_GCC60'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simpletransform.cpp(80): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simpletransform.cpp(80): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+  SimpleTexture.cpp
+c:\vs_dev_lib\glm-0.9.7.6\glm\simd\platform.h(106): warning C4005: 'GLM_COMPILER_GCC60': macro redefinition
+  c:\vs_dev_lib\glm-0.9.7.6\glm\detail\setup.hpp(156): note: see previous definition of 'GLM_COMPILER_GCC60'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simpletexture.cpp(65): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simpletexture.cpp(65): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+  SimpleCube.cpp
+c:\vs_dev_lib\glm-0.9.7.6\glm\simd\platform.h(106): warning C4005: 'GLM_COMPILER_GCC60': macro redefinition
+  c:\vs_dev_lib\glm-0.9.7.6\glm\detail\setup.hpp(156): note: see previous definition of 'GLM_COMPILER_GCC60'
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simplecube.cpp(111): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simplecube.cpp(111): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+  Generating Code...
   OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.exe
   OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.pdb (Partial PDB)

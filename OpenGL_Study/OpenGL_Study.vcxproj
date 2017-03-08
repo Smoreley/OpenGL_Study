@@ -69,7 +69,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\vs_dev_lib\glm-0.9.7.6;C:\vs_dev_lib\glew-2.0.0\include;C:\vs_dev_lib\glfw-3.2.1\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\vs_dev_lib\gli-0.8.2.0;C:\vs_dev_lib\glm-0.9.7.6;C:\vs_dev_lib\glew-2.0.0\include;C:\vs_dev_lib\glfw-3.2.1\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\vs_dev_lib\glew-2.0.0\lib\Release\x86;C:\vs_dev_lib\glfw-3.2.1\lib\x86;$(LibraryPath)</LibraryPath>
     <IntDir>$(Configuration)\Tmp\</IntDir>
   </PropertyGroup>

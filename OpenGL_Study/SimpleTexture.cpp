@@ -29,16 +29,23 @@ int SimpleTexture::start() {
 	glEnableVertexAttribArray(0);
 
 	// Generate Texture
-	glGenTextures(1, &texture);
-	glBindTexture(GL_TEXTURE_2D, texture);
-	glTexStorage2D(GL_TEXTURE_2D, 1, GL_RGBA32F, 256, 256);
+	//glGenTextures(1, &texture);
+	//glBindTexture(GL_TEXTURE_2D, texture);
+	//glTexStorage2D(GL_TEXTURE_2D, 1, GL_RGBA32F, 256, 256);
 
-	// Define some data to upload to the texture
-	float *data = new float[256 * 256 * 4];
-	generate_texture(data, 256, 256);
+	//// Define some data to upload to the texture
+	//float *data = new float[256 * 256 * 4];
+	//generate_texture(data, 256, 256);
 
-	glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 256, 256, GL_RGBA, GL_FLOAT, data);
-	delete[] data;
+	//glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 256, 256, GL_RGBA, GL_FLOAT, data);
+	//delete[] data;
+
+	// Load texture function
+	texture = Helper::createTexture("assets/256.dds");
+
+	// Enable
+	glEnable(GL_CULL_FACE);
+	glFrontFace(GL_CCW);
 
 	return EXIT_SUCCESS;
 };
@@ -60,7 +67,7 @@ int SimpleTexture::render(double dt) {
 
 	glUseProgram(rendering_program);
 
-	glDrawArrays(GL_TRIANGLES, 0, 18);
+	glDrawArrays(GL_TRIANGLES, 0, 32);
 
 	return EXIT_SUCCESS;
 };
