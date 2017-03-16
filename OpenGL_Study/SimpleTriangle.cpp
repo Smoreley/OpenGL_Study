@@ -34,7 +34,7 @@ int SimpleTriangle::end() {
 	return EXIT_SUCCESS;
 }
 
-int SimpleTriangle::render(double dt) {
+int SimpleTriangle::render() {
 	// Clear
 	static const GLfloat clear_color[] = { 0.415, 0.568, 0.431, 1.0 };
 	glClearBufferfv(GL_COLOR, 0, clear_color);
@@ -47,6 +47,11 @@ int SimpleTriangle::render(double dt) {
 	glDrawArrays(GL_POINTS, 0, 3);
 
 	glDrawArrays(GL_TRIANGLES, 0, 3);
+
+	return EXIT_SUCCESS;
+}
+
+int SimpleTriangle::update() {
 
 	return EXIT_SUCCESS;
 }

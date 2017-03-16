@@ -24,9 +24,27 @@ int SimpleTexture::start() {
 
 	glGenBuffers(1, &vertex_buffer);
 	glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Helper::pyramid_vp), Helper::pyramid_vp, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Helper::plane_vp), Helper::plane_vp, GL_STATIC_DRAW);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	glEnableVertexAttribArray(0);
+
+	static GLfloat vertex_coords[]{
+		0.0f, 1.0f,
+		0.0f, 0.0f,
+		1.0f, 0.0f,
+		
+		0.0f, 1.0f,
+		1.0f, 0.0f,
+		1.0f, 1.0f,
+	};
+
+	// Tex-coords
+	glGenBuffers(1, &coord_buffer);
+	glBindBuffer(GL_ARRAY_BUFFER, coord_buffer);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertex_coords), vertex_coords, GL_STATIC_DRAW);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, NULL);
+	glEnableVertexAttribArray(2);
+
 
 	// Generate Texture
 	//glGenTextures(1, &texture);
@@ -41,7 +59,7 @@ int SimpleTexture::start() {
 	//delete[] data;
 
 	// Load texture function
-	texture = Helper::createTexture("assets/256.dds");
+	texture = Helper::createTexture("assets/owltest.dds");
 
 	// Enable
 	glEnable(GL_CULL_FACE);
@@ -51,7 +69,6 @@ int SimpleTexture::start() {
 };
 
 int SimpleTexture::end() {
-
 	glUseProgram(0);
 
 	glDeleteTextures(1, &texture);
@@ -61,13 +78,18 @@ int SimpleTexture::end() {
 	return EXIT_SUCCESS;
 };
 
-int SimpleTexture::render(double dt) {
+int SimpleTexture::render() {
 	static const GLfloat clear_color[] = { 0.415, 0.568, 0.431, 1.0 };
 	glClearBufferfv(GL_COLOR, 0, clear_color);
 
 	glUseProgram(rendering_program);
 
-	glDrawArrays(GL_TRIANGLES, 0, 32);
+	glDrawArrays(GL_TRIANGLES, 0, 6);
 
 	return EXIT_SUCCESS;
 };
+
+int SimpleTexture::update() {
+
+	return EXIT_SUCCESS;
+}

@@ -120,6 +120,10 @@ namespace Helper {
 		glm::tvec3<GLsizei> const tex_extent(tex.extent());
 
 		// Set Parameters
+		glTexParameteri(tex_target, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(tex_target, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		//glTexParameteri(tex_target, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+
 		// Specifies the index of the lowest defined mipmap level
 		glTexParameteri(tex_target, GL_TEXTURE_BASE_LEVEL, 0);
 		// Sets the index of highest mipmap level

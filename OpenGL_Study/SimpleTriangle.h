@@ -11,5 +11,6 @@ private:
 public:
 	int start();
 	int end();
-	int render(double dt);
+	int render();
+	int update();
 };

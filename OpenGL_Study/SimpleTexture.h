@@ -7,15 +7,16 @@ private:
 	GLuint vao;
 
 	GLuint vertex_buffer;
+	GLuint coord_buffer;
 
-	GLint mv_location;
-	GLint proj_location;
+	//GLint mv_location;
+	//GLint proj_location;
 	
 	GLuint texture;
 
 public:
 	int start();
 	int end();
-	int render(double dt);
-
+	int render();
+	int update();
 };

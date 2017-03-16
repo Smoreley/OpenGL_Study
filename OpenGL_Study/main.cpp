@@ -1,23 +1,33 @@
 #include "stdafx.h"
 
+#include <thread>
+#include <chrono>
+
+#include "Timer.h"
+
 // Custom
 #include "progbase.h"
 #include "SimpleTriangle.h"
 #include "SimpleCube.h"
 #include "SimpleTransform.h"
 #include "SimpleTexture.h"
+#include "TexturedCube.h"
 #include "FlyingCamera.h"
 
 // Window
-static const GLint WINDOW_WIDTH = 1280, WINDOW_HEIGHT = 720;
+static const GLint WINDOW_WIDTH = 1280 * 2, WINDOW_HEIGHT = 720 * 2;
 static const char *WINDOW_TITLE = "The Study";
-static double currentTime = 0, previousTime = 0;
+
+// FrameRate
+const int SCREEN_FPS = 60;
+const int SCREEN_TICKS_PER_FRAME = 1000 / SCREEN_FPS;
 
 // Study
 Progbase* currentStudyProgram;
 std::vector<Progbase*> studyContainer;
 int studyLocation = 0;
 void next(); // Needed to define before use
+void back();
 
 void createWindow(GLint w, GLint h, char &name) {
 
@@ -30,6 +40,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	}
 	else if (key == GLFW_KEY_B && action == GLFW_PRESS) {
 		std::cout << "B was pressed" << std::endl;
+		back();
 	}
 }
 
@@ -37,6 +48,14 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 void next() {
 	currentStudyProgram->end();
 	studyLocation++;
+	studyLocation %= studyContainer.size();
+	currentStudyProgram = studyContainer[studyLocation];
+	currentStudyProgram->start();
+}
+
+void back() {
+	currentStudyProgram->end();
+	studyLocation--;
 	studyLocation %= studyContainer.size();
 	currentStudyProgram = studyContainer[studyLocation];
 	currentStudyProgram->start();
@@ -96,7 +115,8 @@ int main(void) {
 	studyContainer.push_back(new SimpleCube());
 	studyContainer.push_back(new SimpleTransform());
 	studyContainer.push_back(new SimpleTexture());
-	studyContainer.push_back(new FlyingCamera());
+	studyContainer.push_back(new TexturedCube());
+	//studyContainer.push_back(new FlyingCamera());
 
 	// Set current running program and start it
 	currentStudyProgram = studyContainer[0];
@@ -109,28 +129,40 @@ int main(void) {
 	double lastTime = glfwGetTime();
 	int nbFrames = 0;
 
+	Timer myTimer;
+
 	// Loop until user closes window
 	while (!glfwWindowShouldClose(window)) {
-		previousTime = currentTime;
-		currentTime = glfwGetTime();
-		double delta = currentTime - previousTime;
+		myTimer.updateTime();
 
 		// Performance Calculation
 		nbFrames++;
-		if (currentTime - lastTime >= 1.0) {
-			std::cerr << 1000.0 / double(nbFrames) << "ms/frames" << std::endl;
+		if (glfwGetTime() - lastTime >= 1.0) {
+			std::cerr << 1000.0 / double(nbFrames) << "\tms/frames" << std::endl;
 			nbFrames = 0;
 			lastTime += 1.0;
 		}
 
 		// Run study program
-		currentStudyProgram->render(delta);
+		currentStudyProgram->update();
+
+		// Render
+		currentStudyProgram->render();
 
 		// Swap front and back buffers
 		glfwSwapBuffers(window);
 
 		// Poll for and process events
 		glfwPollEvents();
+
+		// Sleep if we have time to
+		//double startTime = myTimer.getTime();
+		//if (startTime + SCREEN_TICKS_PER_FRAME > glfwGetTime()) {
+		//	//SDL_Delay((startTime + SCREEN_TICKS_PER_FRAME) - glfwGetTime());
+		//	std::this_thread::sleep_for(std::chrono::milliseconds(
+		//		(int)((startTime + SCREEN_TICKS_PER_FRAME) - glfwGetTime())
+		//	));
+		//}
 	}
 
 	// Clean up study programs

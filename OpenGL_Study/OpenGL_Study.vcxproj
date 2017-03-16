@@ -123,6 +123,7 @@
     <ClCompile Include="SimpleTexture.cpp" />
     <ClCompile Include="SimpleTransform.cpp" />
     <ClCompile Include="SimpleTriangle.cpp" />
+    <ClCompile Include="TexturedCube.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FlyingCamera.h" />
@@ -135,9 +136,13 @@
     <ClInclude Include="SimpleTransform.h" />
     <ClInclude Include="SimpleTriangle.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="TexturedCube.h" />
+    <ClInclude Include="Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="camera.vert" />
+    <None Include="config.ini" />
     <None Include="depthvisualization.frag" />
     <None Include="simplecolor.frag" />
     <None Include="simple.vert" />

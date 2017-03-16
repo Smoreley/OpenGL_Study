@@ -11,6 +11,7 @@ protected:
 public:
 	virtual int start() = 0;
 	virtual int end() = 0;
-	virtual int render(double dt) = 0;
+	virtual int render() = 0;
+	virtual int update() = 0;
 
 };

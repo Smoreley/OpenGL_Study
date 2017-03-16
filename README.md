@@ -1,4 +1,5 @@
 # OpenGL Personal Study Code
+A study in OpenGL and some respective libraries.
 
 ## Built with
 * Visual Studio 2015

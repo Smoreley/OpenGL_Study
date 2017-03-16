@@ -9,6 +9,17 @@ namespace Helper {
 		0.5f, -0.5f, 0.0f,
 	};
 
+	// Plane Vertex Positions
+	static const GLfloat plane_vp[] = {
+		-0.5f, 0.5f, 0.0f,
+		-0.5f, -0.5f, 0.0f,
+		0.5f, -0.5f, 0.0f,
+
+		-0.5f, 0.5f, 0.0f,
+		0.5f, -0.5f, 0.0f,
+		0.5f, 0.5f, 0.0f,
+	};
+
 	// Pyramid Vertex Positions
 	static const GLfloat pyramid_vp[] = {
 		-0.5f, -0.5f, 0.5f, // Front

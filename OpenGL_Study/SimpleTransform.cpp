@@ -75,7 +75,7 @@ int SimpleTransform::end() {
 	return EXIT_SUCCESS;
 }
 
-int SimpleTransform::render(double dt) {
+int SimpleTransform::render() {
 	// Clear
 	static const GLfloat clear_color[] = { 0.415, 0.568, 0.431, 1.0 };
 	static const GLfloat one = 1.0f;
@@ -83,6 +83,14 @@ int SimpleTransform::render(double dt) {
 	glClearBufferfv(GL_DEPTH, 0, &one);
 
 	glUseProgram(rendering_program);
+
+	// Draw
+	glDrawArrays(GL_TRIANGLES, 0, 18);
+
+	return EXIT_SUCCESS;
+}
+
+int SimpleTransform::update() {
 
 	// Perspective
 	glm::mat4 proj = glm::perspective(50.0f, 1280.0f / 720.0f, 0.1f, 100.0f);
@@ -95,9 +103,6 @@ int SimpleTransform::render(double dt) {
 	mv = glm::scale(mv, glm::vec3(1.0f, 2.0f + glm::sin(glfwGetTime()*2.1f), 1.0f));
 
 	glUniformMatrix4fv(mv_location, 1, GL_FALSE, glm::value_ptr(mv));
-
-	// Draw
-	glDrawArrays(GL_TRIANGLES, 0, 18);
 
 	return EXIT_SUCCESS;
 }
