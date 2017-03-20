@@ -80,8 +80,8 @@ int TexturedCube::start() {
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, NULL);
 	glEnableVertexAttribArray(2);
 
-
 	// Texture
+	glActiveTexture(GL_TEXTURE0);
 	cube_tex = Helper::createTexture("assets/owltest.dds");
 
 	// Capabilities

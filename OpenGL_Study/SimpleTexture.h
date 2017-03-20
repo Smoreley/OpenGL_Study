@@ -13,6 +13,7 @@ private:
 	//GLint proj_location;
 	
 	GLuint texture;
+	GLuint texture_two;
 
 public:
 	int start();

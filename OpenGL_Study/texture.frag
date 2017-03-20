@@ -1,6 +1,6 @@
 #version 430 core
 
-uniform sampler2D s;
+uniform sampler2D samp;
 
 in VS_OUT
 {
@@ -12,12 +12,10 @@ out vec4 color;
 
 void main(void) 
 {
-	//color = texelFetch(s, ivec2(gl_FragCoord.xy), 0);
-	//color = texture(s, gl_FragCoord.xy / textureSize(s, 0)) * fs_in.color;
-	//color = texture(s, gl_FragCoord.xy / textureSize(s, 0));
+	//color = texelFetch(samp, ivec2(gl_FragCoord.xy), 0);
 
-	//vec2 ts = textureSize(s,0);
-	//color = texture(s, (gl_FragCoord.xy - vec2(ts.x/8.0, 0.0)) / ts);
+	//vec2 ts = textureSize(samp,0);
+	//color = texture(samp, (gl_FragCoord.xy - vec2(ts.x/8.0, 0.0)) / ts);
 
-	color = texture(s, clamp(fs_in.texcoord.xy, 0.0, 1.0));
+	color = texture(samp, clamp(fs_in.texcoord.xy, 0.0, 1.0)) + fs_in.color;
 }

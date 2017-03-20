@@ -118,5 +118,8 @@
     <None Include="config.ini">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="multi_texture.frag">
+      <Filter>Resource Files\Shader Files\Fragment Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

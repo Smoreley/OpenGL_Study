@@ -130,31 +130,45 @@ namespace Helper {
 		glTexParameteri(tex_target, GL_TEXTURE_MAX_LEVEL, static_cast<GLint>(tex.levels() - 1));
 		// Specifying the order of the color components 
 		glTexParameteriv(tex_target, GL_TEXTURE_SWIZZLE_RGBA, &tex_format.Swizzles[0]);
-		
+
 		// Make room in storage
 		glTexStorage2D(tex_target, static_cast<GLint>(tex.levels()), tex_format.Internal, tex_extent.x, tex_extent.y);
 
 		GLint tex_level = 0;
 
+		std::cout << "TEX LEVELS: " << tex.levels() << std::endl;
+
 		if (gli::is_compressed(tex.format())) {
-			glCompressedTexSubImage2D(
-				tex_target,
-				tex_level,
-				0,
-				0,
-				tex_extent.x,
-				tex_extent.y,
-				tex_format.Internal,
-				tex.size(tex_level),
-				tex.data(0, 0, tex_level)
-			);
+
+			for (std::size_t Level = 0; Level < tex.levels(); ++Level) {
+				glm::tvec3<GLsizei> Extent(tex.extent(Level));
+				glCompressedTexSubImage2D(
+					tex_target, static_cast<GLint>(Level), 0, 0, tex_extent.x, tex_extent.y,
+					tex_format.Internal, static_cast<GLsizei>(tex.size(Level)), tex.data(0, 0, Level)
+				);
+			}
+
+			//glCompressedTexSubImage2D(
+			//	tex_target,
+			//	tex_level,
+			//	0,
+			//	0,
+			//	tex_extent.x,
+			//	tex_extent.y,
+			//	tex_format.Internal,
+			//	tex.size(tex_level),
+			//	tex.data(0, 0, tex_level)
+			//);
 		}
 		else {
 			glTexSubImage2D(tex_target, tex_level, 0, 0,
 				tex_extent.x, tex_extent.y,
 				tex_format.Internal, tex_format.Type, tex.data(0, 0, 0)
 			);
+
+			std::cout << "This image is not compressed" << std::endl;
 		}
+
 		return tex_name;
 	} // End of createTexture
 }

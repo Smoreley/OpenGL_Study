@@ -144,6 +144,7 @@
     <None Include="camera.vert" />
     <None Include="config.ini" />
     <None Include="depthvisualization.frag" />
+    <None Include="multi_texture.frag" />
     <None Include="simplecolor.frag" />
     <None Include="simple.vert" />
     <None Include="transform.vert" />

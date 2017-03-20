@@ -15,7 +15,7 @@
 #include "FlyingCamera.h"
 
 // Window
-static const GLint WINDOW_WIDTH = 1280 * 2, WINDOW_HEIGHT = 720 * 2;
+static const GLint WINDOW_WIDTH = 1280, WINDOW_HEIGHT = 720;
 static const char *WINDOW_TITLE = "The Study";
 
 // FrameRate
@@ -138,7 +138,7 @@ int main(void) {
 		// Performance Calculation
 		nbFrames++;
 		if (glfwGetTime() - lastTime >= 1.0) {
-			std::cerr << 1000.0 / double(nbFrames) << "\tms/frames" << std::endl;
+			std::cerr << ((glfwGetTime() - lastTime) * 1000.0) / double(nbFrames) << "\tms/frames" << std::endl;
 			nbFrames = 0;
 			lastTime += 1.0;
 		}

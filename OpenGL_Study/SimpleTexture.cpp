@@ -16,7 +16,7 @@ void generate_texture(float *data, int width, int height) {
 int SimpleTexture::start() {
 	std::cout << "Texture Demo Program" << std::endl;
 
-	rendering_program = Helper::compileShaders("simple.vert", "texture.frag");
+	rendering_program = Helper::compileShaders("simple.vert", "multi_texture.frag");
 	
 	// Vertex Array Object (holds attributes for vertexes)
 	glGenVertexArrays(1, &vao);
@@ -58,8 +58,13 @@ int SimpleTexture::start() {
 	//glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 256, 256, GL_RGBA, GL_FLOAT, data);
 	//delete[] data;
 
+	glActiveTexture(GL_TEXTURE0);
+	texture = Helper::createTexture("assets/tempor.dds");
+
 	// Load texture function
-	texture = Helper::createTexture("assets/owltest.dds");
+	glActiveTexture(GL_TEXTURE1);
+	texture_two = Helper::createTexture("assets/owltest.dds");
+	
 
 	// Enable
 	glEnable(GL_CULL_FACE);
@@ -72,6 +77,11 @@ int SimpleTexture::end() {
 	glUseProgram(0);
 
 	glDeleteTextures(1, &texture);
+	glDeleteTextures(1, &texture_two);
+
+	glDeleteBuffers(1, &vertex_buffer);
+	glDeleteBuffers(1, &coord_buffer);
+
 	glDeleteVertexArrays(1, &vao);
 	glDeleteProgram(rendering_program);
 
@@ -79,10 +89,15 @@ int SimpleTexture::end() {
 };
 
 int SimpleTexture::render() {
+	double frameTime = glfwGetTime();
+
 	static const GLfloat clear_color[] = { 0.415, 0.568, 0.431, 1.0 };
 	glClearBufferfv(GL_COLOR, 0, clear_color);
 
 	glUseProgram(rendering_program);
+
+	GLuint time_loc = glGetUniformLocation(rendering_program, "time");
+	glUniform1f(time_loc, frameTime);
 
 	glDrawArrays(GL_TRIANGLES, 0, 6);
 
