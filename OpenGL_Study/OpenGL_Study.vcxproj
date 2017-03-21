@@ -119,6 +119,7 @@
   <ItemGroup>
     <ClCompile Include="FlyingCamera.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MultiCubeRendering.cpp" />
     <ClCompile Include="SimpleCube.cpp" />
     <ClCompile Include="SimpleTexture.cpp" />
     <ClCompile Include="SimpleTransform.cpp" />
@@ -129,6 +130,7 @@
     <ClInclude Include="FlyingCamera.h" />
     <ClInclude Include="Helper.h" />
     <ClInclude Include="ModifiedPhongModel.h" />
+    <ClInclude Include="MultiCubeRendering.h" />
     <ClInclude Include="Progbase.h" />
     <ClInclude Include="PrebuiltPrimitives.h" />
     <ClInclude Include="SimpleCube.h" />

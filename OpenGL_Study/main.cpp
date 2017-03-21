@@ -12,10 +12,12 @@
 #include "SimpleTransform.h"
 #include "SimpleTexture.h"
 #include "TexturedCube.h"
+#include "MultiCubeRendering.h"
 #include "FlyingCamera.h"
 
 // Window
-static const GLint WINDOW_WIDTH = 1280, WINDOW_HEIGHT = 720;
+static GLint RES_MULTI = 1;
+static const GLint WINDOW_WIDTH = 640 * RES_MULTI, WINDOW_HEIGHT = 360 * RES_MULTI;
 static const char *WINDOW_TITLE = "The Study";
 
 // FrameRate
@@ -40,7 +42,21 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	}
 	else if (key == GLFW_KEY_B && action == GLFW_PRESS) {
 		std::cout << "B was pressed" << std::endl;
-		back();
+		//back();
+	}
+
+	// Hit escape key to exit window
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
+		glfwSetWindowShouldClose(window, GL_TRUE);
+	}
+
+	// Resize
+	if (key == GLFW_KEY_I && action == GLFW_PRESS) {
+		RES_MULTI = (RES_MULTI%5) + 1;
+		GLint new_window_width = WINDOW_WIDTH * RES_MULTI;
+		GLint new_window_height = WINDOW_HEIGHT * RES_MULTI;
+		glfwSetWindowSize(window, new_window_width, new_window_height);
+		glViewport(0, 0, new_window_width, new_window_height);
 	}
 }
 
@@ -116,6 +132,7 @@ int main(void) {
 	studyContainer.push_back(new SimpleTransform());
 	studyContainer.push_back(new SimpleTexture());
 	studyContainer.push_back(new TexturedCube());
+	studyContainer.push_back(new MultiCubeRendering());
 	//studyContainer.push_back(new FlyingCamera());
 
 	// Set current running program and start it

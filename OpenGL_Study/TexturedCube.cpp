@@ -88,6 +88,10 @@ int TexturedCube::start() {
 	glEnable(GL_CULL_FACE);
 	glFrontFace(GL_CCW);
 
+	// Depth test for multiple objects so further object are occluded
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LEQUAL);
+
 	return EXIT_SUCCESS;
 }
 

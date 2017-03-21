@@ -54,6 +54,9 @@
     <ClCompile Include="TexturedCube.cpp">
       <Filter>Source Files\Study Source</Filter>
     </ClCompile>
+    <ClCompile Include="MultiCubeRendering.cpp">
+      <Filter>Source Files\Study Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleTriangle.h">
@@ -94,6 +97,9 @@
     </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Header Files\Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiCubeRendering.h">
+      <Filter>Header Files\Study Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
