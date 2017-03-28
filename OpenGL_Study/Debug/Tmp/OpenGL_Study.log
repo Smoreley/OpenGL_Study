@@ -1,6 +1,7 @@
-﻿  main.cpp
+﻿  GrassInstanced.cpp
 c:\vs_dev_lib\glm-0.9.7.6\glm\simd\platform.h(106): warning C4005: 'GLM_COMPILER_GCC60': macro redefinition
   c:\vs_dev_lib\glm-0.9.7.6\glm\detail\setup.hpp(156): note: see previous definition of 'GLM_COMPILER_GCC60'
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\main.cpp(187): warning C4018: '<': signed/unsigned mismatch
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\grassinstanced.cpp(51): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\grassinstanced.cpp(51): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
   OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.exe
   OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.pdb (Partial PDB)

@@ -89,21 +89,28 @@ int SimpleTransform::render() {
 
 	glUseProgram(rendering_program);
 
+	// Wireframe
+	glLineWidth(32.0f);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
 	// Draw
 	glDrawArrays(GL_TRIANGLES, 0, 18);
+	
+	// Set fill mode back on
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
 	return EXIT_SUCCESS;
 }
 
 int SimpleTransform::update() {
 
-	// Perspective
-	glm::mat4 proj = glm::perspective(50.0f, 1280.0f / 720.0f, 0.1f, 100.0f);
+	// Perspective - fov in radians
+	glm::mat4 proj = glm::perspective(1.0472f, 1280.0f / 720.0f, 0.1f, 100.0f);
 	glUniformMatrix4fv(proj_location, 1, GL_FALSE, glm::value_ptr(proj));
 
 	// Movement
 	glm::mat4 mv = glm::mat4(1.0f);
-	mv = glm::translate(mv, glm::vec3(0, 0, -20));
+	mv = glm::translate(mv, glm::vec3(0, 0, -4));
 	mv = glm::rotate(mv, (float)glfwGetTime(), glm::vec3(glm::cos(glfwGetTime()) * 2.0f, 0.5f, 1.5f));
 	mv = glm::scale(mv, glm::vec3(1.0f, 2.0f + glm::sin(glfwGetTime()*2.1f), 1.0f));
 

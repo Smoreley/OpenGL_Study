@@ -57,6 +57,12 @@
     <ClCompile Include="MultiCubeRendering.cpp">
       <Filter>Source Files\Study Source</Filter>
     </ClCompile>
+    <ClCompile Include="VertexIndexing.cpp">
+      <Filter>Source Files\Study Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GrassInstanced.cpp">
+      <Filter>Source Files\Study Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleTriangle.h">
@@ -101,6 +107,12 @@
     <ClInclude Include="MultiCubeRendering.h">
       <Filter>Header Files\Study Files</Filter>
     </ClInclude>
+    <ClInclude Include="VertexIndexing.h">
+      <Filter>Header Files\Study Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GrassInstanced.h">
+      <Filter>Header Files\Study Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="simplecolor.frag">
@@ -126,6 +138,9 @@
     </None>
     <None Include="multi_texture.frag">
       <Filter>Resource Files\Shader Files\Fragment Files</Filter>
+    </None>
+    <None Include="grass.vert">
+      <Filter>Resource Files\Shader Files\Vertex Files</Filter>
     </None>
   </ItemGroup>
 </Project>

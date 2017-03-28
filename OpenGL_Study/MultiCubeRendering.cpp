@@ -70,7 +70,7 @@ int MultiCubeRendering::render() {
 
 	glUseProgram(rendering_program);
 
-	glm::mat4 proj_matrix = glm::perspective(50.0f, 1280.0f / 720.0f, 0.1f, 100.0f);
+	glm::mat4 proj_matrix = glm::perspective(1.0472f, 1280.0f / 720.0f, 0.1f, 100.0f);
 	glUniformMatrix4fv(proj_loc, 1, GL_FALSE, glm::value_ptr(proj_matrix));
 
 
@@ -103,7 +103,7 @@ int MultiCubeRendering::update() {
 		cube_trans[i] = glm::vec3(
 			sinf(2.3f * f) * 2.0f,
 			cosf(2.3 * f) *(i/10.0f),
-			(sinf(2.3f * f) - 80 + (4.0f * i))
+			(sinf(2.3f * f) - 23 + (1.2f * i))
 		);
 
 		cube_rotation[i] = glm::vec3(

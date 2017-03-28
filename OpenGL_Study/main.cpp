@@ -13,12 +13,16 @@
 #include "SimpleTexture.h"
 #include "TexturedCube.h"
 #include "MultiCubeRendering.h"
+#include "VertexIndexing.h"
+#include "GrassInstanced.h"
 #include "FlyingCamera.h"
 
 // Window
 static GLint RES_MULTI = 1;
-static const GLint WINDOW_WIDTH = 640 * RES_MULTI, WINDOW_HEIGHT = 360 * RES_MULTI;
+static const GLint WINDOW_WIDTH = 1280, WINDOW_HEIGHT = 720;
 static const char *WINDOW_TITLE = "The Study";
+
+static int monitor_res_width, monitor_res_height;
 
 // FrameRate
 const int SCREEN_FPS = 60;
@@ -53,8 +57,9 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	// Resize
 	if (key == GLFW_KEY_I && action == GLFW_PRESS) {
 		RES_MULTI = (RES_MULTI%5) + 1;
-		GLint new_window_width = WINDOW_WIDTH * RES_MULTI;
-		GLint new_window_height = WINDOW_HEIGHT * RES_MULTI;
+		GLint new_window_width = monitor_res_width / RES_MULTI;
+		GLint new_window_height = monitor_res_height / RES_MULTI;
+
 		glfwSetWindowSize(window, new_window_width, new_window_height);
 		glViewport(0, 0, new_window_width, new_window_height);
 	}
@@ -80,6 +85,25 @@ void back() {
 void printVersion() {
 	std::cout << "GLFW: " << glfwGetVersionString() << std::endl;
 	std::cout << "OpenGL: " << glGetString(GL_VERSION) << std::endl;
+}
+
+void printWindowInfo() {
+	int phys_width, phys_height;
+	glfwGetMonitorPhysicalSize(glfwGetPrimaryMonitor(), &phys_width, &phys_height);
+
+	int res_width, res_height;
+	const GLFWvidmode *mode;
+	mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+	res_width = mode->width;
+	res_height = mode->height;
+
+
+	monitor_res_width = mode->width;
+	monitor_res_height = mode->height;
+
+	//glfwGetWindowSize(window, &width, &height);
+	std::cout << "Window [Physical: " << phys_width << "/" << phys_height <<
+		", Resolution: " << res_width << "/" << res_height << "]" << std::endl;
 }
 
 int main(void) {
@@ -126,13 +150,18 @@ int main(void) {
 	// Custom print versions
 	printVersion();
 
+	// Print window Info
+	printWindowInfo();
+
 	// Initialize my programs
-	studyContainer.push_back(new SimpleTriangle());
-	studyContainer.push_back(new SimpleCube());
-	studyContainer.push_back(new SimpleTransform());
-	studyContainer.push_back(new SimpleTexture());
-	studyContainer.push_back(new TexturedCube());
-	studyContainer.push_back(new MultiCubeRendering());
+	//studyContainer.push_back(new SimpleTriangle());
+	//studyContainer.push_back(new SimpleCube());
+	//studyContainer.push_back(new SimpleTransform());
+	//studyContainer.push_back(new SimpleTexture());
+	//studyContainer.push_back(new TexturedCube());
+	//studyContainer.push_back(new MultiCubeRendering());
+	//studyContainer.push_back(new VertexIndexing());
+	studyContainer.push_back(new GrassInstanced());
 	//studyContainer.push_back(new FlyingCamera());
 
 	// Set current running program and start it

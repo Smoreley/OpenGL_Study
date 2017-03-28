@@ -66,7 +66,7 @@ int SimpleCube::start() {
 		1.0, 1.0, 0.0, 1.0
 	};
 
-	// Move/Transform matrix
+	// Model View & Projection matrix
 	mv_location = glGetUniformLocation(rendering_program, "mv_matrix");
 	proj_location = glGetUniformLocation(rendering_program, "proj_matrix");
 

@@ -118,6 +118,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FlyingCamera.cpp" />
+    <ClCompile Include="GrassInstanced.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MultiCubeRendering.cpp" />
     <ClCompile Include="SimpleCube.cpp" />
@@ -125,9 +126,11 @@
     <ClCompile Include="SimpleTransform.cpp" />
     <ClCompile Include="SimpleTriangle.cpp" />
     <ClCompile Include="TexturedCube.cpp" />
+    <ClCompile Include="VertexIndexing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FlyingCamera.h" />
+    <ClInclude Include="GrassInstanced.h" />
     <ClInclude Include="Helper.h" />
     <ClInclude Include="ModifiedPhongModel.h" />
     <ClInclude Include="MultiCubeRendering.h" />
@@ -141,11 +144,13 @@
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TexturedCube.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="VertexIndexing.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="camera.vert" />
     <None Include="config.ini" />
     <None Include="depthvisualization.frag" />
+    <None Include="grass.vert" />
     <None Include="multi_texture.frag" />
     <None Include="simplecolor.frag" />
     <None Include="simple.vert" />
