@@ -121,6 +121,7 @@
     <ClCompile Include="GrassInstanced.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MultiCubeRendering.cpp" />
+    <ClCompile Include="QuadInstanced.cpp" />
     <ClCompile Include="SimpleCube.cpp" />
     <ClCompile Include="SimpleTexture.cpp" />
     <ClCompile Include="SimpleTransform.cpp" />
@@ -136,6 +137,7 @@
     <ClInclude Include="MultiCubeRendering.h" />
     <ClInclude Include="Progbase.h" />
     <ClInclude Include="PrebuiltPrimitives.h" />
+    <ClInclude Include="QuadInstanced.h" />
     <ClInclude Include="SimpleCube.h" />
     <ClInclude Include="SimpleTexture.h" />
     <ClInclude Include="SimpleTransform.h" />
@@ -151,6 +153,7 @@
     <None Include="config.ini" />
     <None Include="depthvisualization.frag" />
     <None Include="grass.vert" />
+    <None Include="instanced.vert" />
     <None Include="multi_texture.frag" />
     <None Include="simplecolor.frag" />
     <None Include="simple.vert" />

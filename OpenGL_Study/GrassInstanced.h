@@ -8,15 +8,15 @@ private:
 	GLuint vao;
 
 	GLuint grass_buffer;
-	GLuint index_buffer;
+	//GLuint index_buffer;
 
-	//struct {
-	//	GLint mv;
-	//	GLint proj;
-	//} uniform_locations;
+	GLuint grass_length_texture;
 
-	GLint mv_loc;
-	GLint proj_loc;
+	struct {
+		GLint mv;
+		GLint proj;
+		GLint time;
+	} uniform_locations;
 
 public:
 	int start();

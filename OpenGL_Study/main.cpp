@@ -16,6 +16,7 @@
 #include "VertexIndexing.h"
 #include "GrassInstanced.h"
 #include "FlyingCamera.h"
+#include "QuadInstanced.h"
 
 // Window
 static GLint RES_MULTI = 1;
@@ -85,6 +86,7 @@ void back() {
 void printVersion() {
 	std::cout << "GLFW: " << glfwGetVersionString() << std::endl;
 	std::cout << "OpenGL: " << glGetString(GL_VERSION) << std::endl;
+	std::cout << "--------------------------------------------------" << std::endl;
 }
 
 void printWindowInfo() {
@@ -160,8 +162,9 @@ int main(void) {
 	//studyContainer.push_back(new SimpleTexture());
 	//studyContainer.push_back(new TexturedCube());
 	//studyContainer.push_back(new MultiCubeRendering());
-	//studyContainer.push_back(new VertexIndexing());
+	studyContainer.push_back(new VertexIndexing());
 	studyContainer.push_back(new GrassInstanced());
+	studyContainer.push_back(new QuadInstanced());
 	//studyContainer.push_back(new FlyingCamera());
 
 	// Set current running program and start it
@@ -202,13 +205,13 @@ int main(void) {
 		glfwPollEvents();
 
 		// Sleep if we have time to
-		//double startTime = myTimer.getTime();
-		//if (startTime + SCREEN_TICKS_PER_FRAME > glfwGetTime()) {
-		//	//SDL_Delay((startTime + SCREEN_TICKS_PER_FRAME) - glfwGetTime());
-		//	std::this_thread::sleep_for(std::chrono::milliseconds(
-		//		(int)((startTime + SCREEN_TICKS_PER_FRAME) - glfwGetTime())
-		//	));
-		//}
+		double startTime = myTimer.getTime();
+		if (startTime + SCREEN_TICKS_PER_FRAME > glfwGetTime()) {
+			//SDL_Delay((startTime + SCREEN_TICKS_PER_FRAME) - glfwGetTime());
+			std::this_thread::sleep_for(std::chrono::milliseconds(
+				(int)((startTime + SCREEN_TICKS_PER_FRAME) - glfwGetTime())
+			));
+		}
 	}
 
 	// Clean up study programs

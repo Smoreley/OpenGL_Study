@@ -63,6 +63,9 @@
     <ClCompile Include="GrassInstanced.cpp">
       <Filter>Source Files\Study Source</Filter>
     </ClCompile>
+    <ClCompile Include="QuadInstanced.cpp">
+      <Filter>Source Files\Study Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleTriangle.h">
@@ -113,6 +116,9 @@
     <ClInclude Include="GrassInstanced.h">
       <Filter>Header Files\Study Files</Filter>
     </ClInclude>
+    <ClInclude Include="QuadInstanced.h">
+      <Filter>Header Files\Study Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="simplecolor.frag">
@@ -140,6 +146,9 @@
       <Filter>Resource Files\Shader Files\Fragment Files</Filter>
     </None>
     <None Include="grass.vert">
+      <Filter>Resource Files\Shader Files\Vertex Files</Filter>
+    </None>
+    <None Include="instanced.vert">
       <Filter>Resource Files\Shader Files\Vertex Files</Filter>
     </None>
   </ItemGroup>

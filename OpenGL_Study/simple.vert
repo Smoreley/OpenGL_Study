@@ -11,7 +11,7 @@ out VS_OUT
 
 void main(void)
 {
-vs_out.texcoord = coords;
+	vs_out.texcoord = coords;
 	gl_Position = position;
 	vs_out.color = position + vec4(0.5, 0.5, 0.5, 1.0);
 }

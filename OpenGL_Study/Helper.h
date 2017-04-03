@@ -136,7 +136,7 @@ namespace Helper {
 
 		GLint tex_level = 0;
 
-		std::cout << "TEX LEVELS: " << tex.levels() << std::endl;
+		//std::cout << "TEX LEVELS: " << tex.levels() << std::endl;
 
 		if (gli::is_compressed(tex.format())) {
 
