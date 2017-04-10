@@ -20,5 +20,5 @@ void main(void)
 	gl_Position = proj_matrix * mv_matrix * position;
 	//gl_Position = transform.porjection_matrix * position;
 
-	vs_out.color = colors * vec4(1.0, 1.0, 1.0, 1.0);
+	vs_out.color = colors;
 }

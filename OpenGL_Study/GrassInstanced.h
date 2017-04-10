@@ -1,6 +1,7 @@
 #pragma once
 #include "Progbase.h"
 
+// Ch7-02
 class GrassInstanced : public Progbase {
 private:
 

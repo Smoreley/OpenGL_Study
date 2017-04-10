@@ -7,10 +7,8 @@ in VS_OUT
 	vec4 color;
 } fs_in;
 
-
-
 float near = 1.0; 
-float far  = 100.0;   
+float far  = 10.0;   
 float LinearizeDepth(float depth) 
 {
     float z = depth * 2.0 - 1.0; // Back to NDC 

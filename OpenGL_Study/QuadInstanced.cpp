@@ -21,6 +21,7 @@ int QuadInstanced::start() {
 		1.0f, 0.0f, 0.0f, 1.0f,
 		0.0f, 1.0f, 0.0f, 1.0f,
 		0.0f, 0.0f, 1.0f, 1.0f,
+		1.0f, 1.0f, 0.0f, 1.0f,
 		0.0f, 1.0f, 1.0f, 1.0f,
 	};
 
@@ -30,6 +31,7 @@ int QuadInstanced::start() {
 		1.0f, -1.0f, 0.0f, 1.0f,
 		1.0f,  1.0f, 0.0f, 1.0f,
 		-1.0f,  1.0f, 0.0f, 1.0f,
+		0.0f,  0.0f, 0.0f, 1.0f,
 	};
 
 	GLuint offset = 0;
@@ -59,7 +61,7 @@ int QuadInstanced::start() {
 	glEnableVertexAttribArray(2);
 
 	// Here we are saying first which attribute we are referring to.
-	// Second, the number of instances before the attribute is updated
+	// Second, the number of instances before the attribute is updated (0 will be per-vertex instead of per-instance)
 	glVertexAttribDivisor(1, 1);
 	glVertexAttribDivisor(2, 1);
 
@@ -84,7 +86,7 @@ int QuadInstanced::render() {
 
 	glUseProgram(rendering_program);
 
-	glDrawArraysInstanced(GL_TRIANGLE_FAN, 0, 4, 4);
+	glDrawArraysInstanced(GL_TRIANGLE_FAN, 0, 4, 5);
 
 	return EXIT_SUCCESS;
 }

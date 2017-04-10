@@ -2,7 +2,7 @@
 
 int VertexIndexing::start() {
 	std::cout << "Vertex Indexing Study" << std::endl;
-	rendering_program = Helper::compileShaders("transform.vert", "simplecolor.frag");
+	rendering_program = Helper::compileShaders("transform.vert", "depthvisualization.frag");
 
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
@@ -76,12 +76,12 @@ int VertexIndexing::render() {
 	glUseProgram(rendering_program);
 
 	// Projection
-	glm::mat4 proj = glm::perspective(1.0472f, 1280.0f / 720.0f, 0.1f, 100.0f);
+	glm::mat4 proj = glm::perspective(1.0472f, 1280.0f / 720.0f, 0.1f, 1000.0f);
 	glUniformMatrix4fv(proj_loc, 1, GL_FALSE, glm::value_ptr(proj));
 
 	// Movement
 	glm::mat4 mv = glm::mat4(1.0f);
-	mv = glm::translate(mv, glm::vec3(0, 0, -1));
+	mv = glm::translate(mv, glm::vec3(0, 0, -1 * (glm::sin((float)glfwGetTime())+1.5f) ));
 	mv = glm::rotate(mv, (float)glfwGetTime(), glm::vec3(1.0f, 0.5f, 0.0f));
 	glUniformMatrix4fv(mv_loc, 1, GL_FALSE, glm::value_ptr(mv));
 

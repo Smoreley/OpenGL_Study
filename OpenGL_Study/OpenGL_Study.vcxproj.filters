@@ -66,6 +66,9 @@
     <ClCompile Include="QuadInstanced.cpp">
       <Filter>Source Files\Study Source</Filter>
     </ClCompile>
+    <ClCompile Include="IndirectDraw.cpp">
+      <Filter>Source Files\Study Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleTriangle.h">
@@ -119,6 +122,12 @@
     <ClInclude Include="QuadInstanced.h">
       <Filter>Header Files\Study Files</Filter>
     </ClInclude>
+    <ClInclude Include="IndirectDraw.h">
+      <Filter>Header Files\Study Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files\Custom</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="simplecolor.frag">
@@ -149,6 +158,9 @@
       <Filter>Resource Files\Shader Files\Vertex Files</Filter>
     </None>
     <None Include="instanced.vert">
+      <Filter>Resource Files\Shader Files\Vertex Files</Filter>
+    </None>
+    <None Include="indirect.vert">
       <Filter>Resource Files\Shader Files\Vertex Files</Filter>
     </None>
   </ItemGroup>

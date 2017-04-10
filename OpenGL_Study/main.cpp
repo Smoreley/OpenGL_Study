@@ -17,6 +17,7 @@
 #include "GrassInstanced.h"
 #include "FlyingCamera.h"
 #include "QuadInstanced.h"
+#include "IndirectDraw.h"
 
 // Window
 static GLint RES_MULTI = 1;
@@ -165,6 +166,7 @@ int main(void) {
 	studyContainer.push_back(new VertexIndexing());
 	studyContainer.push_back(new GrassInstanced());
 	studyContainer.push_back(new QuadInstanced());
+	studyContainer.push_back(new IndirectDraw());
 	//studyContainer.push_back(new FlyingCamera());
 
 	// Set current running program and start it

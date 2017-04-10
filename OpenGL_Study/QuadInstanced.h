@@ -1,6 +1,7 @@
 #pragma once
 #include "Progbase.h"
 
+// Ch7-03
 class QuadInstanced : public Progbase
 {
 private:
