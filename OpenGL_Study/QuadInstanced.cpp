@@ -81,7 +81,6 @@ int QuadInstanced::end() {
 }
 
 int QuadInstanced::render() {
-	static const GLfloat clear_color[] = { 0.415, 0.568, 0.431, 1.0 };
 	glClearBufferfv(GL_COLOR, 0, clear_color);
 
 	glUseProgram(rendering_program);

@@ -10,15 +10,14 @@ out VS_OUT
 	vec2 texcoord;
 } vs_out;
 
-uniform mat4 mv_matrix;
-uniform mat4 proj_matrix;
+uniform mat4 u_mv_matrix;
+uniform mat4 u_proj_matrix;
 
 void main(void)
 {
 	vs_out.texcoord = coords;
 
-	gl_Position = proj_matrix * mv_matrix * position;
-	//gl_Position = transform.porjection_matrix * position;
+	gl_Position = u_proj_matrix * u_mv_matrix * position;
 
 	vs_out.color = colors;
 }

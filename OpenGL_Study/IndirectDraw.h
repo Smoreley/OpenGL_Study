@@ -1,11 +1,20 @@
 #pragma once
 #include "Progbase.h"
 
+
+// The draw command struct for indirect draw
+struct DrawArraysIndirectCommand
+{
+	GLuint count;
+	GLuint primCount;
+	GLuint first;
+	GLuint baseInstance;
+};
+
 // Ch7-04
 class IndirectDraw : public Progbase
 {
 public:
-
 	int start();
 	int end();
 	int render();
@@ -15,8 +24,10 @@ private:
 
 	GLuint m_Vao;
 
-	GLuint m_Indirect_Draw_Buffers;
+	GLuint m_Indirect_Draw_Buffer;
 	GLuint m_Draw_Index_Buffer;
+
+	GLuint vertex_buffer;
 
 	struct {
 		GLint mv;
@@ -27,8 +38,8 @@ private:
 	enum MODE {
 		MODE_FIRST,
 		MODE_MULTIDRAW,
-		MODE_SEPERATE_DRAW,
-		MODE_MAX = MODE_SEPERATE_DRAW
+		MODE_SEPERATE_DRAWS,
+		MODE_MAX = MODE_SEPERATE_DRAWS
 	} m_Mode;
 
 	GLuint m_Draw_Count = 500;

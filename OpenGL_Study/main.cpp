@@ -19,17 +19,6 @@
 #include "QuadInstanced.h"
 #include "IndirectDraw.h"
 
-// Window
-static GLint RES_MULTI = 1;
-static const GLint WINDOW_WIDTH = 1280, WINDOW_HEIGHT = 720;
-static const char *WINDOW_TITLE = "The Study";
-
-static int monitor_res_width, monitor_res_height;
-
-// FrameRate
-const int SCREEN_FPS = 60;
-const int SCREEN_TICKS_PER_FRAME = 1000 / SCREEN_FPS;
-
 // Study
 Progbase* currentStudyProgram;
 std::vector<Progbase*> studyContainer;
@@ -69,11 +58,21 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 
 // Next study
 void next() {
+	int temp_location = studyLocation;
+
 	currentStudyProgram->end();
 	studyLocation++;
 	studyLocation %= studyContainer.size();
 	currentStudyProgram = studyContainer[studyLocation];
-	currentStudyProgram->start();
+
+	if (currentStudyProgram->start() != EXIT_SUCCESS) {
+		std::cerr << "Failed to start program: " << studyLocation << std::endl;
+		currentStudyProgram->end();
+
+		studyLocation = temp_location;
+		currentStudyProgram = studyContainer[studyLocation];
+		currentStudyProgram->start();
+	}
 }
 
 void back() {
@@ -163,7 +162,7 @@ int main(void) {
 	//studyContainer.push_back(new SimpleTexture());
 	//studyContainer.push_back(new TexturedCube());
 	//studyContainer.push_back(new MultiCubeRendering());
-	studyContainer.push_back(new VertexIndexing());
+	//studyContainer.push_back(new VertexIndexing());
 	studyContainer.push_back(new GrassInstanced());
 	studyContainer.push_back(new QuadInstanced());
 	studyContainer.push_back(new IndirectDraw());

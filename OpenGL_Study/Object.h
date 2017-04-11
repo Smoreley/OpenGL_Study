@@ -11,7 +11,7 @@ public:
 		render_sub_object(0, instance_count, base_instance);
 	}
 
-	void render_sub_object(unsigned int object_index, unsigned int instance_cout = 1, unsigned int base_instnace = 0);
+	void render_sub_object(unsigned int object_index, unsigned int instance_count = 1, unsigned int base_instance = 0);
 
 	void get_sub_object(unsigned int index, GLuint &first, GLuint &count) {
 		if (index >= num_sub_objects) {

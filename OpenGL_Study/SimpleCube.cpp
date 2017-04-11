@@ -67,8 +67,8 @@ int SimpleCube::start() {
 	};
 
 	// Model View & Projection matrix
-	mv_location = glGetUniformLocation(rendering_program, "mv_matrix");
-	proj_location = glGetUniformLocation(rendering_program, "proj_matrix");
+	mv_location = glGetUniformLocation(rendering_program, "u_mv_matrix");
+	proj_location = glGetUniformLocation(rendering_program, "u_proj_matrix");
 
 	// Reserve/Generate a name for the buffer
 	glGenBuffers(1, &vertex_buffer);

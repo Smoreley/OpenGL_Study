@@ -57,9 +57,6 @@ int GrassInstanced::end() {
 }
 
 int GrassInstanced::render() {
-	/*static const GLfloat clear_color[] = { 0.415, 0.568, 0.431, 1.0 };*/
-	static const GLfloat clear_color[] = { 0.0, 0.0, 0.0, 1.0 };
-	static const GLfloat one = 1.0f;
 	glClearBufferfv(GL_COLOR, 0, clear_color);
 	glClearBufferfv(GL_DEPTH, 0, &one);
 
