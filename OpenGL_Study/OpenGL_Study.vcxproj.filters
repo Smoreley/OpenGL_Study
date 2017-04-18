@@ -134,6 +134,9 @@
     <ClInclude Include="GlobalHouse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FpsManager.h">
+      <Filter>Header Files\Custom</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="simplecolor.frag">

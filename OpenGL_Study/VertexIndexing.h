@@ -4,6 +4,9 @@
 class VertexIndexing : public Progbase
 {
 private:
+	double deltaTime;
+	double time;
+
 	GLuint vao;
 
 	GLuint position_buffer;
@@ -17,5 +20,5 @@ public:
 	int start();
 	int end();
 	int render();
-	int update();
+	int update(double);
 };

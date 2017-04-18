@@ -4,9 +4,10 @@
 // Ch7-02
 class GrassInstanced : public Progbase {
 private:
+	double deltaTime;
+	double time;
 
-	// Vertex Array Object
-	GLuint vao;
+	GLuint vao;	// Vertex Array Object
 
 	GLuint grass_buffer;
 	//GLuint index_buffer;
@@ -23,6 +24,6 @@ public:
 	int start();
 	int end();
 	int render();
-	int update();
+	int update(double dtime);
 
 };

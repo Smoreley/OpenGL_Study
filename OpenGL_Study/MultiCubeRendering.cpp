@@ -31,8 +31,8 @@ int MultiCubeRendering::start() {
 	glEnableVertexAttribArray(1);
 
 	// Get uniform location in program
-	mov_loc = glGetUniformLocation(rendering_program, "mv_matrix");
-	proj_loc = glGetUniformLocation(rendering_program, "proj_matrix");
+	mov_loc = glGetUniformLocation(rendering_program, "u_mv_matrix");
+	proj_loc = glGetUniformLocation(rendering_program, "u_proj_matrix");
 
 	// Enables
 	glEnable(GL_CULL_FACE);
@@ -43,10 +43,11 @@ int MultiCubeRendering::start() {
 	glDepthFunc(GL_LEQUAL);
 
 	// Fill in position, rotation, and scale arrays for cubes
-	std::fill_n(cube_trans, 10, glm::vec3(0.0f, 0.0f, -20.0f));
-	std::fill_n(cube_rotation, 10, glm::vec3(0.0f));
-	std::fill_n(cube_scale, 10, glm::vec3(1.0f));
+	std::fill_n(cube_trans, cube_number, glm::vec3(0.0f, 0.0f, -30.0f));
+	std::fill_n(cube_rotation, cube_number, glm::vec3(0.0f));
+	std::fill_n(cube_scale, cube_number, glm::vec3(1.0f));
 
+	time = 0;
 	return EXIT_SUCCESS;
 }
 
@@ -63,18 +64,14 @@ int MultiCubeRendering::end() {
 }
 
 int MultiCubeRendering::render() {
-	static const GLfloat clear_color[] = { 0.415, 0.568, 0.431, 1.0 };
-	static const GLfloat one = 1.0f;
 	glClearBufferfv(GL_COLOR, 0, clear_color);
 	glClearBufferfv(GL_DEPTH, 0, &one);
 
 	glUseProgram(rendering_program);
 
-	glm::mat4 proj_matrix = glm::perspective(1.0472f, 1280.0f / 720.0f, 0.1f, 100.0f);
+	glm::mat4 proj_matrix = glm::perspective(1.0472f, 1280.0f / 720.0f, 0.1f, 1000.0f);
 	glUniformMatrix4fv(proj_loc, 1, GL_FALSE, glm::value_ptr(proj_matrix));
 
-
-	double time = glfwGetTime();
 	for (int i = 0; i < cube_number; i++) {
 
 		glm::mat4 mv_matrix = glm::translate(glm::mat4(1.0f), cube_trans[i]);
@@ -91,12 +88,13 @@ int MultiCubeRendering::render() {
 		glDrawArrays(GL_TRIANGLES, 0, (sizeof(Helper::cube_vp) / sizeof(float)) / 3);
 	}
 
-
 	return EXIT_SUCCESS;
 }
 
-int MultiCubeRendering::update() {
-	double time = glfwGetTime();
+int MultiCubeRendering::update(double dtime) {
+	deltaTime = dtime;
+	time += deltaTime;
+
 
 	for (int i = 0; i < cube_number; i++) {
 		float f = (float)i + (float)time * 0.1f * i;

@@ -39,6 +39,7 @@ int GrassInstanced::start() {
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
 
+	time = 0;
 	return EXIT_SUCCESS;
 }
 
@@ -70,7 +71,6 @@ int GrassInstanced::render() {
 	glm::mat4 mv = glm::mat4(1.0f);
 	mv = glm::translate(mv, glm::vec3(0, 0, 0));
 
-	float time = (float)glfwGetTime() / 10.0f;
 	float r = 80.0f;
 
 	mv = glm::lookAt(
@@ -89,7 +89,9 @@ int GrassInstanced::render() {
 	return EXIT_SUCCESS;
 }
 
-int GrassInstanced::update() {
+int GrassInstanced::update(double dtime) {
+	deltaTime = dtime;
+	time += deltaTime/10.0f;
 
 	float outcome = 0;
 	outcome = float(32 >> 4);

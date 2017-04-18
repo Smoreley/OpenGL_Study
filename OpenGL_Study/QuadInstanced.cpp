@@ -90,7 +90,7 @@ int QuadInstanced::render() {
 	return EXIT_SUCCESS;
 }
 
-int QuadInstanced::update() {
+int QuadInstanced::update(double dtime) {
 	
 	return EXIT_SUCCESS;
 }

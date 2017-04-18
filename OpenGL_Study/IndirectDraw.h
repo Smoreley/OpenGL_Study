@@ -18,9 +18,11 @@ public:
 	int start();
 	int end();
 	int render();
-	int update();
+	int update(double);
 
 private:
+	double deltaTime;
+	double time;
 
 	GLuint m_Vao;
 

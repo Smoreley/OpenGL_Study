@@ -122,8 +122,10 @@ int SimpleCube::render() {
 	return EXIT_SUCCESS;
 }
 
-int SimpleCube::update() {
-	double frameTime = glfwGetTime();
+int SimpleCube::update(double dtime) {
+	deltaTime = dtime;
+	time += deltaTime;
+	double frameTime = time;
 
 	// Projection into screen space
 	static const float aspect = 1280.0f / 720.0f;

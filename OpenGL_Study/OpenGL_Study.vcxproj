@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FlyingCamera.h" />
+    <ClInclude Include="FpsManager.h" />
     <ClInclude Include="GlobalHouse.h" />
     <ClInclude Include="GrassInstanced.h" />
     <ClInclude Include="Helper.h" />

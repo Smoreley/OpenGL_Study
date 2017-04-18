@@ -43,8 +43,8 @@ int VertexIndexing::start() {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index_buffer);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(vertex_indices), vertex_indices, GL_STATIC_DRAW);
 	
-	mv_loc = glGetUniformLocation(rendering_program, "mv_matrix");
-	proj_loc = glGetUniformLocation(rendering_program, "proj_matrix");
+	mv_loc = glGetUniformLocation(rendering_program, "u_mv_matrix");
+	proj_loc = glGetUniformLocation(rendering_program, "u_proj_matrix");
 
 	// Enables
 	glEnable(GL_CULL_FACE);
@@ -52,6 +52,7 @@ int VertexIndexing::start() {
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
 
+	time = 0;
 	return EXIT_SUCCESS;
 }
 
@@ -68,8 +69,6 @@ int VertexIndexing::end() {
 }
 
 int VertexIndexing::render() {
-	static const GLfloat clear_color[] = { 0.415, 0.568, 0.431, 1.0 };
-	static const GLfloat one = 1.0f;
 	glClearBufferfv(GL_COLOR, 0, clear_color);
 	glClearBufferfv(GL_DEPTH, 0, &one);
 
@@ -90,7 +89,9 @@ int VertexIndexing::render() {
 	return EXIT_SUCCESS;
 }
 
-int VertexIndexing::update() {
+int VertexIndexing::update(double dtime) {
+	deltaTime = dtime;
+	time += deltaTime;
 
 
 

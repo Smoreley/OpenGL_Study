@@ -25,6 +25,6 @@ public:
 	int start();
 	int end();
 	int render();
-	int update();
+	int update(double dtime);
 
 };

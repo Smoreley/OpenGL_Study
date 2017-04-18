@@ -5,6 +5,8 @@
 
 #include "Timer.h"
 
+#include "FpsManager.h"
+
 // Custom
 #include "progbase.h"
 #include "SimpleTriangle.h"
@@ -129,7 +131,8 @@ int main(void) {
 
 	// Create window 
 	GLFWwindow* window;
-	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE, NULL, NULL);
+	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE, glfwGetPrimaryMonitor(), NULL);
+	/*window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE, NULL, NULL);*/
 
 	if (!window) {
 		std::cout << "Failed to create window" << std::endl;
@@ -161,8 +164,8 @@ int main(void) {
 	//studyContainer.push_back(new SimpleTransform());
 	//studyContainer.push_back(new SimpleTexture());
 	//studyContainer.push_back(new TexturedCube());
-	//studyContainer.push_back(new MultiCubeRendering());
-	//studyContainer.push_back(new VertexIndexing());
+	studyContainer.push_back(new MultiCubeRendering());
+	studyContainer.push_back(new VertexIndexing());
 	studyContainer.push_back(new GrassInstanced());
 	studyContainer.push_back(new QuadInstanced());
 	studyContainer.push_back(new IndirectDraw());
@@ -180,6 +183,19 @@ int main(void) {
 	int nbFrames = 0;
 
 	Timer myTimer;
+	FpsManager fpsmanager(30, 1, "Test in the blue");
+	fpsmanager.setWindow(window);
+
+
+	// Update rates
+	double renderUpdateRate = 1.0f/60.0f;
+	int renderUpdateCount = 0;
+	double renderPreviousUpdate = glfwGetTime();
+
+	double logicUpdateRate = 1.0f/30.0f;
+	int logicUpdateCount = 0;
+	double logicPreviousUpdate = glfwGetTime();
+
 
 	// Loop until user closes window
 	while (!glfwWindowShouldClose(window)) {
@@ -188,31 +204,61 @@ int main(void) {
 		// Performance Calculation
 		nbFrames++;
 		if (glfwGetTime() - lastTime >= 1.0) {
-			std::cerr << ((glfwGetTime() - lastTime) * 1000.0) / double(nbFrames) << "\tms/frames" << std::endl;
+			//std::cerr << ((glfwGetTime() - lastTime) * 1000.0) / double(nbFrames) << "\tms/frames" << std::endl;
+			//std::cerr << (1000.0) / double(nbFrames) << "\tms/frames" << std::endl;
 			nbFrames = 0;
 			lastTime += 1.0;
+
+
+			// Logic Update Calculation
+			std::cerr << "Logic: " << (1000.0) / logicUpdateCount;
+			logicUpdateCount = 0;
+
+			// Render Update Calculation
+			std::cerr << " Render: " << (1000.0) / renderUpdateCount << std::endl;
+			renderUpdateCount = 0;
 		}
 
-		// Run study program
-		currentStudyProgram->update();
+		
+		if (glfwGetTime() - logicPreviousUpdate  > logicUpdateRate) {
+			logicPreviousUpdate += logicUpdateRate;
+			logicUpdateCount += 1;
 
-		// Render
-		currentStudyProgram->render();
 
-		// Swap front and back buffers
-		glfwSwapBuffers(window);
+			// Run study program
+			currentStudyProgram->update(logicUpdateRate);
+		}
+
+		if (glfwGetTime() - renderPreviousUpdate > renderUpdateRate) {
+			renderPreviousUpdate += renderUpdateRate;
+			renderUpdateCount += 1;
+
+			fpsmanager.reportFPS();
+
+			// Render
+			currentStudyProgram->render();
+
+			// Swap front and back buffers
+			glfwSwapBuffers(window);
+		}
 
 		// Poll for and process events
 		glfwPollEvents();
 
+
 		// Sleep if we have time to
-		double startTime = myTimer.getTime();
-		if (startTime + SCREEN_TICKS_PER_FRAME > glfwGetTime()) {
-			//SDL_Delay((startTime + SCREEN_TICKS_PER_FRAME) - glfwGetTime());
-			std::this_thread::sleep_for(std::chrono::milliseconds(
-				(int)((startTime + SCREEN_TICKS_PER_FRAME) - glfwGetTime())
-			));
-		}
+		//double startTime = myTimer.getTime();
+		//if (startTime + SCREEN_FPS > glfwGetTime()) {
+		//	int stall = SCREEN_FPS - (glfwGetTime() - startTime);
+		//	//std::this_thread::sleep_for(std::chrono::milliseconds(
+		//	//	(int)(stall)
+		//	//));
+		//}
+
+		//std::cout << "start " << (startTime + SCREEN_TICKS_PER_FRAME) - glfwGetTime() << std::endl;
+		//while ((startTime + SCREEN_TICKS_PER_FRAME) > glfwGetTime()) {
+		//}
+
 	}
 
 	// Clean up study programs

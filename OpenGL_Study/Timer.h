@@ -11,9 +11,16 @@ public:
 	double getTime();
 
 	void updateTime();
+	void incrementTime() { currentTime += timeIncrement; }
 
-	// Reset the timer
-	void reset();
+	void reset() { currentTime = 0; previousTime = 0; deltaTime = 0; }	// Reset the timer
+
+	// Set
+	void setTimeIncrement(double timeIncrement) { this->timeIncrement = timeIncrement; }
+	void setUpdateByIncrement(const bool ubi) { updateByIncrement = ubi; }
+
+	// Get
+	const double getDelta() { return deltaTime;  }
 
 private:
 	// When the timer started
@@ -23,11 +30,12 @@ private:
 	double previousTime;
 	double deltaTime;
 
-	// How fast the timer is ticking by
-	float speedfactor;
+	double timeIncrement;	// How much to increment time by
+	bool updateByIncrement;
 
-	// Is the timer paused
-	bool paused;
+	float speedfactor;	// How fast the timer is ticking by
+
+	bool paused;		// Is the timer paused
 	
 
 };
@@ -35,6 +43,7 @@ private:
 Timer::Timer()
 {
 	startTime = glfwGetTime();
+	updateByIncrement = false;
 }
 
 Timer::~Timer()
@@ -46,7 +55,14 @@ double Timer::getTime() {
 }
 
 void Timer::updateTime() {
-	previousTime = currentTime;
-	currentTime = glfwGetTime();
-	deltaTime = currentTime - previousTime;
+	if (!paused) {
+		previousTime = currentTime;
+
+		if (updateByIncrement)
+			currentTime += timeIncrement;
+		else
+			currentTime = glfwGetTime();
+
+		deltaTime = currentTime - previousTime;
+	}
 }

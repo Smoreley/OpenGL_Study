@@ -4,6 +4,9 @@
 // Rotating Cube
 class SimpleCube : public Progbase {
 private:
+	double deltaTime;
+	double time;
+
 	GLuint rendering_program;
 	GLuint vao;	// Vertex Array Object
 	GLuint vbo; // Vertex Buffer Object
@@ -19,5 +22,5 @@ public:
 	int start();
 	int end();
 	int render();
-	int update();
+	int update(double);
 };

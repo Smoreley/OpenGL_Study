@@ -102,6 +102,8 @@ int IndirectDraw::start() {
 	glEnable(GL_CULL_FACE);
 	glFrontFace(GL_CCW);
 
+	time = 0;
+
 	return EXIT_SUCCESS;
 }
 
@@ -130,7 +132,6 @@ int IndirectDraw::render() {
 	// Model View
 	glm::mat4 mv = glm::mat4(1.0);
 
-	float time = glfwGetTime();
 	float r = 180.0f;
 	mv = glm::lookAt(
 		glm::vec3(r, 50.0f, r),
@@ -141,7 +142,7 @@ int IndirectDraw::render() {
 	// Set Uniform
 	glUniformMatrix4fv(m_UniformLocation.proj, 1, GL_FALSE, glm::value_ptr(proj));
 	glUniformMatrix4fv(m_UniformLocation.mv, 1, GL_FALSE, glm::value_ptr(mv));
-	glUniform1f(m_UniformLocation.time, (float)glfwGetTime());
+	glUniform1f(m_UniformLocation.time, time);
 
 	m_Mode = MODE_MULTIDRAW;
 	// Draw
@@ -160,7 +161,9 @@ int IndirectDraw::render() {
 	return EXIT_SUCCESS;
 }
 
-int IndirectDraw::update() {
+int IndirectDraw::update(double dtime) {
+	deltaTime = dtime;
+	time += deltaTime;
 
 	return EXIT_SUCCESS;
 }
