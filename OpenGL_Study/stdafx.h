@@ -24,6 +24,5 @@
 /* Include GLI (Image Loading) */
 #include <gli/gli.hpp>
 
-
 // My global stuff
 #include "GlobalHouse.h"

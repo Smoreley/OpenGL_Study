@@ -21,6 +21,9 @@
 #include "QuadInstanced.h"
 #include "IndirectDraw.h"
 
+button_map bmap;
+float gameSpeed = 1;
+
 // Study
 Progbase* currentStudyProgram;
 std::vector<Progbase*> studyContainer;
@@ -56,6 +59,38 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		glfwSetWindowSize(window, new_window_width, new_window_height);
 		glViewport(0, 0, new_window_width, new_window_height);
 	}
+
+	if (action == GLFW_PRESS) {
+		switch (key)
+		{
+		case GLFW_KEY_EQUAL:
+			gameSpeed += 1;
+			std::cout << "GAME UPDATE SPEED: " << gameSpeed << std::endl;
+			break;
+		case GLFW_KEY_MINUS:
+			gameSpeed -= 1;
+			break;
+		default:
+			break;
+		}
+	}
+
+	if (key == GLFW_KEY_LEFT && action == GLFW_PRESS) {
+		bmap.left = !bmap.left;
+	}
+
+	if (key == GLFW_KEY_RIGHT && action == GLFW_PRESS) {
+		bmap.right = !bmap.right;
+	}
+
+	if (key == GLFW_KEY_UP && action == GLFW_PRESS) {
+		bmap.up = !bmap.up;
+	}
+
+	if (key == GLFW_KEY_DOWN && action == GLFW_PRESS) {
+		bmap.down = !bmap.down;
+	}
+	currentStudyProgram->setButtons(bmap);
 }
 
 // Next study
@@ -131,8 +166,8 @@ int main(void) {
 
 	// Create window 
 	GLFWwindow* window;
-	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE, glfwGetPrimaryMonitor(), NULL);
-	/*window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE, NULL, NULL);*/
+	//window = glfwCreateWindow(3840, 2160, WINDOW_TITLE, glfwGetPrimaryMonitor(), NULL);
+	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE, NULL, NULL);
 
 	if (!window) {
 		std::cout << "Failed to create window" << std::endl;
@@ -164,12 +199,12 @@ int main(void) {
 	//studyContainer.push_back(new SimpleTransform());
 	//studyContainer.push_back(new SimpleTexture());
 	//studyContainer.push_back(new TexturedCube());
-	studyContainer.push_back(new MultiCubeRendering());
-	studyContainer.push_back(new VertexIndexing());
-	studyContainer.push_back(new GrassInstanced());
-	studyContainer.push_back(new QuadInstanced());
+	//studyContainer.push_back(new MultiCubeRendering());
+	//studyContainer.push_back(new VertexIndexing());
+	//studyContainer.push_back(new GrassInstanced());
+	//studyContainer.push_back(new QuadInstanced());
 	studyContainer.push_back(new IndirectDraw());
-	//studyContainer.push_back(new FlyingCamera());
+	studyContainer.push_back(new FlyingCamera());
 
 	// Set current running program and start it
 	currentStudyProgram = studyContainer[0];
@@ -196,6 +231,8 @@ int main(void) {
 	int logicUpdateCount = 0;
 	double logicPreviousUpdate = glfwGetTime();
 
+	// v-sync
+	//glfwSwapInterval(1);
 
 	// Loop until user closes window
 	while (!glfwWindowShouldClose(window)) {
@@ -219,21 +256,23 @@ int main(void) {
 			renderUpdateCount = 0;
 		}
 
-		
+		// Game Logic update
 		if (glfwGetTime() - logicPreviousUpdate  > logicUpdateRate) {
 			logicPreviousUpdate += logicUpdateRate;
 			logicUpdateCount += 1;
 
+			fpsmanager.reportFPS();
 
 			// Run study program
-			currentStudyProgram->update(logicUpdateRate);
+			currentStudyProgram->update(logicUpdateRate * gameSpeed);
 		}
 
+		// Render update
 		if (glfwGetTime() - renderPreviousUpdate > renderUpdateRate) {
 			renderPreviousUpdate += renderUpdateRate;
 			renderUpdateCount += 1;
 
-			fpsmanager.reportFPS();
+			/*fpsmanager.reportFPS();*/
 
 			// Render
 			currentStudyProgram->render();

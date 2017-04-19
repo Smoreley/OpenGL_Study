@@ -4,6 +4,9 @@
 // Demo of translation, rotation, and scaling
 class SimpleTransform : public Progbase {
 private:
+	double deltaTime;
+	double time;
+
 	GLuint rendering_program;
 
 	GLuint vao;
@@ -19,5 +22,5 @@ public:
 	int start();
 	int end();
 	int render();
-	int update();
+	int update(double);
 };

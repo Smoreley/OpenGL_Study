@@ -27,6 +27,9 @@ int SimpleTriangle::start() {
 }
 
 int SimpleTriangle::end() {
+	glUseProgram(0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
 	glDeleteBuffers(1, &buffer);
 	glDeleteVertexArrays(1, &vao);
 	glDeleteProgram(rendering_program);
@@ -51,7 +54,7 @@ int SimpleTriangle::render() {
 	return EXIT_SUCCESS;
 }
 
-int SimpleTriangle::update() {
+int SimpleTriangle::update(double dtime) {
 
 	return EXIT_SUCCESS;
 }

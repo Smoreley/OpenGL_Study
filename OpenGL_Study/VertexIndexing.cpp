@@ -80,8 +80,8 @@ int VertexIndexing::render() {
 
 	// Movement
 	glm::mat4 mv = glm::mat4(1.0f);
-	mv = glm::translate(mv, glm::vec3(0, 0, -1 * (glm::sin((float)glfwGetTime())+1.5f) ));
-	mv = glm::rotate(mv, (float)glfwGetTime(), glm::vec3(1.0f, 0.5f, 0.0f));
+	mv = glm::translate(mv, glm::vec3(0, 0, -1 * (glm::sin((float)time)+1.5f) ));
+	mv = glm::rotate(mv, (float)time, glm::vec3(1.0f, 0.5f, 0.0f));
 	glUniformMatrix4fv(mv_loc, 1, GL_FALSE, glm::value_ptr(mv));
 
 	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, 0);

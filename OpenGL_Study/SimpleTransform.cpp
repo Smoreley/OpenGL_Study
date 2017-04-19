@@ -52,8 +52,8 @@ int SimpleTransform::start() {
 	glEnableVertexAttribArray(1);
 
 	// Get uniform location in program
-	mv_location = glGetUniformLocation(rendering_program, "mv_matrix");
-	proj_location = glGetUniformLocation(rendering_program, "proj_matrix");
+	mv_location = glGetUniformLocation(rendering_program, "u_mv_matrix");
+	proj_location = glGetUniformLocation(rendering_program, "u_proj_matrix");
 
 	// Enables
 	glEnable(GL_CULL_FACE);
@@ -63,10 +63,14 @@ int SimpleTransform::start() {
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
 
+	time = 0;
 	return EXIT_SUCCESS;
 }
 
 int SimpleTransform::end() {
+	glDisable(GL_CULL_FACE);
+	glDisable(GL_DEPTH_TEST);
+
 	// De-select shader program
 	glUseProgram(0);
 
@@ -82,8 +86,6 @@ int SimpleTransform::end() {
 
 int SimpleTransform::render() {
 	// Clear
-	static const GLfloat clear_color[] = { 0.415, 0.568, 0.431, 1.0 };
-	static const GLfloat one = 1.0f;
 	glClearBufferfv(GL_COLOR, 0, clear_color);
 	glClearBufferfv(GL_DEPTH, 0, &one);
 
@@ -102,7 +104,9 @@ int SimpleTransform::render() {
 	return EXIT_SUCCESS;
 }
 
-int SimpleTransform::update() {
+int SimpleTransform::update(double dtime) {
+	deltaTime = dtime;
+	time += deltaTime;
 
 	// Perspective - fov in radians
 	glm::mat4 proj = glm::perspective(1.0472f, 1280.0f / 720.0f, 0.1f, 100.0f);
@@ -111,8 +115,8 @@ int SimpleTransform::update() {
 	// Movement
 	glm::mat4 mv = glm::mat4(1.0f);
 	mv = glm::translate(mv, glm::vec3(0, 0, -4));
-	mv = glm::rotate(mv, (float)glfwGetTime(), glm::vec3(glm::cos(glfwGetTime()) * 2.0f, 0.5f, 1.5f));
-	mv = glm::scale(mv, glm::vec3(1.0f, 2.0f + glm::sin(glfwGetTime()*2.1f), 1.0f));
+	mv = glm::rotate(mv, (float)time, glm::vec3(glm::cos(time) * 2.0f, 0.5f, 1.5f));
+	mv = glm::scale(mv, glm::vec3(1.0f, 2.0f + glm::sin(time*2.1f), 1.0f));
 
 	glUniformMatrix4fv(mv_location, 1, GL_FALSE, glm::value_ptr(mv));
 

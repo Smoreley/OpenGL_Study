@@ -9,8 +9,8 @@ int TexturedCube::start() {
 	glBindVertexArray(vao);
 
 	// Trans
-	mov_loc = glGetUniformLocation(rendering_program, "mv_matrix");
-	proj_loc = glGetUniformLocation(rendering_program, "proj_matrix");
+	mov_loc = glGetUniformLocation(rendering_program, "u_mv_matrix");
+	proj_loc = glGetUniformLocation(rendering_program, "u_proj_matrix");
 	
 	// Model
 	glGenBuffers(1, &vertex_buffer);
@@ -92,6 +92,7 @@ int TexturedCube::start() {
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
 
+	time = 0;
 	return EXIT_SUCCESS;
 }
 
@@ -125,8 +126,10 @@ int TexturedCube::render() {
 	return EXIT_SUCCESS;
 }
 
-int TexturedCube::update() {
-	double frameTime = glfwGetTime();
+int TexturedCube::update(double dtime) {
+	deltaTime = dtime;
+	time += deltaTime;
+	double frameTime = time;
 
 	// Projection Calculation
 	static const float aspect = 1280.0f / 720.0f;

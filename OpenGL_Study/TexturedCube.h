@@ -4,6 +4,9 @@
 // 
 class TexturedCube : public Progbase {
 private:
+	double deltaTime;
+	double time;
+
 	GLuint vao;
 	GLuint vertex_buffer;
 	GLuint color_buffer;
@@ -18,5 +21,5 @@ public:
 	int start();
 	int end();
 	int render();
-	int update();
+	int update(double);
 };
