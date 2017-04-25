@@ -1,4 +1,5 @@
 #include "SimpleCube.h"
+#include "Helper.h"
 
 int SimpleCube::start() {
 	std::cout << "Simple Cube Study" << std::endl;

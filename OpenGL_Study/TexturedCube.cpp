@@ -1,4 +1,5 @@
 #include "TexturedCube.h"
+#include "Helper.h"
 
 int TexturedCube::start() {
 	std::cout << "Cube Texture Demo" << std::endl;

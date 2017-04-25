@@ -1,10 +1,8 @@
 #include "stdafx.h"
-
-#include <thread>
-#include <chrono>
+//#include <thread>
+//#include <chrono>
 
 #include "Timer.h"
-
 #include "FpsManager.h"
 
 // Custom
@@ -24,6 +22,8 @@
 button_map bmap;
 float gameSpeed = 1;
 
+bool window_focused = true;		// If the window is in focus or not
+
 // Study
 Progbase* currentStudyProgram;
 std::vector<Progbase*> studyContainer;
@@ -32,7 +32,17 @@ void next(); // Needed to define before use
 void back();
 
 void createWindow(GLint w, GLint h, char &name) {
+}
 
+void focus_callback(GLFWwindow* window, int focused) {
+	if (focused) {
+		std::cout << "THE WINDOW IS IN FOCUS" << std::endl;
+		window_focused = true;
+	}
+	else {
+		window_focused = false;
+		std::cout << "THE WINDOW IS OUT OF FOCUS" << std::endl;
+	}
 }
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
@@ -76,11 +86,11 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	}
 
 	if (key == GLFW_KEY_LEFT && action == GLFW_PRESS) {
-		bmap.left = !bmap.left;
+		bmap.rot_left = !bmap.rot_left;
 	}
 
 	if (key == GLFW_KEY_RIGHT && action == GLFW_PRESS) {
-		bmap.right = !bmap.right;
+		bmap.rot_right = !bmap.rot_right;
 	}
 
 	if (key == GLFW_KEY_UP && action == GLFW_PRESS) {
@@ -145,6 +155,9 @@ void printWindowInfo() {
 		", Resolution: " << res_width << "/" << res_height << "]" << std::endl;
 }
 
+//
+//	Main entry point for the Program
+//
 int main(void) {
 
 	// Initiate glfw
@@ -201,8 +214,8 @@ int main(void) {
 	//studyContainer.push_back(new TexturedCube());
 	//studyContainer.push_back(new MultiCubeRendering());
 	//studyContainer.push_back(new VertexIndexing());
-	//studyContainer.push_back(new GrassInstanced());
-	//studyContainer.push_back(new QuadInstanced());
+	studyContainer.push_back(new GrassInstanced());
+	studyContainer.push_back(new QuadInstanced());
 	studyContainer.push_back(new IndirectDraw());
 	studyContainer.push_back(new FlyingCamera());
 
@@ -212,31 +225,33 @@ int main(void) {
 
 	// Keyboard input
 	glfwSetKeyCallback(window, key_callback);
+	glfwSetWindowFocusCallback(window, focus_callback);
+
 
 	// Performance calculation
-	double lastTime = glfwGetTime();
+	double lastTime = 0;
 	int nbFrames = 0;
 
-	Timer myTimer;
+	Timer gameTimer;
 	FpsManager fpsmanager(30, 1, "Test in the blue");
 	fpsmanager.setWindow(window);
-
 
 	// Update rates
 	double renderUpdateRate = 1.0f/60.0f;
 	int renderUpdateCount = 0;
-	double renderPreviousUpdate = glfwGetTime();
+	double renderPreviousUpdate = 0;
 
 	double logicUpdateRate = 1.0f/30.0f;
 	int logicUpdateCount = 0;
-	double logicPreviousUpdate = glfwGetTime();
+	double logicPreviousUpdate = 0;
+	glfwSetTime(0);
 
 	// v-sync
 	//glfwSwapInterval(1);
 
 	// Loop until user closes window
 	while (!glfwWindowShouldClose(window)) {
-		myTimer.updateTime();
+		gameTimer.updateTime();
 
 		// Performance Calculation
 		nbFrames++;
@@ -245,7 +260,6 @@ int main(void) {
 			//std::cerr << (1000.0) / double(nbFrames) << "\tms/frames" << std::endl;
 			nbFrames = 0;
 			lastTime += 1.0;
-
 
 			// Logic Update Calculation
 			std::cerr << "Logic: " << (1000.0) / logicUpdateCount;
@@ -256,15 +270,31 @@ int main(void) {
 			renderUpdateCount = 0;
 		}
 
+		// Check if we are behind in gamelogic updating
+		double difference = glfwGetTime() - logicPreviousUpdate;
+		double behind = difference - logicUpdateRate;
+		if (behind > 0.1) {
+			std::cout << "We are behind: " << behind << std::endl;
+		}
+
+		// Poll for and process events
+		glfwPollEvents();
+
 		// Game Logic update
-		if (glfwGetTime() - logicPreviousUpdate  > logicUpdateRate) {
+		if (glfwGetTime() - logicPreviousUpdate > logicUpdateRate) {
 			logicPreviousUpdate += logicUpdateRate;
 			logicUpdateCount += 1;
 
-			fpsmanager.reportFPS();
+			double delta_time = logicUpdateRate * gameSpeed;
 
 			// Run study program
-			currentStudyProgram->update(logicUpdateRate * gameSpeed);
+			currentStudyProgram->update(delta_time);
+
+			// Quickly catch up
+			double r_one = 0, r_two = logicPreviousUpdate;
+
+			// Catch up without updating
+			logicPreviousUpdate = round(glfwGetTime() / logicUpdateRate) * logicUpdateRate;
 		}
 
 		// Render update
@@ -272,7 +302,7 @@ int main(void) {
 			renderPreviousUpdate += renderUpdateRate;
 			renderUpdateCount += 1;
 
-			/*fpsmanager.reportFPS();*/
+			fpsmanager.reportFPS();
 
 			// Render
 			currentStudyProgram->render();
@@ -280,10 +310,6 @@ int main(void) {
 			// Swap front and back buffers
 			glfwSwapBuffers(window);
 		}
-
-		// Poll for and process events
-		glfwPollEvents();
-
 
 		// Sleep if we have time to
 		//double startTime = myTimer.getTime();
@@ -293,11 +319,9 @@ int main(void) {
 		//	//	(int)(stall)
 		//	//));
 		//}
-
 		//std::cout << "start " << (startTime + SCREEN_TICKS_PER_FRAME) - glfwGetTime() << std::endl;
 		//while ((startTime + SCREEN_TICKS_PER_FRAME) > glfwGetTime()) {
 		//}
-
 	}
 
 	// Clean up study programs

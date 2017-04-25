@@ -1,4 +1,5 @@
 #include "MultiCubeRendering.h"
+#include "Helper.h"
 
 int MultiCubeRendering::start() {
 	std::cout << "Multiple Cube Rendering" << std::endl;
@@ -79,7 +80,7 @@ int MultiCubeRendering::render() {
 		// Rotation
 		mv_matrix = glm::rotate(mv_matrix, cube_rotation[i].x, glm::vec3(1.0, 0.0f, 0.0f));
 		mv_matrix = glm::rotate(mv_matrix, cube_rotation[i].y, glm::vec3(0.0, 1.0f, 0.0f));
-		mv_matrix = glm::rotate(mv_matrix, cube_rotation[i].z, glm::vec3(0.0, 0.0f, 1.0f));		
+		mv_matrix = glm::rotate(mv_matrix, cube_rotation[i].z, glm::vec3(0.0, 0.0f, 1.0f));	
 
 		mv_matrix = glm::scale(mv_matrix, cube_scale[i]);
 

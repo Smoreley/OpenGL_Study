@@ -1,4 +1,5 @@
 #include "GrassInstanced.h"
+#include "Helper.h"
 
 int GrassInstanced::start() {
 	std::cout << "Grass Instancing Study" << std::endl;
@@ -88,6 +89,9 @@ int GrassInstanced::render() {
 
 	return EXIT_SUCCESS;
 }
+
+#include <thread>
+#include <chrono>
 
 int GrassInstanced::update(double dtime) {
 	deltaTime = dtime;

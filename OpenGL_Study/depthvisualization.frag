@@ -17,6 +17,12 @@ float LinearizeDepth(float depth)
 
 void main(void)
 {
+	vec2 screen_res = vec2(1280, 720);
+	vec2 st = gl_FragCoord.xy/screen_res;
+
 	float depth = LinearizeDepth(gl_FragCoord.z) / far;
+
 	color = vec4(vec3(depth), 1.0f);
+	//color = vec4(vec3(fs_in.color.x, fs_in.color.y, fs_in.color.z) * depth, 1.0f);
+
 }

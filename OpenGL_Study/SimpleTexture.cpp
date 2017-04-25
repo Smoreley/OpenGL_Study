@@ -1,4 +1,5 @@
 #include "SimpleTexture.h"
+#include "Helper.h"
 
 // Fill-out data with texture info
 void generate_texture(float *data, int width, int height) {

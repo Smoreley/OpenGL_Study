@@ -1,4 +1,5 @@
 #include "QuadInstanced.h"
+#include "Helper.h"
 
 int QuadInstanced::start() {
 	std::cout << "Quad Instancing Study" << std::endl;

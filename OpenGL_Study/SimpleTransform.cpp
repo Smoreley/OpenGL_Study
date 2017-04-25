@@ -1,4 +1,5 @@
 #include "SimpleTransform.h"
+#include "Helper.h"
 
 int SimpleTransform::start() {
 	std::cout << "Simple Transform Study" << std::endl;

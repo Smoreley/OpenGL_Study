@@ -25,5 +25,4 @@ public:
 	int end();
 	int render();
 	int update(double dtime);
-
 };

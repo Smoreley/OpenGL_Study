@@ -1,4 +1,5 @@
 #include "IndirectDraw.h"
+#include "Helper.h"
 
 int IndirectDraw::start() {
 	std::cout << "Indirect Drawing Study" << std::endl;

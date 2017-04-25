@@ -44,6 +44,7 @@ Timer::Timer()
 {
 	startTime = glfwGetTime();
 	updateByIncrement = false;
+	paused = false;
 }
 
 Timer::~Timer()

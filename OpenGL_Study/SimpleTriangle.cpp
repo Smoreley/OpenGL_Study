@@ -1,4 +1,5 @@
 #include "SimpleTriangle.h"
+#include "Helper.h"
 
 int SimpleTriangle::start() {
 	std::cout << "Simple Triangle Study" << std::endl;

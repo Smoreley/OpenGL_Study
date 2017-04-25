@@ -29,6 +29,9 @@ private:
 	glm::vec3 camera_forward;
 	glm::vec3 camera_up;
 	glm::mat4 view;
+	float angle;
+	float walkSpeed;
+	float turningSpeed;
 
 public:
 	int start();

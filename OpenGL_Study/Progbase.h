@@ -1,12 +1,13 @@
 #pragma once
 #include "stdafx.h"
-#include "Helper.h"
 
 struct button_map {
 	bool left;
 	bool right;
 	bool up;
 	bool down;
+	bool rot_left;
+	bool rot_right;
 };
 
 class Progbase {

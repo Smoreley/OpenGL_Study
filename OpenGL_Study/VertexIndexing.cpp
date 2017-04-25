@@ -1,4 +1,5 @@
 #include "VertexIndexing.h"
+#include "Helper.h"
 
 int VertexIndexing::start() {
 	std::cout << "Vertex Indexing Study" << std::endl;

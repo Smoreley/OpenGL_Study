@@ -131,9 +131,6 @@
     <ClInclude Include="Object.h">
       <Filter>Header Files\Custom</Filter>
     </ClInclude>
-    <ClInclude Include="GlobalHouse.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FpsManager.h">
       <Filter>Header Files\Custom</Filter>
     </ClInclude>
