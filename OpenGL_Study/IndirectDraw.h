@@ -44,6 +44,6 @@ private:
 		MODE_MAX = MODE_SEPERATE_DRAWS
 	} m_Mode;
 
-	GLuint m_Draw_Count = 500;
+	GLuint m_Draw_Count = 5000;
 
 };

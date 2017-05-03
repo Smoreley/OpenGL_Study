@@ -54,7 +54,7 @@ int QuadInstanced::start() {
 	// Set location of attributes tied to the data we just loaded into the buffer
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (GLvoid *) sizeof(vertex_pos));
-	glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, 0, (GLvoid *)(sizeof(vertex_pos) + sizeof(vertex_color)));
+	glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, 0, (GLvoid *) (sizeof(vertex_pos) + sizeof(vertex_color)));
 
 	// Enable attributes
 	glEnableVertexAttribArray(0);

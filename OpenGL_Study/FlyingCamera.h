@@ -33,6 +33,11 @@ private:
 	float walkSpeed;
 	float turningSpeed;
 
+	// Grid
+	const int grid_size = 10;
+	//bool grid[grid_size][grid_size];
+	bool* grid;
+
 public:
 	int start();
 	int end();

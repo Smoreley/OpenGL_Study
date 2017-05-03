@@ -70,7 +70,7 @@
       <Filter>Source Files\Study Source</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
-      <Filter>Header Files\Custom</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

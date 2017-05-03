@@ -15,13 +15,12 @@
 #include "MultiCubeRendering.h"
 #include "VertexIndexing.h"
 #include "GrassInstanced.h"
-#include "FlyingCamera.h"
 #include "QuadInstanced.h"
 #include "IndirectDraw.h"
+#include "FlyingCamera.h"
 
 button_map bmap;
 float gameSpeed = 1;
-
 bool window_focused = true;		// If the window is in focus or not
 
 // Study
@@ -29,10 +28,6 @@ Progbase* currentStudyProgram;
 std::vector<Progbase*> studyContainer;
 int studyLocation = 0;
 void next(); // Needed to define before use
-void back();
-
-void createWindow(GLint w, GLint h, char &name) {
-}
 
 void focus_callback(GLFWwindow* window, int focused) {
 	if (focused) {
@@ -49,10 +44,6 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	if (key == GLFW_KEY_N && action == GLFW_PRESS) {
 		std::cout << "N WAS PRESSED" << std::endl;
 		next();
-	}
-	else if (key == GLFW_KEY_B && action == GLFW_PRESS) {
-		std::cout << "B was pressed" << std::endl;
-		//back();
 	}
 
 	// Hit escape key to exit window
@@ -85,20 +76,40 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		}
 	}
 
-	if (key == GLFW_KEY_LEFT && action == GLFW_PRESS) {
-		bmap.rot_left = !bmap.rot_left;
+	if (key == GLFW_KEY_LEFT) {
+		if (action == GLFW_PRESS) {
+			bmap.rot_left = true;
+		}
+		else if (action == GLFW_RELEASE) {
+			bmap.rot_left = false;
+		}
 	}
 
-	if (key == GLFW_KEY_RIGHT && action == GLFW_PRESS) {
-		bmap.rot_right = !bmap.rot_right;
+	if (key == GLFW_KEY_RIGHT) {
+		if (action == GLFW_PRESS) {
+			bmap.rot_right = true;
+		}
+		else if (action == GLFW_RELEASE) {
+			bmap.rot_right = false;
+		}
 	}
 
-	if (key == GLFW_KEY_UP && action == GLFW_PRESS) {
-		bmap.up = !bmap.up;
+	if (key == GLFW_KEY_UP) {
+		if (action == GLFW_PRESS) {
+			bmap.up = true;
+		}
+		else if (action == GLFW_RELEASE) {
+			bmap.up = false;
+		}
 	}
 
-	if (key == GLFW_KEY_DOWN && action == GLFW_PRESS) {
-		bmap.down = !bmap.down;
+	if (key == GLFW_KEY_DOWN) {
+		if (action == GLFW_PRESS) {
+			bmap.down = true;
+		}
+		else if (action == GLFW_RELEASE) {
+			bmap.down = false;
+		}
 	}
 	currentStudyProgram->setButtons(bmap);
 }
@@ -120,14 +131,6 @@ void next() {
 		currentStudyProgram = studyContainer[studyLocation];
 		currentStudyProgram->start();
 	}
-}
-
-void back() {
-	currentStudyProgram->end();
-	studyLocation--;
-	studyLocation %= studyContainer.size();
-	currentStudyProgram = studyContainer[studyLocation];
-	currentStudyProgram->start();
 }
 
 void printVersion() {

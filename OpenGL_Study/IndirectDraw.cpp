@@ -128,15 +128,15 @@ int IndirectDraw::render() {
 	glUseProgram(rendering_program);
 
 	// Projection
-	glm::mat4 proj = glm::perspective(1.0472f, (float)WINDOW_WIDTH / WINDOW_HEIGHT, 0.1f, 1000.0f);
+	glm::mat4 proj = glm::perspective(1.0472f, (float)WINDOW_WIDTH / WINDOW_HEIGHT, 0.1f, 10000.0f);
 	
 	// Model View
 	glm::mat4 mv = glm::mat4(1.0);
 
 	float r = 180.0f;
 	mv = glm::lookAt(
-		glm::vec3(r, 50.0f, r),
-		glm::vec3(0.0f, -20.0f, 0.0f),
+		glm::vec3(r, 150.0f * sin(time / 5.0f), r),
+		glm::vec3(0.0f, -20.0f * cos(time), 0.0f),
 		glm::vec3(0.0, 1.0, 0.0));
 
 	

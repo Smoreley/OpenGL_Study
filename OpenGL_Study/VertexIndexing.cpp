@@ -94,7 +94,5 @@ int VertexIndexing::update(double dtime) {
 	deltaTime = dtime;
 	time += deltaTime;
 
-
-
 	return EXIT_SUCCESS;
 }

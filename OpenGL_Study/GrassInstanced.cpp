@@ -90,8 +90,8 @@ int GrassInstanced::render() {
 	return EXIT_SUCCESS;
 }
 
-#include <thread>
-#include <chrono>
+//#include <thread>
+//#include <chrono>
 
 int GrassInstanced::update(double dtime) {
 	deltaTime = dtime;
@@ -100,6 +100,15 @@ int GrassInstanced::update(double dtime) {
 	float outcome = 0;
 	outcome = float(32 >> 4);
 	//std::cout << "Testing numbers: " << sizeof(int) << std::endl;
+
+
+	// Offset test
+	struct temp {
+		int mine;
+		float yours;
+	} tempor;
+
+	std::cout << "Offset of mine: " << offsetof(temp, yours) << std::endl;
 
 	return EXIT_SUCCESS;
 }

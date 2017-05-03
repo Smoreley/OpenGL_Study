@@ -26,7 +26,8 @@
 /* My global stuff */
 // Window
 static GLint RES_MULTI = 1;
-static GLint WINDOW_WIDTH = 1280, WINDOW_HEIGHT = 720;
+//static GLint WINDOW_WIDTH = 1280, WINDOW_HEIGHT = 720;
+static GLint WINDOW_WIDTH = 1920, WINDOW_HEIGHT = 1080;
 static const char *WINDOW_TITLE = "Study in the Blue";
 static int monitor_res_width, monitor_res_height;
 

@@ -28,12 +28,23 @@ int FlyingCamera::start() {
 	glDepthFunc(GL_LEQUAL);
 
 	time = 0;
-	angle = 1;
-	turningSpeed = 3.0f;
-	walkSpeed = 4.0f;
+	angle = (180.0f * glm::pi<float>()) / 180.0f;		// Convert Degrees to radians for start facing direction
+	turningSpeed = 3.0f;								// How fast to turn
+	walkSpeed = 4.0f;									// How fast to move forward
 	camera_pos = glm::vec3(0.0f, 0.0f, 3.0f);			// Camera position point
 	camera_up = glm::vec3(0.0f, 1.0f, 0.0f);
 	camera_forward = glm::vec3(0.0f, 0.0f, -1.0f);
+
+	grid = new bool[grid_size*grid_size];
+
+	// Populate grid
+	for (int i = 0; i < grid_size*grid_size; i++) {
+
+		if(rand()%100 > 50)
+			grid[i] = true;
+		else 
+			grid[i] = false;
+	}
 
 	return EXIT_SUCCESS;
 }
@@ -43,6 +54,9 @@ int FlyingCamera::end() {
 
 	glDeleteVertexArrays(1, &vao);
 	glDeleteProgram(rendering_program);
+
+	// Delete the grid
+	delete[] grid;
 
 	return EXIT_SUCCESS;
 }
@@ -57,19 +71,29 @@ int FlyingCamera::render() {
 	glUseProgram(rendering_program);
 
 	// Projection Matrix
-	glm::mat4 proj = glm::perspective(1.0472f, 1280.0f / 720.0f, 0.1f, 1000.0f);
+	glm::mat4 proj = glm::perspective(1.0472f, 1280.0f / 720.0f, 0.1f, 100.0f);
 	glUniformMatrix4fv(proj_location, 1, GL_FALSE, glm::value_ptr(proj));
 
 	glUniformMatrix4fv(view_location, 1, GL_FALSE, glm::value_ptr(view));
 
-	for (int i = 0; i < 20; i++) {
-		glm::mat4 mv = glm::mat4(1.0f);
-		mv = glm::translate(mv, glm::vec3(i%7, i%2, -i * glm::abs(sin(time/4.0f))));
-		glUniformMatrix4fv(mv_location, 1, GL_FALSE, glm::value_ptr(mv));
+	// Display the Grid
+	for (int i = 0; i < grid_size * grid_size; i++) {
+		if (grid[i] == true) {
+			glm::mat4 mv = glm::mat4(1.0f);
+			mv = glm::translate(mv, glm::vec3(i%grid_size, 0, glm::floor(i / grid_size)));
 
-
-		glDrawArrays(GL_TRIANGLES, 0, (sizeof(Helper::cube_vp) / sizeof(float)) / 3);
+			glUniformMatrix4fv(mv_location, 1, GL_FALSE, glm::value_ptr(mv));
+			glDrawArrays(GL_TRIANGLES, 0, (sizeof(Helper::cube_vp) / sizeof(float)) / 3);
+		}
 	}
+
+	//for (int i = 0; i < 80; i++) {
+	//	glm::mat4 mv = glm::mat4(1.0f);
+	//	mv = glm::translate(mv, glm::vec3( (i%7) * glm::sin(i), (i%3), 4.0 * glm::sin(i/3.0f) ));
+	//	glUniformMatrix4fv(mv_location, 1, GL_FALSE, glm::value_ptr(mv));
+
+	//	glDrawArrays(GL_TRIANGLES, 0, (sizeof(Helper::cube_vp) / sizeof(float)) / 3);
+	//}
 
 	return EXIT_SUCCESS;
 }
@@ -78,34 +102,36 @@ int FlyingCamera::update(double dtime) {
 	deltaTime = dtime;
 	time += deltaTime;
 	
-
 	// Rotation
 	if (bmap.rot_left) {
-		angle += deltaTime;
+		angle += deltaTime * turningSpeed;
 	}
 
 	if (bmap.rot_right) {
-		angle -= deltaTime;
+		angle -= deltaTime * turningSpeed;
 	}
 
 	camera_forward = glm::vec3(sin(angle), 0.0f, cos(angle));
 	camera_forward = glm::normalize(camera_forward);
 
-	if(bmap.left)
-		camera_pos += glm::normalize(glm::cross(camera_forward, camera_up)) * glm::vec3(deltaTime * turningSpeed);
+	if (bmap.left)
+		camera_pos += glm::normalize(glm::cross(camera_forward, camera_up));
 	if (bmap.right)
-		camera_pos -= glm::normalize(glm::cross(camera_forward, camera_up)) * glm::vec3(deltaTime * turningSpeed);
+		camera_pos -= glm::normalize(glm::cross(camera_forward, camera_up));
 
 	if (bmap.up)
 		camera_pos += camera_forward * glm::vec3(deltaTime * walkSpeed);
 	if (bmap.down)
 		camera_pos -= camera_forward * glm::vec3(deltaTime * walkSpeed);
 
-
-	//view = glm::lookAt(glm::vec3(0.0f), glm::vec3(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 	view = glm::lookAt(camera_pos, camera_pos + camera_forward, camera_up);
 
-	//view = glm::rotate(view, angle.y, glm::vec3(0.0, 1.0f, 0.0f));
-	
+
+	float a = 0, b = 1, c = 0;
+	float dist = time;
+
+	float res = glm::sqrt(1.0f / (a + b * dist + c * glm::pow(dist, 2)));
+	std::cout << "Result is: " << res << std::endl;
+
 	return EXIT_SUCCESS;
 }
