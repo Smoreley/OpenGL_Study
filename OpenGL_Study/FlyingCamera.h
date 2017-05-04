@@ -34,7 +34,7 @@ private:
 	float turningSpeed;
 
 	// Grid
-	const int grid_size = 10;
+	const int grid_size = 20;
 	//bool grid[grid_size][grid_size];
 	bool* grid;
 

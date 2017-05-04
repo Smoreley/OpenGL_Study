@@ -5,6 +5,13 @@
 #include <iostream>
 #include <vector>
 
+/* File Creation stuff */
+#include <fstream>
+
+/* Time */
+#include <chrono>
+#include <ctime>
+
 /* Include glew (helps in loading openGL and gives us access to higher versions) */
 #define GLEW_STATIC
 #include <GL/glew.h>

@@ -29,6 +29,35 @@ std::vector<Progbase*> studyContainer;
 int studyLocation = 0;
 void next(); // Needed to define before use
 
+void APIENTRY OpenglDebugCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParm) {
+	(void)source; (void)type; (void)id;	(void)severity;	(void)length; (void)userParm;
+
+	std::time_t current_time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+	
+	char str[64];
+	ctime_s(str, sizeof(str), &current_time);
+
+	// Get rid of pesky newline character
+	for (int i = 0; i < sizeof(str) / sizeof(char); i++) {
+		if (str[i] == '\n') {
+			str[i] = ' ';
+		}
+	}
+
+	std::ofstream myfile;
+	myfile.open("OpenGL_Study.log", std::ios::app);
+	myfile << "[" << str << "]";
+	myfile << "(" << studyLocation << ")";
+	myfile << message;
+	myfile << "\n";
+	myfile.close();
+
+	// only print to console if it is very sever
+	if (severity == GL_DEBUG_SEVERITY_HIGH) {
+		std::cout << message << std::endl;
+	}
+}
+
 void focus_callback(GLFWwindow* window, int focused) {
 	if (focused) {
 		std::cout << "THE WINDOW IS IN FOCUS" << std::endl;
@@ -180,6 +209,9 @@ int main(void) {
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 	//glfwWindowHint(GLFW_DECORATED, GL_FALSE);
 
+	// Debug context request
+	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
+
 	// Create window 
 	GLFWwindow* window;
 	//window = glfwCreateWindow(3840, 2160, WINDOW_TITLE, glfwGetPrimaryMonitor(), NULL);
@@ -203,6 +235,10 @@ int main(void) {
 		return EXIT_FAILURE;
 	}
 
+	// Debug Setup
+	glEnable(GL_DEBUG_OUTPUT);
+	glDebugMessageCallback(OpenglDebugCallback, nullptr);
+
 	// Custom print versions
 	printVersion();
 
@@ -210,13 +246,13 @@ int main(void) {
 	printWindowInfo();
 
 	// Initialize my programs
-	//studyContainer.push_back(new SimpleTriangle());
-	//studyContainer.push_back(new SimpleCube());
-	//studyContainer.push_back(new SimpleTransform());
-	//studyContainer.push_back(new SimpleTexture());
-	//studyContainer.push_back(new TexturedCube());
-	//studyContainer.push_back(new MultiCubeRendering());
-	//studyContainer.push_back(new VertexIndexing());
+	studyContainer.push_back(new SimpleTriangle());
+	studyContainer.push_back(new SimpleCube());
+	studyContainer.push_back(new SimpleTransform());
+	studyContainer.push_back(new SimpleTexture());
+	studyContainer.push_back(new TexturedCube());
+	studyContainer.push_back(new MultiCubeRendering());
+	studyContainer.push_back(new VertexIndexing());
 	studyContainer.push_back(new GrassInstanced());
 	studyContainer.push_back(new QuadInstanced());
 	studyContainer.push_back(new IndirectDraw());

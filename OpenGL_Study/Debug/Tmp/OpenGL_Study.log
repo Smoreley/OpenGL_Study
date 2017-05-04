@@ -1,11 +1,15 @@
-﻿  main.cpp
+﻿  TexturedCube.cpp
 c:\vs_dev_lib\glm-0.9.7.6\glm\simd\platform.h(106): warning C4005: 'GLM_COMPILER_GCC60': macro redefinition
   c:\vs_dev_lib\glm-0.9.7.6\glm\detail\setup.hpp(156): note: see previous definition of 'GLM_COMPILER_GCC60'
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(40): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(40): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\fpsmanager.h(23): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\fpsmanager.h(73): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\fpsmanager.h(212): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\main.cpp(332): warning C4018: '<': signed/unsigned mismatch
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(47): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(47): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\texturedcube.cpp(113): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\texturedcube.cpp(113): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+  SimpleTransform.cpp
+c:\vs_dev_lib\glm-0.9.7.6\glm\simd\platform.h(106): warning C4005: 'GLM_COMPILER_GCC60': macro redefinition
+  c:\vs_dev_lib\glm-0.9.7.6\glm\detail\setup.hpp(156): note: see previous definition of 'GLM_COMPILER_GCC60'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(47): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(47): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+  Generating Code...
   OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.exe
   OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.pdb (Partial PDB)

@@ -93,8 +93,20 @@ int SimpleTransform::render() {
 	glUseProgram(rendering_program);
 
 	// Wireframe
-	glLineWidth(32.0f);
+	glLineWidth(1.0f);
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+	// Perspective - fov in radians
+	glm::mat4 proj = glm::perspective(1.0472f, 1280.0f / 720.0f, 0.1f, 100.0f);
+	glUniformMatrix4fv(proj_location, 1, GL_FALSE, glm::value_ptr(proj));
+
+	// Movement
+	glm::mat4 mv = glm::mat4(1.0f);
+	mv = glm::translate(mv, glm::vec3(0, 0, -4));
+	mv = glm::rotate(mv, (float)time, glm::vec3(glm::cos(time) * 2.0f, 0.5f, 1.5f));
+	mv = glm::scale(mv, glm::vec3(1.0f, 2.0f + glm::sin(time*2.1f), 1.0f));
+
+	glUniformMatrix4fv(mv_location, 1, GL_FALSE, glm::value_ptr(mv));
 
 	// Draw
 	glDrawArrays(GL_TRIANGLES, 0, 18);
@@ -108,18 +120,6 @@ int SimpleTransform::render() {
 int SimpleTransform::update(double dtime) {
 	deltaTime = dtime;
 	time += deltaTime;
-
-	// Perspective - fov in radians
-	glm::mat4 proj = glm::perspective(1.0472f, 1280.0f / 720.0f, 0.1f, 100.0f);
-	glUniformMatrix4fv(proj_location, 1, GL_FALSE, glm::value_ptr(proj));
-
-	// Movement
-	glm::mat4 mv = glm::mat4(1.0f);
-	mv = glm::translate(mv, glm::vec3(0, 0, -4));
-	mv = glm::rotate(mv, (float)time, glm::vec3(glm::cos(time) * 2.0f, 0.5f, 1.5f));
-	mv = glm::scale(mv, glm::vec3(1.0f, 2.0f + glm::sin(time*2.1f), 1.0f));
-
-	glUniformMatrix4fv(mv_location, 1, GL_FALSE, glm::value_ptr(mv));
 
 	return EXIT_SUCCESS;
 }

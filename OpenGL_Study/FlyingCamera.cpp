@@ -74,6 +74,7 @@ int FlyingCamera::render() {
 	glm::mat4 proj = glm::perspective(1.0472f, 1280.0f / 720.0f, 0.1f, 100.0f);
 	glUniformMatrix4fv(proj_location, 1, GL_FALSE, glm::value_ptr(proj));
 
+	// View
 	glUniformMatrix4fv(view_location, 1, GL_FALSE, glm::value_ptr(view));
 
 	// Display the Grid
@@ -127,11 +128,11 @@ int FlyingCamera::update(double dtime) {
 	view = glm::lookAt(camera_pos, camera_pos + camera_forward, camera_up);
 
 
-	float a = 0, b = 1, c = 0;
-	float dist = time;
-
-	float res = glm::sqrt(1.0f / (a + b * dist + c * glm::pow(dist, 2)));
-	std::cout << "Result is: " << res << std::endl;
+	// Crazy math function Test (constant, linear, and quadratic fall-off)
+	//float a = 0, b = 1, c = 0;
+	//float dist = time;
+	//float res = glm::sqrt(1.0f / (a + b * dist + c * glm::pow(dist, 2)));
+	//std::cout << "Result is: " << res << std::endl;
 
 	return EXIT_SUCCESS;
 }

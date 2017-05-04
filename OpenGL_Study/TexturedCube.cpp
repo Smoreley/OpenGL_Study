@@ -118,6 +118,18 @@ int TexturedCube::render() {
 	// Set what program to use
 	glUseProgram(rendering_program);
 
+	// Projection Calculation
+	static const float aspect = 1280.0f / 720.0f;
+	glm::mat4 proj_matrix = glm::perspective(1.0472f, aspect, 0.1f, 100.0f);
+	glUniformMatrix4fv(proj_loc, 1, GL_FALSE, glm::value_ptr(proj_matrix));
+
+	// Movement 
+	glm::mat4 mv_matrix = glm::mat4(1.0f);
+	mv_matrix = glm::translate(mv_matrix, glm::vec3(0.0f, 0.0f, -2.0f));
+	mv_matrix = glm::rotate(mv_matrix, glm::sin((float)time) * 2.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+
+	glUniformMatrix4fv(mov_loc, 1, GL_FALSE, glm::value_ptr(mv_matrix));
+
 	// Draw
 	glDrawArrays(GL_TRIANGLES, 0, (sizeof(Helper::cube_vp) / sizeof(float)) / 3);
 
@@ -131,18 +143,6 @@ int TexturedCube::update(double dtime) {
 	deltaTime = dtime;
 	time += deltaTime;
 	double frameTime = time;
-
-	// Projection Calculation
-	static const float aspect = 1280.0f / 720.0f;
-	glm::mat4 proj_matrix = glm::perspective(1.0472f, aspect, 0.1f, 100.0f);
-	glUniformMatrix4fv(proj_loc, 1, GL_FALSE, glm::value_ptr(proj_matrix));
-
-	// Movement 
-	glm::mat4 mv_matrix = glm::mat4(1.0f);
-	mv_matrix = glm::translate(mv_matrix, glm::vec3(0.0f, 0.0f, -2.0f));
-	mv_matrix = glm::rotate(mv_matrix, glm::sin((float)frameTime) * 2.0f, glm::vec3(0.0f, 1.0f, 0.0f));
-
-	glUniformMatrix4fv(mov_loc, 1, GL_FALSE, glm::value_ptr(mv_matrix));
 
 	return EXIT_SUCCESS;
 }

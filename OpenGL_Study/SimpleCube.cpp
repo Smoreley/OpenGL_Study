@@ -117,17 +117,6 @@ int SimpleCube::render() {
 	// Load shaders into the rendering pipeline
 	glUseProgram(rendering_program);
 
-	// Draw
-	glDrawArrays(GL_TRIANGLES, 0, 36);
-
-	return EXIT_SUCCESS;
-}
-
-int SimpleCube::update(double dtime) {
-	deltaTime = dtime;
-	time += deltaTime;
-	double frameTime = time;
-
 	// Projection into screen space
 	static const float aspect = 1280.0f / 720.0f;
 	glm::mat4 proj = glm::perspective(1.0472f, aspect, 0.1f, 100.0f);
@@ -139,13 +128,23 @@ int SimpleCube::update(double dtime) {
 	mv_matrix = glm::translate(mv_matrix, glm::vec3(
 		0.0f,
 		0.0f,
-		-4.0f + 2 * glm::sin(frameTime)
+		-4.0f + 2 * glm::sin(time)
 	));
 
 	// Rotate along an axis
-	mv_matrix = glm::rotate(mv_matrix, (float)frameTime, glm::vec3(2.0f, 1.0f, 0.0f));
+	mv_matrix = glm::rotate(mv_matrix, (float)time, glm::vec3(2.0f, 1.0f, 0.0f));
 	// Set move uniform
 	glUniformMatrix4fv(mv_location, 1, GL_FALSE, glm::value_ptr(mv_matrix));
+
+	// Draw
+	glDrawArrays(GL_TRIANGLES, 0, 36);
+
+	return EXIT_SUCCESS;
+}
+
+int SimpleCube::update(double dtime) {
+	deltaTime = dtime;
+	time += deltaTime;
 
 	return EXIT_SUCCESS;
 }

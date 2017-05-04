@@ -140,25 +140,25 @@ namespace Helper {
 
 		if (gli::is_compressed(tex.format())) {
 
-			for (std::size_t Level = 0; Level < tex.levels(); ++Level) {
-				glm::tvec3<GLsizei> Extent(tex.extent(Level));
-				glCompressedTexSubImage2D(
-					tex_target, static_cast<GLint>(Level), 0, 0, tex_extent.x, tex_extent.y,
-					tex_format.Internal, static_cast<GLsizei>(tex.size(Level)), tex.data(0, 0, Level)
-				);
-			}
+			//for (std::size_t Level = 0; Level < tex.levels(); ++Level) {
+			//	glm::tvec3<GLsizei> Extent(tex.extent(Level));
+			//	glCompressedTexSubImage2D(
+			//		tex_target, static_cast<GLint>(Level), 0, 0, tex_extent.x, tex_extent.y,
+			//		tex_format.Internal, static_cast<GLsizei>(tex.size(Level)), tex.data(0, 0, Level)
+			//	);
+			//}
 
-			//glCompressedTexSubImage2D(
-			//	tex_target,
-			//	tex_level,
-			//	0,
-			//	0,
-			//	tex_extent.x,
-			//	tex_extent.y,
-			//	tex_format.Internal,
-			//	tex.size(tex_level),
-			//	tex.data(0, 0, tex_level)
-			//);
+			glCompressedTexSubImage2D(
+				tex_target,
+				tex_level,
+				0,
+				0,
+				tex_extent.x,
+				tex_extent.y,
+				tex_format.Internal,
+				tex.size(tex_level),
+				tex.data(0, 0, tex_level)
+			);
 		}
 		else {
 			glTexSubImage2D(tex_target, tex_level, 0, 0,

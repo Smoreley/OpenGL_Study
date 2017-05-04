@@ -103,12 +103,11 @@ int GrassInstanced::update(double dtime) {
 
 
 	// Offset test
-	struct temp {
-		int mine;
-		float yours;
-	} tempor;
-
-	std::cout << "Offset of mine: " << offsetof(temp, yours) << std::endl;
+	//struct temp {
+	//	int mine;
+	//	float yours;
+	//} tempor;
+	//std::cout << "Offset of mine: " << offsetof(temp, yours) << std::endl;
 
 	return EXIT_SUCCESS;
 }
