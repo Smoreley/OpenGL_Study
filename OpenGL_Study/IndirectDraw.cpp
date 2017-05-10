@@ -162,7 +162,7 @@ int IndirectDraw::render() {
 	return EXIT_SUCCESS;
 }
 
-int IndirectDraw::update(double dtime) {
+int IndirectDraw::update(const double dtime) {
 	deltaTime = dtime;
 	time += deltaTime;
 

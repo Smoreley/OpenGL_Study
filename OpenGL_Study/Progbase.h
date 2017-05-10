@@ -21,7 +21,7 @@ public:
 	virtual int start() = 0;
 	virtual int end() = 0;
 	virtual int render() = 0;
-	virtual int update(double dtime) = 0;
+	virtual int update(const double dtime) = 0;
 	void setButtons(button_map bmap) { this->bmap = bmap; }
 
 };

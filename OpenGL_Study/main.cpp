@@ -4,6 +4,8 @@
 
 #include "Timer.h"
 #include "FpsManager.h"
+#include "OpenGLDebugger.h"
+#include <assert.h>
 
 // Custom
 #include "progbase.h"
@@ -18,45 +20,20 @@
 #include "QuadInstanced.h"
 #include "IndirectDraw.h"
 #include "FlyingCamera.h"
+#include "ModelLoading.h"
 
 button_map bmap;
 float gameSpeed = 1;
 bool window_focused = true;		// If the window is in focus or not
+
+// Debug File overwriting
+bool overwrite = true;
 
 // Study
 Progbase* currentStudyProgram;
 std::vector<Progbase*> studyContainer;
 int studyLocation = 0;
 void next(); // Needed to define before use
-
-void APIENTRY OpenglDebugCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParm) {
-	(void)source; (void)type; (void)id;	(void)severity;	(void)length; (void)userParm;
-
-	std::time_t current_time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-	
-	char str[64];
-	ctime_s(str, sizeof(str), &current_time);
-
-	// Get rid of pesky newline character
-	for (int i = 0; i < sizeof(str) / sizeof(char); i++) {
-		if (str[i] == '\n') {
-			str[i] = ' ';
-		}
-	}
-
-	std::ofstream myfile;
-	myfile.open("OpenGL_Study.log", std::ios::app);
-	myfile << "[" << str << "]";
-	myfile << "(" << studyLocation << ")";
-	myfile << message;
-	myfile << "\n";
-	myfile.close();
-
-	// only print to console if it is very sever
-	if (severity == GL_DEBUG_SEVERITY_HIGH) {
-		std::cout << message << std::endl;
-	}
-}
 
 void focus_callback(GLFWwindow* window, int focused) {
 	if (focused) {
@@ -209,7 +186,7 @@ int main(void) {
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 	//glfwWindowHint(GLFW_DECORATED, GL_FALSE);
 
-	// Debug context request
+	// Debug context request (Enabling this will make OpenGL run slower, turn off / comment out in relase builds)
 	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 
 	// Create window 
@@ -235,9 +212,17 @@ int main(void) {
 		return EXIT_FAILURE;
 	}
 
-	// Debug Setup
-	glEnable(GL_DEBUG_OUTPUT);
-	glDebugMessageCallback(OpenglDebugCallback, nullptr);
+	GLint flags;
+	glGetIntegerv(GL_CONTEXT_FLAGS, &flags);
+
+	// If debug initialized successfully
+	if (flags & GL_CONTEXT_FLAG_DEBUG_BIT) {
+
+		// Debug Setup
+		glEnable(GL_DEBUG_OUTPUT);
+		glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+		glDebugMessageCallback(OpenGLDebugger::Callback, nullptr);
+	}
 
 	// Custom print versions
 	printVersion();
@@ -257,6 +242,7 @@ int main(void) {
 	studyContainer.push_back(new QuadInstanced());
 	studyContainer.push_back(new IndirectDraw());
 	studyContainer.push_back(new FlyingCamera());
+	studyContainer.push_back(new ModelLoading());
 
 	// Set current running program and start it
 	currentStudyProgram = studyContainer[0];
@@ -293,21 +279,21 @@ int main(void) {
 		gameTimer.updateTime();
 
 		// Performance Calculation
-		nbFrames++;
-		if (glfwGetTime() - lastTime >= 1.0) {
-			//std::cerr << ((glfwGetTime() - lastTime) * 1000.0) / double(nbFrames) << "\tms/frames" << std::endl;
-			//std::cerr << (1000.0) / double(nbFrames) << "\tms/frames" << std::endl;
-			nbFrames = 0;
-			lastTime += 1.0;
+		//nbFrames++;
+		//if (glfwGetTime() - lastTime >= 1.0) {
+		//	//std::cerr << ((glfwGetTime() - lastTime) * 1000.0) / double(nbFrames) << "\tms/frames" << std::endl;
+		//	//std::cerr << (1000.0) / double(nbFrames) << "\tms/frames" << std::endl;
+		//	nbFrames = 0;
+		//	lastTime += 1.0;
 
-			// Logic Update Calculation
-			std::cerr << "Logic: " << (1000.0) / logicUpdateCount;
-			logicUpdateCount = 0;
+		//	// Logic Update Calculation
+		//	std::cerr << "Logic: " << (1000.0) / logicUpdateCount;
+		//	logicUpdateCount = 0;
 
-			// Render Update Calculation
-			std::cerr << " Render: " << (1000.0) / renderUpdateCount << std::endl;
-			renderUpdateCount = 0;
-		}
+		//	// Render Update Calculation
+		//	std::cerr << " Render: " << (1000.0) / renderUpdateCount << std::endl;
+		//	renderUpdateCount = 0;
+		//}
 
 		// Check if we are behind in gamelogic updating
 		double difference = glfwGetTime() - logicPreviousUpdate;

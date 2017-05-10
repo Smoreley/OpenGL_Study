@@ -121,6 +121,7 @@
     <ClCompile Include="GrassInstanced.cpp" />
     <ClCompile Include="IndirectDraw.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ModelLoading.cpp" />
     <ClCompile Include="MultiCubeRendering.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="QuadInstanced.cpp" />
@@ -137,9 +138,11 @@
     <ClInclude Include="GrassInstanced.h" />
     <ClInclude Include="Helper.h" />
     <ClInclude Include="IndirectDraw.h" />
+    <ClInclude Include="ModelLoading.h" />
     <ClInclude Include="ModifiedPhongModel.h" />
     <ClInclude Include="MultiCubeRendering.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="OpenGLDebugger.h" />
     <ClInclude Include="Progbase.h" />
     <ClInclude Include="PrebuiltPrimitives.h" />
     <ClInclude Include="QuadInstanced.h" />

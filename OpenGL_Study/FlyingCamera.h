@@ -1,5 +1,4 @@
 #pragma once
-#include "Progbase.h"
 
 class FlyingCamera : public  Progbase {
 private:
@@ -42,5 +41,5 @@ public:
 	int start();
 	int end();
 	int render();
-	int update(double);
+	int update(const double);
 };

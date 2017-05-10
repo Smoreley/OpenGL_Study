@@ -72,6 +72,9 @@
     <ClCompile Include="Object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ModelLoading.cpp">
+      <Filter>Source Files\Study Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleTriangle.h">
@@ -133,6 +136,12 @@
     </ClInclude>
     <ClInclude Include="FpsManager.h">
       <Filter>Header Files\Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLDebugger.h">
+      <Filter>Header Files\Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelLoading.h">
+      <Filter>Header Files\Study Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

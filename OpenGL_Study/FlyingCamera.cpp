@@ -1,3 +1,4 @@
+#include "Progbase.h"
 #include "FlyingCamera.h"
 #include "Helper.h"
 
@@ -99,7 +100,7 @@ int FlyingCamera::render() {
 	return EXIT_SUCCESS;
 }
 
-int FlyingCamera::update(double dtime) {
+int FlyingCamera::update(const double dtime) {
 	deltaTime = dtime;
 	time += deltaTime;
 	
