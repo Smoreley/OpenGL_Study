@@ -89,13 +89,13 @@ int FlyingCamera::render() {
 		}
 	}
 
-	//for (int i = 0; i < 80; i++) {
-	//	glm::mat4 mv = glm::mat4(1.0f);
-	//	mv = glm::translate(mv, glm::vec3( (i%7) * glm::sin(i), (i%3), 4.0 * glm::sin(i/3.0f) ));
-	//	glUniformMatrix4fv(mv_location, 1, GL_FALSE, glm::value_ptr(mv));
+	for (int i = 0; i < 80; i++) {
+		glm::mat4 mv = glm::mat4(1.0f);
+		mv = glm::translate(mv, glm::vec3( (i%7) * glm::sin(i), (i%3), 4.0 * glm::sin(i/3.0f) ));
+		glUniformMatrix4fv(mv_location, 1, GL_FALSE, glm::value_ptr(mv));
 
-	//	glDrawArrays(GL_TRIANGLES, 0, (sizeof(Helper::cube_vp) / sizeof(float)) / 3);
-	//}
+		glDrawArrays(GL_TRIANGLES, 0, (sizeof(Helper::cube_vp) / sizeof(float)) / 3);
+	}
 
 	return EXIT_SUCCESS;
 }

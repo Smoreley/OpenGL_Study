@@ -2,7 +2,7 @@
 #include "Helper.h"
 
 int IndirectDraw::start() {
-	std::cout << "Indirect Drawing Study" << std::endl;
+	std::cout << "Indirect Multi Drawing Study" << std::endl;
 
 	// Lets set up array for multi draw
 	GLfloat *myArray;
@@ -17,14 +17,12 @@ int IndirectDraw::start() {
 		myArray[j + (sizeof(Helper::cube_vp) / sizeof(GLfloat))] = Helper::pyramid_vp[j];
 	}
 
-
 	rendering_program = Helper::compileShaders("indirect.vert", "simplecolor.frag");
 
 	// Generate a name for a new array
 	glGenVertexArrays(1, &m_Vao);
 	// Makes the vertex array object active
 	glBindVertexArray(m_Vao);
-
 
 	// Vertex Buffer
 	/*glGenBuffers(1, &vertex_buffer);

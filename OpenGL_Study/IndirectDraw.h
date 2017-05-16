@@ -1,7 +1,6 @@
 #pragma once
 #include "Progbase.h"
 
-
 // The draw command struct for indirect draw
 struct DrawArraysIndirectCommand
 {

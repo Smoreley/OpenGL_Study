@@ -1,29 +1,8 @@
-﻿  main.cpp
+﻿  ModelLoading.cpp
 c:\vs_dev_lib\glm-0.9.7.6\glm\simd\platform.h(106): warning C4005: 'GLM_COMPILER_GCC60': macro redefinition
   c:\vs_dev_lib\glm-0.9.7.6\glm\detail\setup.hpp(156): note: see previous definition of 'GLM_COMPILER_GCC60'
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(47): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(47): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\fpsmanager.h(23): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\fpsmanager.h(73): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\fpsmanager.h(212): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simpletriangle.h(15): warning C4373: 'SimpleTriangle::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
-  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(24): note: see declaration of 'Progbase::update'
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simplecube.h(25): warning C4373: 'SimpleCube::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
-  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(24): note: see declaration of 'Progbase::update'
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simpletransform.h(25): warning C4373: 'SimpleTransform::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
-  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(24): note: see declaration of 'Progbase::update'
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\simpletexture.h(24): warning C4373: 'SimpleTexture::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
-  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(24): note: see declaration of 'Progbase::update'
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\texturedcube.h(24): warning C4373: 'TexturedCube::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
-  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(24): note: see declaration of 'Progbase::update'
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\multicuberendering.h(27): warning C4373: 'MultiCubeRendering::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
-  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(24): note: see declaration of 'Progbase::update'
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\vertexindexing.h(23): warning C4373: 'VertexIndexing::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
-  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(24): note: see declaration of 'Progbase::update'
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\grassinstanced.h(27): warning C4373: 'GrassInstanced::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
-  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(24): note: see declaration of 'Progbase::update'
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\quadinstanced.h(28): warning C4373: 'QuadInstanced::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
-  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(24): note: see declaration of 'Progbase::update'
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\main.cpp(354): warning C4018: '<': signed/unsigned mismatch
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\modelloading.cpp(63): warning C4715: 'ModelLoading::loadFile': not all control paths return a value
   OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.exe
   OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.pdb (Partial PDB)

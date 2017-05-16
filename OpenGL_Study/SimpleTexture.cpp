@@ -47,12 +47,11 @@ int SimpleTexture::start() {
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, NULL);
 	glEnableVertexAttribArray(2);
 
-
 	// Generate Texture
 	//glGenTextures(1, &texture);
 	//glBindTexture(GL_TEXTURE_2D, texture);
 	//glTexStorage2D(GL_TEXTURE_2D, 1, GL_RGBA32F, 256, 256);
-
+	
 	//// Define some data to upload to the texture
 	//float *data = new float[256 * 256 * 4];
 	//generate_texture(data, 256, 256);
