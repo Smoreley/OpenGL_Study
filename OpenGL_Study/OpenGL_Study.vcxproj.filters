@@ -31,6 +31,9 @@
     <Filter Include="Header Files\Custom">
       <UniqueIdentifier>{93608dad-4f43-4115-b220-69eeb08401f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Model">
+      <UniqueIdentifier>{ac450780-b4ea-4768-9189-77ffe64eaa4a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -74,6 +77,9 @@
     </ClCompile>
     <ClCompile Include="ModelLoading.cpp">
       <Filter>Source Files\Study Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Header Files\Model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -144,7 +150,10 @@
       <Filter>Header Files\Study Files</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.h">
-      <Filter>Header Files\Custom</Filter>
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +189,12 @@
     </None>
     <None Include="indirect.vert">
       <Filter>Resource Files\Shader Files\Vertex Files</Filter>
+    </None>
+    <None Include="model.vert">
+      <Filter>Resource Files\Shader Files\Vertex Files</Filter>
+    </None>
+    <None Include="model.frag">
+      <Filter>Resource Files\Shader Files\Fragment Files</Filter>
     </None>
   </ItemGroup>
 </Project>

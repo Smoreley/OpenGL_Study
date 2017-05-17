@@ -1,6 +1,7 @@
 #pragma once
 
 typedef unsigned char uint8;
+class Model;
 
 class ModelLoading : public Progbase
 {
@@ -14,7 +15,11 @@ private:
 	double deltaTime{ 0 };
 	double time{ 0 };
 
-	Model tempor_model;
+	GLuint vao;
+	GLuint vbo;
+
+	Model *m_pModel;
+	Model *m_pModel_tea;
 
 	struct {
 		GLint mv;

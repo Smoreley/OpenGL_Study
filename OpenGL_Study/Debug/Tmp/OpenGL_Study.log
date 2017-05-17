@@ -3,6 +3,6 @@ c:\vs_dev_lib\glm-0.9.7.6\glm\simd\platform.h(106): warning C4005: 'GLM_COMPILER
   c:\vs_dev_lib\glm-0.9.7.6\glm\detail\setup.hpp(156): note: see previous definition of 'GLM_COMPILER_GCC60'
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(47): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(47): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\modelloading.cpp(63): warning C4715: 'ModelLoading::loadFile': not all control paths return a value
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\modelloading.cpp(110): warning C4715: 'ModelLoading::loadFile': not all control paths return a value
   OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.exe
   OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.pdb (Partial PDB)

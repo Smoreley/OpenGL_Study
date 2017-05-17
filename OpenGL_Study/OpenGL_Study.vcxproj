@@ -80,7 +80,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -121,6 +121,7 @@
     <ClCompile Include="GrassInstanced.cpp" />
     <ClCompile Include="IndirectDraw.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Model.cpp" />
     <ClCompile Include="ModelLoading.cpp" />
     <ClCompile Include="MultiCubeRendering.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="Helper.h" />
     <ClInclude Include="IndirectDraw.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Model.h" />
     <ClInclude Include="ModelLoading.h" />
     <ClInclude Include="ModifiedPhongModel.h" />
     <ClInclude Include="MultiCubeRendering.h" />
@@ -164,6 +166,8 @@
     <None Include="grass.vert" />
     <None Include="indirect.vert" />
     <None Include="instanced.vert" />
+    <None Include="model.frag" />
+    <None Include="model.vert" />
     <None Include="multi_texture.frag" />
     <None Include="simplecolor.frag" />
     <None Include="simple.vert" />

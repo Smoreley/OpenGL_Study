@@ -8,15 +8,16 @@ int FlyingCamera::start() {
 	// Program
 	rendering_program = Helper::compileShaders("camera.vert", "depthvisualization.frag");
 
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
-
 	// Uniforms
 	uniform_block_location = glGetUniformBlockIndex(rendering_program, "TransformBlock");
 
 	mv_location = glGetUniformLocation(rendering_program, "u_mv_matrix");
 	proj_location = glGetUniformLocation(rendering_program, "u_proj_matrix");
 	view_location = glGetUniformLocation(rendering_program, "u_view_matrix");
+
+	// Vertex Arrays
+	glGenVertexArrays(1, &vao);
+	glBindVertexArray(vao);
 
 	// Cube Vertex
 	glGenBuffers(1, &vbo);

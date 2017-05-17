@@ -231,16 +231,16 @@ int main(void) {
 	printWindowInfo();
 
 	// Initialize my programs
-	studyContainer.push_back(new SimpleTriangle());
-	studyContainer.push_back(new SimpleCube());
-	studyContainer.push_back(new SimpleTransform());
-	studyContainer.push_back(new SimpleTexture());
-	studyContainer.push_back(new TexturedCube());
-	studyContainer.push_back(new MultiCubeRendering());
-	studyContainer.push_back(new VertexIndexing());
-	studyContainer.push_back(new GrassInstanced());
-	studyContainer.push_back(new QuadInstanced());
-	studyContainer.push_back(new IndirectDraw());
+	//studyContainer.push_back(new SimpleTriangle());
+	//studyContainer.push_back(new SimpleCube());
+	//studyContainer.push_back(new SimpleTransform());
+	//studyContainer.push_back(new SimpleTexture());
+	//studyContainer.push_back(new TexturedCube());
+	//studyContainer.push_back(new MultiCubeRendering());
+	//studyContainer.push_back(new VertexIndexing());
+	//studyContainer.push_back(new GrassInstanced());
+	//studyContainer.push_back(new QuadInstanced());
+	//studyContainer.push_back(new IndirectDraw());
 	studyContainer.push_back(new FlyingCamera());
 	studyContainer.push_back(new ModelLoading());
 
