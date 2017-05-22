@@ -5,9 +5,12 @@ A study in OpenGL and some respective libraries.
 * Visual Studio 2015
 
 ## Libraries
-* glew  (initializing OpenGL)
-* glfw  (window context creation)
-* glm   (mathematics library for graphics)
-* gli   (texture manipulation)
+* glew      (initializing OpenGL)
+* glfw      (window context creation)
+* glm       (mathematics library for graphics)
+* gli       (texture manipulation)
+* assimp    (model loading)
 
-### 
+### Screenshots
+[<img alt="Various Cubes with some depth coloring" src="screenshots/cubedepth.png" width="128">]
+[<img alt="Rendering of a spider and teapot model" src="screenshots/model.png" width="128">]
