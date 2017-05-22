@@ -12,5 +12,5 @@ A study in OpenGL and some respective libraries.
 * assimp    (model loading)
 
 ### Screenshots
-[<img alt="Various Cubes with some depth coloring" src="screenshots/cubedepth.png" width="512">]
-[<img alt="Rendering of a spider and teapot model" src="screenshots/model.png" width="512">]
+<img alt="Various Cubes with some depth coloring" src="screenshots/cubedepth.PNG" width="512">
+<img alt="Rendering of a spider and teapot model" src="screenshots/model.PNG" width="512">
