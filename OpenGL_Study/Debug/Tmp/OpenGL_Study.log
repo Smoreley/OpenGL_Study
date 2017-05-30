@@ -1,8 +1,19 @@
-﻿  ModelLoading.cpp
+﻿  PhysicsCubes.cpp
 c:\vs_dev_lib\glm-0.9.7.6\glm\simd\platform.h(106): warning C4005: 'GLM_COMPILER_GCC60': macro redefinition
   c:\vs_dev_lib\glm-0.9.7.6\glm\detail\setup.hpp(156): note: see previous definition of 'GLM_COMPILER_GCC60'
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(47): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(47): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
-c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\modelloading.cpp(110): warning C4715: 'ModelLoading::loadFile': not all control paths return a value
-  OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.exe
-  OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.pdb (Partial PDB)
+c:\vs_dev_lib\bullet3\src\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\vs_dev_lib\bullet3\src\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\vs_dev_lib\bullet3\src\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+BulletCollision.lib(btDbvtBroadphase.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in FlyingCamera.obj
+BulletCollision.lib(btDbvtBroadphase.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in FlyingCamera.obj
+BulletCollision.lib(btDbvt.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in FlyingCamera.obj
+BulletCollision.lib(btDbvt.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in FlyingCamera.obj
+BulletCollision.lib(btOverlappingPairCache.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in FlyingCamera.obj
+BulletCollision.lib(btOverlappingPairCache.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in FlyingCamera.obj
+LinearMath.lib(btQuickprof.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in FlyingCamera.obj
+LinearMath.lib(btQuickprof.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in FlyingCamera.obj
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Debug\OpenGL_Study.exe : fatal error LNK1319: 8 mismatches detected

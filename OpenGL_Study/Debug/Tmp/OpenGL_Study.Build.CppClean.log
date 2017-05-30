@@ -8,6 +8,7 @@ c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\model.obj
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\modelloading.obj
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\multicuberendering.obj
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\object.obj
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\physicscubes.obj
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\quadinstanced.obj
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\simplecube.obj
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\simpletexture.obj
@@ -15,12 +16,14 @@ c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\simpletransform
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\simpletriangle.obj
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\texturedcube.obj
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\vertexindexing.obj
-c:\users\sauron-lp-s\desktop\opengl_study\debug\opengl_study.ilk
-c:\users\sauron-lp-s\desktop\opengl_study\debug\opengl_study.exe
 c:\users\sauron-lp-s\desktop\opengl_study\debug\opengl_study.pdb
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\opengl_study.tlog\cl.command.1.tlog
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\opengl_study.tlog\cl.read.1.tlog
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\opengl_study.tlog\cl.write.1.tlog
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\opengl_study.tlog\link-cvtres.read.1.tlog
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\opengl_study.tlog\link-cvtres.write.1.tlog
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\opengl_study.tlog\link-rc.read.1.tlog
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\opengl_study.tlog\link-rc.write.1.tlog
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\opengl_study.tlog\link.command.1.tlog
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\opengl_study.tlog\link.read.1.tlog
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\debug\tmp\opengl_study.tlog\link.write.1.tlog

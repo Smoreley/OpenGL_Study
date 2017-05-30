@@ -9,7 +9,7 @@ int FlyingCamera::start() {
 	rendering_program = Helper::compileShaders("camera.vert", "depthvisualization.frag");
 
 	// Uniforms
-	uniform_block_location = glGetUniformBlockIndex(rendering_program, "TransformBlock");
+	//uniform_block_location = glGetUniformBlockIndex(rendering_program, "TransformBlock");
 
 	mv_location = glGetUniformLocation(rendering_program, "u_mv_matrix");
 	proj_location = glGetUniformLocation(rendering_program, "u_proj_matrix");

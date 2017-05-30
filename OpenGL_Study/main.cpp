@@ -21,6 +21,7 @@
 #include "IndirectDraw.h"
 #include "FlyingCamera.h"
 #include "ModelLoading.h"
+#include "PhysicsCubes.h"
 
 button_map bmap;
 float gameSpeed = 1;
@@ -51,6 +52,12 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		std::cout << "N WAS PRESSED" << std::endl;
 		next();
 	}
+
+	// TODO: add imgui implementation
+	if (key == GLFW_KEY_GRAVE_ACCENT && action == GLFW_PRESS) {
+		std::cout << "OH NO! We do not have IMGUI implemented yet so nothing happens when you press that button." << std::endl;
+	}
+
 
 	// Hit escape key to exit window
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
@@ -243,6 +250,7 @@ int main(void) {
 	//studyContainer.push_back(new IndirectDraw());
 	studyContainer.push_back(new FlyingCamera());
 	studyContainer.push_back(new ModelLoading());
+	studyContainer.push_back(new PhysicsCubes());
 
 	// Set current running program and start it
 	currentStudyProgram = studyContainer[0];

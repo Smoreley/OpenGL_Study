@@ -69,18 +69,24 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\vs_dev_lib\Assimp\include;C:\vs_dev_lib\gli-0.8.2.0;C:\vs_dev_lib\glm-0.9.7.6;C:\vs_dev_lib\glew-2.0.0\include;C:\vs_dev_lib\glfw-3.2.1\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\vs_dev_lib\Assimp\lib\x86;C:\vs_dev_lib\glew-2.0.0\lib\Release\x86;C:\vs_dev_lib\glfw-3.2.1\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\vs_dev_lib\bullet3\src;C:\vs_dev_lib\Assimp\include;C:\vs_dev_lib\gli-0.8.2.0;C:\vs_dev_lib\glm-0.9.7.6;C:\vs_dev_lib\glew-2.0.0\include;C:\vs_dev_lib\glfw-3.2.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\vs_dev_lib\bullet3\generated\msvs_2015\lib_x86\Release;C:\vs_dev_lib\Assimp\lib\x86;C:\vs_dev_lib\glew-2.0.0\lib\Release\x86;C:\vs_dev_lib\glfw-3.2.1\lib\x86;$(LibraryPath)</LibraryPath>
     <IntDir>$(Configuration)\Tmp\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LibraryPath>C:\vs_dev_lib\bullet3\generated\msvs_2015\lib_x86\Release;C:\vs_dev_lib\Assimp\lib\x86;C:\vs_dev_lib\glew-2.0.0\lib\Release\x86;C:\vs_dev_lib\glfw-3.2.1\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\vs_dev_lib\bullet3\src;C:\vs_dev_lib\Assimp\include;C:\vs_dev_lib\gli-0.8.2.0;C:\vs_dev_lib\glm-0.9.7.6;C:\vs_dev_lib\glew-2.0.0\include;C:\vs_dev_lib\glfw-3.2.1\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;assimp.lib;Bullet3Common.lib;BulletSoftBody.lib;BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -101,6 +107,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;assimp.lib;Bullet3Common.lib;BulletSoftBody.lib;BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -125,6 +132,7 @@
     <ClCompile Include="ModelLoading.cpp" />
     <ClCompile Include="MultiCubeRendering.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="PhysicsCubes.cpp" />
     <ClCompile Include="QuadInstanced.cpp" />
     <ClCompile Include="SimpleCube.cpp" />
     <ClCompile Include="SimpleTexture.cpp" />
@@ -146,6 +154,7 @@
     <ClInclude Include="MultiCubeRendering.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="OpenGLDebugger.h" />
+    <ClInclude Include="PhysicsCubes.h" />
     <ClInclude Include="Progbase.h" />
     <ClInclude Include="PrebuiltPrimitives.h" />
     <ClInclude Include="QuadInstanced.h" />

@@ -81,6 +81,9 @@
     <ClCompile Include="Model.cpp">
       <Filter>Header Files\Model</Filter>
     </ClCompile>
+    <ClCompile Include="PhysicsCubes.cpp">
+      <Filter>Source Files\Study Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleTriangle.h">
@@ -154,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="Model.h">
       <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsCubes.h">
+      <Filter>Header Files\Study Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

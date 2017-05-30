@@ -15,7 +15,6 @@ float LinearizeDepth(float depth)
     return (2.0 * near * far) / (far + near - z * (far - near));	
 }
 
-
 float FallOff(float dist)
 {
 	// if a = 1 then no fall-off, instead it is constant
@@ -35,21 +34,21 @@ void main(void)
 	//float depth = LinearizeDepth(gl_FragCoord.z) / far;
 
 	// Fall-off depth
-	float depth = FallOff(gl_FragCoord.w * 100.0);
+	// float depth = FallOff(gl_FragCoord.w * 100.0);
 
 	// Simple Depth
-	depth = 1.0 - (gl_FragCoord.z/gl_FragCoord.w) / 100.0;
+	// depth = 1.0 - (gl_FragCoord.z/gl_FragCoord.w) / 1.0;
 
 	// Fog
 	const float LOG2 = 1.442695;
 	float z = gl_FragCoord.z / gl_FragCoord.w;
-	float density = 0.4;
+	float density = 0.3;
 
 	float fogFactor = exp2(-density * density * z * z * LOG2);
 	fogFactor = clamp(fogFactor, 0.0, 1.0);
 
-	vec3 fogColor = vec3(0.5, 0.0, 0.0);
-	vec3 otherColor = vec3(0.0, 0.0, 1.0);
+	vec3 fogColor = vec3(0.1, 0.1, 0.1);
+	vec3 otherColor = vec3(0.0, gl_FragCoord.w/3.0, 1.0);
 
 	color = vec4(mix(fogColor, otherColor, fogFactor), 1.0);
 
