@@ -9,6 +9,9 @@ class btDiscreteDynamicsWorld;
 class btCollisionShape;
 class btRigidBody;
 
+// Custom bullet debug
+class BulletDebugRender;
+
 class PhysicsCubes : public Progbase {
 public:
 
@@ -41,5 +44,11 @@ private:
 
 	btRigidBody* groundRigidBody;
 	btRigidBody* ballRigidBody;
+
+	// Tempor object placement with physics hookup
+	float y_pos;
+
+	// Debug renderer for bullet
+	BulletDebugRender* m_BulletDebug;
 
 };

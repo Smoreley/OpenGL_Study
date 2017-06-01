@@ -47,7 +47,7 @@ void main(void)
 	float fogFactor = exp2(-density * density * z * z * LOG2);
 	fogFactor = clamp(fogFactor, 0.0, 1.0);
 
-	vec3 fogColor = vec3(0.1, 0.1, 0.1);
+	vec3 fogColor = vec3(0.2, 0.2, 0.2);
 	vec3 otherColor = vec3(0.0, gl_FragCoord.w/3.0, 1.0);
 
 	color = vec4(mix(fogColor, otherColor, fogFactor), 1.0);

@@ -60,6 +60,12 @@ public:
 
 		// Draw Mesh
 		glBindVertexArray(VAO);
+
+		if (m_wireframeMode) {
+			glLineWidth(1.0f);
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		}
+
 		glDrawElements(GL_TRIANGLES, m_indices.size(), GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 
@@ -71,11 +77,16 @@ public:
 
 	}
 
+	void setWireframe(bool wireframe) { m_wireframeMode = wireframe; }
+
 private:
 	/* Render Data */
 	GLuint VAO, VBO, EBO;
-	
+	bool m_wireframeMode;
+
 	void SetupMesh() {
+		m_wireframeMode = false;
+
 		// Create buffers & arrays
 		glGenVertexArrays(1, &VAO);
 		glGenBuffers(1, &VBO);

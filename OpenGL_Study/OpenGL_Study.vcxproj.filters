@@ -84,6 +84,9 @@
     <ClCompile Include="PhysicsCubes.cpp">
       <Filter>Source Files\Study Source</Filter>
     </ClCompile>
+    <ClCompile Include="BulletDebugRender.cpp">
+      <Filter>Header Files\Custom</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleTriangle.h">
@@ -161,6 +164,9 @@
     <ClInclude Include="PhysicsCubes.h">
       <Filter>Header Files\Study Files</Filter>
     </ClInclude>
+    <ClInclude Include="BulletDebugRender.h">
+      <Filter>Header Files\Custom</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="simplecolor.frag">
@@ -201,6 +207,9 @@
     </None>
     <None Include="model.frag">
       <Filter>Resource Files\Shader Files\Fragment Files</Filter>
+    </None>
+    <None Include="line.vert">
+      <Filter>Resource Files\Shader Files\Vertex Files</Filter>
     </None>
   </ItemGroup>
 </Project>

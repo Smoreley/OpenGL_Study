@@ -124,6 +124,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BulletDebugRender.cpp" />
     <ClCompile Include="FlyingCamera.cpp" />
     <ClCompile Include="GrassInstanced.cpp" />
     <ClCompile Include="IndirectDraw.cpp" />
@@ -142,6 +143,7 @@
     <ClCompile Include="VertexIndexing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BulletDebugRender.h" />
     <ClInclude Include="FlyingCamera.h" />
     <ClInclude Include="FpsManager.h" />
     <ClInclude Include="GrassInstanced.h" />
@@ -175,6 +177,7 @@
     <None Include="grass.vert" />
     <None Include="indirect.vert" />
     <None Include="instanced.vert" />
+    <None Include="line.vert" />
     <None Include="model.frag" />
     <None Include="model.vert" />
     <None Include="multi_texture.frag" />
