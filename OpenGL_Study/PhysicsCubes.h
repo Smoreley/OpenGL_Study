@@ -12,6 +12,9 @@ class btRigidBody;
 // Custom bullet debug
 class BulletDebugRender;
 
+// Custom Camera
+class Camera;
+
 class PhysicsCubes : public Progbase {
 public:
 
@@ -49,6 +52,10 @@ private:
 	float y_pos;
 
 	// Debug renderer for bullet
-	BulletDebugRender* m_BulletDebug;
+	BulletDebugRender* m_bulletDebug;
+
+	// Camera Class
+	Camera* m_camera;
+	float angle;
 
 };

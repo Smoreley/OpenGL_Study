@@ -1,4 +1,6 @@
 #include "Progbase.h"
+#include "Camera.h"
+
 #include "FlyingCamera.h"
 #include "Helper.h"
 
@@ -48,6 +50,9 @@ int FlyingCamera::start() {
 			grid[i] = false;
 	}
 
+	// Camera Setup
+	m_camera = new Camera();
+
 	return EXIT_SUCCESS;
 }
 
@@ -59,6 +64,8 @@ int FlyingCamera::end() {
 
 	// Delete the grid
 	delete[] grid;
+
+	delete m_camera;
 
 	return EXIT_SUCCESS;
 }
@@ -73,11 +80,12 @@ int FlyingCamera::render() {
 	glUseProgram(rendering_program);
 
 	// Projection Matrix
-	glm::mat4 proj = glm::perspective(1.0472f, 1280.0f / 720.0f, 0.1f, 100.0f);
-	glUniformMatrix4fv(proj_location, 1, GL_FALSE, glm::value_ptr(proj));
+	//glm::mat4 proj = glm::perspective(1.0472f, 1280.0f / 720.0f, 0.1f, 100.0f);
+	//glUniformMatrix4fv(proj_location, 1, GL_FALSE, glm::value_ptr(m_camera->GetProjectionMatrix()));
 
-	// View
-	glUniformMatrix4fv(view_location, 1, GL_FALSE, glm::value_ptr(view));
+	// Camera Matrix (Projection * View)
+	//glUniformMatrix4fv(view_location, 1, GL_FALSE, glm::value_ptr(view));
+	glUniformMatrix4fv(view_location, 1, GL_FALSE, glm::value_ptr(m_camera->GetMatrix()));
 
 	// Display the Grid
 	for (int i = 0; i < grid_size * grid_size; i++) {
@@ -117,17 +125,20 @@ int FlyingCamera::update(const double dtime) {
 	camera_forward = glm::vec3(sin(angle), 0.0f, cos(angle));
 	camera_forward = glm::normalize(camera_forward);
 
-	if (bmap.left)
-		camera_pos += glm::normalize(glm::cross(camera_forward, camera_up));
-	if (bmap.right)
-		camera_pos -= glm::normalize(glm::cross(camera_forward, camera_up));
+	//if (bmap.left)
+	//	camera_pos += glm::normalize(glm::cross(camera_forward, camera_up));
+	//if (bmap.right)
+	//	camera_pos -= glm::normalize(glm::cross(camera_forward, camera_up));
 
 	if (bmap.up)
 		camera_pos += camera_forward * glm::vec3(deltaTime * walkSpeed);
 	if (bmap.down)
 		camera_pos -= camera_forward * glm::vec3(deltaTime * walkSpeed);
 
-	view = glm::lookAt(camera_pos, camera_pos + camera_forward, camera_up);
+	//view = glm::lookAt(camera_pos, camera_pos + camera_forward, camera_up);
+	m_camera->SetPosition(camera_pos);
+	m_camera->SetLookAtTarget(camera_pos + camera_forward);
+	m_camera->SetUpVector(camera_up);
 
 
 	// Crazy math function Test (constant, linear, and quadratic fall-off)

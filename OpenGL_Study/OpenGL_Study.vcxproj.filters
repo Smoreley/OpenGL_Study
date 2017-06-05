@@ -87,6 +87,9 @@
     <ClCompile Include="BulletDebugRender.cpp">
       <Filter>Header Files\Custom</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Header Files\Custom</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleTriangle.h">
@@ -165,6 +168,9 @@
       <Filter>Header Files\Study Files</Filter>
     </ClInclude>
     <ClInclude Include="BulletDebugRender.h">
+      <Filter>Header Files\Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
       <Filter>Header Files\Custom</Filter>
     </ClInclude>
   </ItemGroup>

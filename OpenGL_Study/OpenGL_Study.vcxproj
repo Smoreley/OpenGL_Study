@@ -125,6 +125,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BulletDebugRender.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="FlyingCamera.cpp" />
     <ClCompile Include="GrassInstanced.cpp" />
     <ClCompile Include="IndirectDraw.cpp" />
@@ -144,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BulletDebugRender.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="FlyingCamera.h" />
     <ClInclude Include="FpsManager.h" />
     <ClInclude Include="GrassInstanced.h" />

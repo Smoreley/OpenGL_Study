@@ -1,12 +1,11 @@
 #pragma once
-//#include <btBulletDynamicsCommon.h>
 #include <LinearMath/btIDebugDraw.h>
-#include <iostream>
+
 
 class BulletDebugRender : public btIDebugDraw {
 public:
-	//BulletDebugRender(void) {}
-	//virtual ~BulletDebugRender(void) {}
+	BulletDebugRender(void);
+	~BulletDebugRender(void);
 
 	virtual void drawLine(const btVector3& from, const btVector3& to, const btVector3& color);
 	virtual void drawLine(const btVector3& from, const btVector3& to, const btVector3& fromColor, const btVector3& toColor);
@@ -18,39 +17,22 @@ public:
 	virtual void setDebugMode(int debugMode) { m_debugMode = (DebugDrawModes)debugMode; };
 	virtual int getDebugMode() const { return m_debugMode; }
 
-	void Test_init() {
+	void RenderMe();
 
-		line_program = Helper::compileShaders("line.vert", "simplecolor.frag");
-
-		glGenVertexArrays(1, &temp_vao);
-		glGenBuffers(1, &temp_vbo);
-
-		const GLfloat line_vp[] = {
-			0.0f, 0.0f, 1.0f,
-			1.0f, 1.0f, 1.0f,
-		};
-
-		glBindVertexArray(temp_vao);
-		glBindBuffer(GL_ARRAY_BUFFER, temp_vbo);
-
-		glBufferData(GL_ARRAY_BUFFER, sizeof(line_vp), &line_vp, GL_STATIC_DRAW);
-
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-		glEnableVertexAttribArray(0);
-
-	}
-
-	void Test_rend() {
-		
-		glUseProgram(line_program);
-		glBindVertexArray(temp_vao);
-		glDrawArrays(GL_LINE_LOOP, 0, 2);
-		glBindVertexArray(0);			// Set vertex array to null
-
-	}
+	void SetCamera(Camera* cam) { m_camera = cam; }
 
 private:
 	DebugDrawModes m_debugMode;
-	GLuint temp_vao, temp_vbo;
 	GLuint line_program;
+	GLuint temp_vao, temp_vbo;
+
+	// Uniforms
+	GLuint m_modelViewLocation;
+	GLuint m_projectionLocation;
+	GLuint m_viewLocation;
+
+	std::vector<GLfloat> myLines;
+	GLfloat* tempArray;
+
+	Camera* m_camera;
 };

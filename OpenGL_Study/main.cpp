@@ -224,7 +224,6 @@ int main(void) {
 
 	// If debug initialized successfully
 	if (flags & GL_CONTEXT_FLAG_DEBUG_BIT) {
-
 		// Debug Setup
 		glEnable(GL_DEBUG_OUTPUT);
 		glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);

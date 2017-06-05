@@ -1,6 +1,14 @@
 #pragma once
 
+class Camera;
+
 class FlyingCamera : public  Progbase {
+public:
+	int start();
+	int end();
+	int render();
+	int update(const double);
+
 private:
 	double deltaTime;
 	double time;
@@ -37,9 +45,7 @@ private:
 	//bool grid[grid_size][grid_size];
 	bool* grid;
 
-public:
-	int start();
-	int end();
-	int render();
-	int update(const double);
+	// Camera
+	Camera* m_camera;
+	
 };
