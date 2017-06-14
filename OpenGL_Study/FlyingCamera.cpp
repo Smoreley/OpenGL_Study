@@ -122,7 +122,7 @@ int FlyingCamera::update(const double dtime) {
 		angle -= deltaTime * turningSpeed;
 	}
 
-	camera_forward = glm::vec3(sin(angle), 0.0f, cos(angle));
+	camera_forward = vec3(sin(angle), 0.0f, cos(angle));
 	camera_forward = glm::normalize(camera_forward);
 
 	//if (bmap.left)
@@ -131,9 +131,9 @@ int FlyingCamera::update(const double dtime) {
 	//	camera_pos -= glm::normalize(glm::cross(camera_forward, camera_up));
 
 	if (bmap.up)
-		camera_pos += camera_forward * glm::vec3(deltaTime * walkSpeed);
+		camera_pos += camera_forward * vec3(deltaTime * walkSpeed);
 	if (bmap.down)
-		camera_pos -= camera_forward * glm::vec3(deltaTime * walkSpeed);
+		camera_pos -= camera_forward * vec3(deltaTime * walkSpeed);
 
 	//view = glm::lookAt(camera_pos, camera_pos + camera_forward, camera_up);
 	m_camera->SetPosition(camera_pos);

@@ -22,6 +22,7 @@
 #include "FlyingCamera.h"
 #include "ModelLoading.h"
 #include "PhysicsCubes.h"
+#include "TransformFeedback.h"
 
 button_map bmap;
 float gameSpeed = 1;
@@ -250,6 +251,7 @@ int main(void) {
 	studyContainer.push_back(new FlyingCamera());
 	studyContainer.push_back(new ModelLoading());
 	studyContainer.push_back(new PhysicsCubes());
+	studyContainer.push_back(new TransformFeedback());
 
 	// Set current running program and start it
 	currentStudyProgram = studyContainer[0];

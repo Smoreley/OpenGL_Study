@@ -34,6 +34,9 @@
     <Filter Include="Header Files\Model">
       <UniqueIdentifier>{ac450780-b4ea-4768-9189-77ffe64eaa4a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Shader Files\TransformFeedback">
+      <UniqueIdentifier>{0fa1040a-2212-4a38-9d51-3fd6db72c546}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -89,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Header Files\Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformFeedback.cpp">
+      <Filter>Source Files\Study Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +179,9 @@
     <ClInclude Include="Camera.h">
       <Filter>Header Files\Custom</Filter>
     </ClInclude>
+    <ClInclude Include="TransformFeedback.h">
+      <Filter>Header Files\Study Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="simplecolor.frag">
@@ -216,6 +225,15 @@
     </None>
     <None Include="line.vert">
       <Filter>Resource Files\Shader Files\Vertex Files</Filter>
+    </None>
+    <None Include="feedback_render.vert">
+      <Filter>Resource Files\Shader Files\TransformFeedback</Filter>
+    </None>
+    <None Include="feedback.frag">
+      <Filter>Resource Files\Shader Files\TransformFeedback</Filter>
+    </None>
+    <None Include="feedback_update.vert">
+      <Filter>Resource Files\Shader Files\TransformFeedback</Filter>
     </None>
   </ItemGroup>
 </Project>

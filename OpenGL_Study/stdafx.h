@@ -27,6 +27,14 @@
 #include <glm/matrix.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+/* TypeDefs for some math variables */
+typedef glm::vec3 vec3;
+typedef glm::vec4 vec4;
+typedef glm::mat4x4 mat4x4;
+//typedef glm::ivec3 ivec3;
+typedef glm::ivec4 ivec4;
+
+
 /* Include GLI (Image Loading) */
 #include <gli/gli.hpp>
 
@@ -42,7 +50,6 @@ static int monitor_res_width, monitor_res_height;
 const int SCREEN_FPS = 30;
 const float SCREEN_TICKS_PER_FRAME = 1.0f / SCREEN_FPS;
 
-
 // Rendering Stuff
-static const GLfloat clear_color[] = { 0.0, 0.0, 0.1, 1.0 };
+static const GLfloat clear_color[] = { 0.0, 0.1, 0.2, 1.0 };
 static const GLfloat one = 1.0f;

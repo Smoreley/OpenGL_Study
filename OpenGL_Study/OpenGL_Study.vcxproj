@@ -141,6 +141,7 @@
     <ClCompile Include="SimpleTransform.cpp" />
     <ClCompile Include="SimpleTriangle.cpp" />
     <ClCompile Include="TexturedCube.cpp" />
+    <ClCompile Include="TransformFeedback.cpp" />
     <ClCompile Include="VertexIndexing.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -170,12 +171,15 @@
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TexturedCube.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="TransformFeedback.h" />
     <ClInclude Include="VertexIndexing.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="camera.vert" />
     <None Include="config.ini" />
     <None Include="depthvisualization.frag" />
+    <None Include="feedback.frag" />
+    <None Include="feedback_update.vert" />
     <None Include="grass.vert" />
     <None Include="indirect.vert" />
     <None Include="instanced.vert" />
@@ -183,6 +187,7 @@
     <None Include="model.frag" />
     <None Include="model.vert" />
     <None Include="multi_texture.frag" />
+    <None Include="feedback_render.vert" />
     <None Include="simplecolor.frag" />
     <None Include="simple.vert" />
     <None Include="transform.vert" />

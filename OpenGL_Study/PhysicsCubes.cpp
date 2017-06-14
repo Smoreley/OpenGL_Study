@@ -36,6 +36,7 @@ int PhysicsCubes::start() {
 	m_camera->SetPosition(glm::vec3(0, 2, 2));
 	m_camera->SetUpVector(glm::vec3(0.0f, 1.0f, 0.0f));
 	m_camera->SetLookAtTarget(glm::vec3(0.0));
+	m_camera->SetFarClipPlane(500.0f);
 
 	/* Physics */
 	broadphase = new btDbvtBroadphase();
@@ -100,6 +101,7 @@ int PhysicsCubes::end() {
 	delete m_camera;
 
 	/* Cleanup rendering stuff */
+	glBindVertexArray(0);
 	glUseProgram(0);
 	glDeleteVertexArrays(1, &m_vao);
 	glDeleteProgram(rendering_program);
@@ -112,7 +114,6 @@ int PhysicsCubes::render() {
 	glClearBufferfv(GL_COLOR, 0, clear_color);
 	glClearBufferfv(GL_DEPTH, 0, &one);
 
-
 	/* Render */
 	glUseProgram(rendering_program);
 	glBindVertexArray(m_vao);
@@ -121,13 +122,10 @@ int PhysicsCubes::render() {
 	//glm::mat4 proj = glm::perspective(1.0472f, 1280.0f / 720.0f, 0.1f, 100.0f);
 	//glUniformMatrix4fv(m_projectionLocation, 1, GL_FALSE, glm::value_ptr(proj));
 
-
 	//glUniformMatrix4fv(m_projectionLocation, 1, GL_FALSE, glm::value_ptr(m_camera->GetProjectionMatrix()));
 	//glUniformMatrix4fv(m_viewLocation, 1, GL_FALSE, glm::value_ptr(m_camera->GetViewMatrix()));
 
 	glUniformMatrix4fv(m_viewLocation, 1, GL_FALSE, glm::value_ptr(m_camera->GetMatrix()));
-
-
 
 	// Model View
 	glm::mat4 mv = glm::mat4(1.0f);
@@ -138,13 +136,11 @@ int PhysicsCubes::render() {
 	//glLineWidth(1.0f);
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glDrawArrays(GL_TRIANGLES, 0, (sizeof(Helper::cube_vp) / sizeof(float)) / 3);
-	
 
 	// Drawing line
 	//m_BulletDebug->Test_rend();
 	dynamicWorld->debugDrawWorld();
 	m_bulletDebug->RenderMe();
-
 
 	return EXIT_SUCCESS;
 }
