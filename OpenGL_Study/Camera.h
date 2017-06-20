@@ -8,14 +8,14 @@ public:
 	~Camera();
 
 	/* Getters */
-	mat4x4 GetProjectionMatrix() const { return m_projection; }
-	mat4x4 GetViewMatrix() const { return m_view; }
+	mat4 GetProjectionMatrix() const { return m_projection; }
+	mat4 GetViewMatrix() const { return m_view; }
 
 	vec3 GetPosition() { return m_position; }
 	vec3 GetLookAtTarget() { return m_lookAtTarget; }
 	vec3 GetUpVector() { return m_UpVector; }
 
-	mat4x4 GetMatrix();
+	mat4 GetMatrix();
 
 
 	/* Setters */
@@ -44,8 +44,8 @@ private:
 	vec3 m_UpVector;			// Camera UpVector
 
 
-	mat4x4 m_projection;			// Projection Matrix (perspective)
-	mat4x4 m_view;				// Camera View Matrix (position)
+	mat4 m_projection;			// Projection Matrix (perspective)
+	mat4 m_view;				// Camera View Matrix (position)
 
 	// Uniforms
 	GLuint m_viewUniform;

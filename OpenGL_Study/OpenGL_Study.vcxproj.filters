@@ -37,6 +37,12 @@
     <Filter Include="Resource Files\Shader Files\TransformFeedback">
       <UniqueIdentifier>{0fa1040a-2212-4a38-9d51-3fd6db72c546}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Shader Files\ClipDistance">
+      <UniqueIdentifier>{3b53cfde-c227-46d5-807d-56b7e96346e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shader Files\Model">
+      <UniqueIdentifier>{51f3400c-ead6-494c-a3a7-60a5b36ee911}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -94,6 +100,9 @@
       <Filter>Header Files\Custom</Filter>
     </ClCompile>
     <ClCompile Include="TransformFeedback.cpp">
+      <Filter>Source Files\Study Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ClipDistance.cpp">
       <Filter>Source Files\Study Source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -182,6 +191,12 @@
     <ClInclude Include="TransformFeedback.h">
       <Filter>Header Files\Study Files</Filter>
     </ClInclude>
+    <ClInclude Include="ClipDistance.h">
+      <Filter>Header Files\Study Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectsInclude.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="simplecolor.frag">
@@ -217,12 +232,6 @@
     <None Include="indirect.vert">
       <Filter>Resource Files\Shader Files\Vertex Files</Filter>
     </None>
-    <None Include="model.vert">
-      <Filter>Resource Files\Shader Files\Vertex Files</Filter>
-    </None>
-    <None Include="model.frag">
-      <Filter>Resource Files\Shader Files\Fragment Files</Filter>
-    </None>
     <None Include="line.vert">
       <Filter>Resource Files\Shader Files\Vertex Files</Filter>
     </None>
@@ -234,6 +243,18 @@
     </None>
     <None Include="feedback_update.vert">
       <Filter>Resource Files\Shader Files\TransformFeedback</Filter>
+    </None>
+    <None Include="clip.vert">
+      <Filter>Resource Files\Shader Files\ClipDistance</Filter>
+    </None>
+    <None Include="model.frag">
+      <Filter>Resource Files\Shader Files\Model</Filter>
+    </None>
+    <None Include="model.vert">
+      <Filter>Resource Files\Shader Files\Model</Filter>
+    </None>
+    <None Include="clip.frag">
+      <Filter>Resource Files\Shader Files\ClipDistance</Filter>
     </None>
   </ItemGroup>
 </Project>

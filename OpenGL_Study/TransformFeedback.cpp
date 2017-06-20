@@ -5,7 +5,6 @@
 /* Forward-declaration */
 void load_shader(GLuint& m_updateProgram);
 
-
 enum BUFFER_TYPE
 {
 	POS_A,

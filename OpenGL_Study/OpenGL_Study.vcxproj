@@ -126,6 +126,7 @@
   <ItemGroup>
     <ClCompile Include="BulletDebugRender.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="ClipDistance.cpp" />
     <ClCompile Include="FlyingCamera.cpp" />
     <ClCompile Include="GrassInstanced.cpp" />
     <ClCompile Include="IndirectDraw.cpp" />
@@ -147,6 +148,7 @@
   <ItemGroup>
     <ClInclude Include="BulletDebugRender.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="ClipDistance.h" />
     <ClInclude Include="FlyingCamera.h" />
     <ClInclude Include="FpsManager.h" />
     <ClInclude Include="GrassInstanced.h" />
@@ -162,6 +164,7 @@
     <ClInclude Include="PhysicsCubes.h" />
     <ClInclude Include="Progbase.h" />
     <ClInclude Include="PrebuiltPrimitives.h" />
+    <ClInclude Include="ProjectsInclude.h" />
     <ClInclude Include="QuadInstanced.h" />
     <ClInclude Include="SimpleCube.h" />
     <ClInclude Include="SimpleTexture.h" />
@@ -176,6 +179,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="camera.vert" />
+    <None Include="clip.frag" />
+    <None Include="clip.vert" />
     <None Include="config.ini" />
     <None Include="depthvisualization.frag" />
     <None Include="feedback.frag" />

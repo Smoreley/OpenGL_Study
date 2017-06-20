@@ -1,28 +1,11 @@
 #include "stdafx.h"
-//#include <thread>
-//#include <chrono>
 
 #include "Timer.h"
 #include "FpsManager.h"
 #include "OpenGLDebugger.h"
 #include <assert.h>
 
-// Custom
-#include "progbase.h"
-#include "SimpleTriangle.h"
-#include "SimpleCube.h"
-#include "SimpleTransform.h"
-#include "SimpleTexture.h"
-#include "TexturedCube.h"
-#include "MultiCubeRendering.h"
-#include "VertexIndexing.h"
-#include "GrassInstanced.h"
-#include "QuadInstanced.h"
-#include "IndirectDraw.h"
-#include "FlyingCamera.h"
-#include "ModelLoading.h"
-#include "PhysicsCubes.h"
-#include "TransformFeedback.h"
+#include "ProjectsInclude.h"
 
 button_map bmap;
 float gameSpeed = 1;
@@ -252,6 +235,7 @@ int main(void) {
 	studyContainer.push_back(new ModelLoading());
 	studyContainer.push_back(new PhysicsCubes());
 	studyContainer.push_back(new TransformFeedback());
+	studyContainer.push_back(new ClipDistance());
 
 	// Set current running program and start it
 	currentStudyProgram = studyContainer[0];

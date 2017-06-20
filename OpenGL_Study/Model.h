@@ -105,8 +105,6 @@ private:
 		// Proccess Materials
 		if (mesh->mMaterialIndex >= 0) {
 			aiMaterial* mat = scene->mMaterials[mesh->mMaterialIndex];
-
-
 		}
 
 		return Mesh(vertices, indices, textures);

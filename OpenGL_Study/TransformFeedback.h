@@ -29,7 +29,7 @@ private:
 	GLuint m_viewLocation;
 
 	int m_clothPointsTotal;
-	int m_clothPointsX{ 10 };
-	int m_clothPointsY{ 10 };
+	int m_clothPointsX{ 20 };
+	int m_clothPointsY{ 20 };
 
 };

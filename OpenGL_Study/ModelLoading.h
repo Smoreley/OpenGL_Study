@@ -30,11 +30,9 @@ private:
 
 	std::string m_fileName;
 
-
 	uint8 loadFile(const std::string &);
 
 };
-
 
 //struct ModelStructure {
 //	glm::vec3 vert;

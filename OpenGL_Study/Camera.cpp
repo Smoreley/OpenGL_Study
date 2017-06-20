@@ -9,7 +9,7 @@ Camera::Camera(unsigned int fov, vec3 pos, vec3 lookAtTarget) : m_fieldOfView(fo
 	m_projection = glm::perspectiveFov(glm::radians((float)m_fieldOfView), m_pixelWidth, m_pixelHeight, m_nearClipPlane, m_farClipPlane);
 
 	float r = 10.0f;
-	mat4x4 view = glm::mat4(1.0f);
+	mat4 view = glm::mat4(1.0f);
 	view = glm::lookAt(
 		vec3(r, 5.0f, r),
 		vec3(0.0f),
@@ -22,11 +22,11 @@ Camera::~Camera() {
 
 }
 
-mat4x4 Camera::GetMatrix() {
+mat4 Camera::GetMatrix() {
 	// Combines projection and view matrixes together
 
 	float r = 10.0f;
-	mat4x4 view = mat4x4(1.0f);
+	mat4 view = mat4(1.0f);
 	view = glm::lookAt(
 		vec3(r, 5.0f, r),
 		vec3(0.0f),
