@@ -34,14 +34,20 @@
     <Filter Include="Header Files\Model">
       <UniqueIdentifier>{ac450780-b4ea-4768-9189-77ffe64eaa4a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files\Shader Files\TransformFeedback">
+    <Filter Include="Resource Files\Shader Files\Sections">
+      <UniqueIdentifier>{1885a35b-d13e-41ef-94d4-17df785d909f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shader Files\Sections\TransformFeedback">
       <UniqueIdentifier>{0fa1040a-2212-4a38-9d51-3fd6db72c546}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files\Shader Files\ClipDistance">
+    <Filter Include="Resource Files\Shader Files\Sections\3dModel">
+      <UniqueIdentifier>{51f3400c-ead6-494c-a3a7-60a5b36ee911}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shader Files\Sections\ClipDistance">
       <UniqueIdentifier>{3b53cfde-c227-46d5-807d-56b7e96346e5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files\Shader Files\Model">
-      <UniqueIdentifier>{51f3400c-ead6-494c-a3a7-60a5b36ee911}</UniqueIdentifier>
+    <Filter Include="Resource Files\Shader Files\Sections\TessellationTerrain">
+      <UniqueIdentifier>{c699b993-b44c-4b20-8457-aadb65f40757}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +109,9 @@
       <Filter>Source Files\Study Source</Filter>
     </ClCompile>
     <ClCompile Include="ClipDistance.cpp">
+      <Filter>Source Files\Study Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TessellationTerrain.cpp">
       <Filter>Source Files\Study Source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -197,6 +206,9 @@
     <ClInclude Include="ProjectsInclude.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TessellationTerrain.h">
+      <Filter>Header Files\Study Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="simplecolor.frag">
@@ -236,25 +248,25 @@
       <Filter>Resource Files\Shader Files\Vertex Files</Filter>
     </None>
     <None Include="feedback_render.vert">
-      <Filter>Resource Files\Shader Files\TransformFeedback</Filter>
+      <Filter>Resource Files\Shader Files\Sections\TransformFeedback</Filter>
     </None>
     <None Include="feedback.frag">
-      <Filter>Resource Files\Shader Files\TransformFeedback</Filter>
+      <Filter>Resource Files\Shader Files\Sections\TransformFeedback</Filter>
     </None>
     <None Include="feedback_update.vert">
-      <Filter>Resource Files\Shader Files\TransformFeedback</Filter>
+      <Filter>Resource Files\Shader Files\Sections\TransformFeedback</Filter>
     </None>
     <None Include="clip.vert">
-      <Filter>Resource Files\Shader Files\ClipDistance</Filter>
+      <Filter>Resource Files\Shader Files\Sections\ClipDistance</Filter>
     </None>
     <None Include="model.frag">
-      <Filter>Resource Files\Shader Files\Model</Filter>
+      <Filter>Resource Files\Shader Files\Sections\3dModel</Filter>
     </None>
     <None Include="model.vert">
-      <Filter>Resource Files\Shader Files\Model</Filter>
+      <Filter>Resource Files\Shader Files\Sections\3dModel</Filter>
     </None>
     <None Include="clip.frag">
-      <Filter>Resource Files\Shader Files\ClipDistance</Filter>
+      <Filter>Resource Files\Shader Files\Sections\ClipDistance</Filter>
     </None>
   </ItemGroup>
 </Project>

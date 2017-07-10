@@ -10,7 +10,7 @@ struct DrawArraysIndirectCommand
 	GLuint baseInstance;
 };
 
-// Ch7-04
+// Chapter 7 - Indirect Draw
 class IndirectDraw : public Progbase
 {
 public:

@@ -141,6 +141,7 @@
     <ClCompile Include="SimpleTexture.cpp" />
     <ClCompile Include="SimpleTransform.cpp" />
     <ClCompile Include="SimpleTriangle.cpp" />
+    <ClCompile Include="TessellationTerrain.cpp" />
     <ClCompile Include="TexturedCube.cpp" />
     <ClCompile Include="TransformFeedback.cpp" />
     <ClCompile Include="VertexIndexing.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="SimpleTransform.h" />
     <ClInclude Include="SimpleTriangle.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TessellationTerrain.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TexturedCube.h" />
     <ClInclude Include="Timer.h" />

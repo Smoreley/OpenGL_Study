@@ -1,6 +1,6 @@
 #pragma once
-#include "Progbase.h"
 
+// Chapter 
 class VertexIndexing : public Progbase
 {
 private:

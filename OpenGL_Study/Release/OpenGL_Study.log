@@ -4,11 +4,73 @@ C:\vs_dev_lib\glm-0.9.7.6\glm/simd/platform.h(106): warning C4005: 'GLM_COMPILER
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(54): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
 c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(54): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
 ClipDistance.cpp(82): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  GrassInstanced.cpp
+C:\vs_dev_lib\glm-0.9.7.6\glm/simd/platform.h(106): warning C4005: 'GLM_COMPILER_GCC60': macro redefinition
+  c:\vs_dev_lib\glm-0.9.7.6\glm\detail\setup.hpp(156): note: see previous definition of 'GLM_COMPILER_GCC60'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(54): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(54): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\GrassInstanced.h(27): warning C4373: 'GrassInstanced::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\Progbase.h(24): note: see declaration of 'Progbase::update'
+GrassInstanced.cpp(78): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+GrassInstanced.cpp(84): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  IndirectDraw.cpp
+C:\vs_dev_lib\glm-0.9.7.6\glm/simd/platform.h(106): warning C4005: 'GLM_COMPILER_GCC60': macro redefinition
+  c:\vs_dev_lib\glm-0.9.7.6\glm\detail\setup.hpp(156): note: see previous definition of 'GLM_COMPILER_GCC60'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(54): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(54): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+IndirectDraw.cpp(59): warning C4018: '<': signed/unsigned mismatch
+IndirectDraw.cpp(82): warning C4018: '<': signed/unsigned mismatch
+IndirectDraw.cpp(144): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+IndirectDraw.cpp(153): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
+C:\vs_dev_lib\glm-0.9.7.6\glm/simd/platform.h(106): warning C4005: 'GLM_COMPILER_GCC60': macro redefinition
+  c:\vs_dev_lib\glm-0.9.7.6\glm\detail\setup.hpp(156): note: see previous definition of 'GLM_COMPILER_GCC60'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(54): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(54): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\FpsManager.h(23): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\FpsManager.h(73): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\FpsManager.h(212): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\SimpleTriangle.h(15): warning C4373: 'SimpleTriangle::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(24): note: see declaration of 'Progbase::update'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\SimpleCube.h(25): warning C4373: 'SimpleCube::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(24): note: see declaration of 'Progbase::update'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\SimpleTransform.h(25): warning C4373: 'SimpleTransform::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(24): note: see declaration of 'Progbase::update'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\SimpleTexture.h(24): warning C4373: 'SimpleTexture::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(24): note: see declaration of 'Progbase::update'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\TexturedCube.h(24): warning C4373: 'TexturedCube::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(24): note: see declaration of 'Progbase::update'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\MultiCubeRendering.h(27): warning C4373: 'MultiCubeRendering::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(24): note: see declaration of 'Progbase::update'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\VertexIndexing.h(23): warning C4373: 'VertexIndexing::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(24): note: see declaration of 'Progbase::update'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\GrassInstanced.h(27): warning C4373: 'GrassInstanced::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(24): note: see declaration of 'Progbase::update'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\QuadInstanced.h(28): warning C4373: 'QuadInstanced::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\progbase.h(24): note: see declaration of 'Progbase::update'
+main.cpp(347): warning C4018: '<': signed/unsigned mismatch
+  TessellationTerrain.cpp
+C:\vs_dev_lib\glm-0.9.7.6\glm/simd/platform.h(106): warning C4005: 'GLM_COMPILER_GCC60': macro redefinition
+  c:\vs_dev_lib\glm-0.9.7.6\glm\detail\setup.hpp(156): note: see previous definition of 'GLM_COMPILER_GCC60'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(54): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(54): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+  TransformFeedback.cpp
+C:\vs_dev_lib\glm-0.9.7.6\glm/simd/platform.h(106): warning C4005: 'GLM_COMPILER_GCC60': macro redefinition
+  c:\vs_dev_lib\glm-0.9.7.6\glm\detail\setup.hpp(156): note: see previous definition of 'GLM_COMPILER_GCC60'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(54): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(54): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+  VertexIndexing.cpp
+C:\vs_dev_lib\glm-0.9.7.6\glm/simd/platform.h(106): warning C4005: 'GLM_COMPILER_GCC60': macro redefinition
+  c:\vs_dev_lib\glm-0.9.7.6\glm\detail\setup.hpp(156): note: see previous definition of 'GLM_COMPILER_GCC60'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(54): warning C4838: conversion from 'double' to 'const GLfloat' requires a narrowing conversion
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\stdafx.h(54): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\VertexIndexing.h(23): warning C4373: 'VertexIndexing::update': virtual function overrides 'Progbase::update', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+  c:\users\sauron-lp-s\desktop\opengl_study\opengl_study\Progbase.h(24): note: see declaration of 'Progbase::update'
 LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  1 of 1169 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+  0 of 1169 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    30 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Release\vc120.pdb'; linking object as if no debug info
   OpenGL_Study.vcxproj -> C:\Users\Sauron-LP-S\Desktop\OpenGL_Study\Release\OpenGL_Study.exe

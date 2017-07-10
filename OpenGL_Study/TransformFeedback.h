@@ -1,5 +1,6 @@
 #pragma once
 
+// Chapter 7 - TransformFeedback
 class TransformFeedback : public Progbase {
 public:
 	int start();

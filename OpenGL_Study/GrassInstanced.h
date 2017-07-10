@@ -1,7 +1,7 @@
 #pragma once
 #include "Progbase.h"
 
-// Ch7-02
+// Chapter 7 - Instanced
 class GrassInstanced : public Progbase {
 private:
 	double deltaTime;

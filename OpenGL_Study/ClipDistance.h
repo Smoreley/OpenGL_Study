@@ -3,6 +3,7 @@
 class Model;
 class Camera;
 
+// Chpater 7 - Clip Distance
 class ClipDistance : public Progbase {
 public:
 	int start();
