@@ -268,5 +268,17 @@
     <None Include="clip.frag">
       <Filter>Resource Files\Shader Files\Sections\ClipDistance</Filter>
     </None>
+    <None Include="tessTerrain.frag">
+      <Filter>Resource Files\Shader Files\Sections\TessellationTerrain</Filter>
+    </None>
+    <None Include="tessTerrain.vert">
+      <Filter>Resource Files\Shader Files\Sections\TessellationTerrain</Filter>
+    </None>
+    <None Include="tessTerrain.tcs">
+      <Filter>Resource Files\Shader Files\Sections\TessellationTerrain</Filter>
+    </None>
+    <None Include="tessTerrain.tes">
+      <Filter>Resource Files\Shader Files\Sections\TessellationTerrain</Filter>
+    </None>
   </ItemGroup>
 </Project>

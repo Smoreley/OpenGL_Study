@@ -2,9 +2,6 @@
 #include "TransformFeedback.h"
 #include "Helper.h"
 
-/* Forward-declaration */
-void load_shader(GLuint& m_updateProgram);
-
 enum BUFFER_TYPE
 {
 	POS_A,
@@ -26,7 +23,6 @@ int TransformFeedback::start() {
 	//m_modelViewLocation = glGetUniformLocation(rendering_program, "u_mv_matrix");
 	//m_projectionLocation = glGetUniformLocation(rendering_program, "u_proj_matrix");
 	//m_viewLocation = glGetUniformLocation(rendering_program, "u_view_matrix");
-
 
 	// Initial Positions and velocities of each node
 	m_clothPointsTotal = m_clothPointsX * m_clothPointsY;
@@ -132,6 +128,8 @@ int TransformFeedback::end() {
 	glBindVertexArray(0);
 	glUseProgram(0);
 
+	glDeleteTextures(2, m_tbo);
+
 	glDeleteVertexArrays(2, m_vao);
 	glDeleteBuffers(5, m_vbo);
 	glDeleteProgram(update_program);
@@ -197,7 +195,8 @@ int TransformFeedback::update(const double dt) {
 	return EXIT_SUCCESS;
 }
 
-void load_shader(GLuint& m_updateProgram) {
+// Compiles the "Update feedback shader"
+void TransformFeedback::load_shader(GLuint& m_updateProgram) {
 	char buffer[1024];
 
 	GLuint vs = glCreateShader(GL_VERTEX_SHADER);

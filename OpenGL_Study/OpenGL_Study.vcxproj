@@ -197,6 +197,10 @@
     <None Include="feedback_render.vert" />
     <None Include="simplecolor.frag" />
     <None Include="simple.vert" />
+    <None Include="tessTerrain.frag" />
+    <None Include="tessTerrain.tcs" />
+    <None Include="tessTerrain.tes" />
+    <None Include="tessTerrain.vert" />
     <None Include="transform.vert" />
     <None Include="texture.frag" />
   </ItemGroup>

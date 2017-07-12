@@ -45,6 +45,7 @@ int GrassInstanced::start() {
 }
 
 int GrassInstanced::end() {
+	glBindVertexArray(0);
 	glUseProgram(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 

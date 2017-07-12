@@ -231,11 +231,12 @@ int main(void) {
 	//studyContainer.push_back(new GrassInstanced());
 	//studyContainer.push_back(new QuadInstanced());
 	//studyContainer.push_back(new IndirectDraw());
-	studyContainer.push_back(new FlyingCamera());
-	studyContainer.push_back(new ModelLoading());
-	studyContainer.push_back(new PhysicsCubes());
-	studyContainer.push_back(new TransformFeedback());
+	//studyContainer.push_back(new FlyingCamera());
+	//studyContainer.push_back(new ModelLoading());
+	//studyContainer.push_back(new PhysicsCubes());
+	//studyContainer.push_back(new TransformFeedback());
 	studyContainer.push_back(new ClipDistance());
+	studyContainer.push_back(new TessellationTerrain());
 
 	// Set current running program and start it
 	currentStudyProgram = studyContainer[0];

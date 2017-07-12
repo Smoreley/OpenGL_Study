@@ -1,7 +1,7 @@
 --------------------------------
-Mon Jul 10 08:45:07 2017
+Wed Jul 12 19:18:12 2017
 Source: API
-Type: Performance issue
-Severity: Medium
-Info: API_ID_RECOMPILE_FRAGMENT_SHADER performance warning has been generated. Fragment shader recompiled due to state change.
+Type: Error
+Severity: High
+Info: Error has been generated. GL error GL_INVALID_VALUE in Flush: (ID: 2485845432) Generic error
 --------------------------------

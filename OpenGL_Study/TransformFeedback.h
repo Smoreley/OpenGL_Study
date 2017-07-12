@@ -21,7 +21,6 @@ private:
 
 	GLuint m_tbo[2];			// Texture Buffer Object
 
-
 	GLuint m_iterationIndex;
 
 	// Uniforms
@@ -32,5 +31,8 @@ private:
 	int m_clothPointsTotal;
 	int m_clothPointsX{ 20 };
 	int m_clothPointsY{ 20 };
+
+	// Helper Funcitons
+	void load_shader(GLuint& m_updateProgram);
 
 };
