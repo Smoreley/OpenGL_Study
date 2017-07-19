@@ -37,7 +37,7 @@ int TessellationTerrain::start() {
 	glFrontFace(GL_CCW);
 
 	// Set Parameters
-	m_wireframe = false;
+	m_wireframe = true;
 
 	return EXIT_SUCCESS;
 }
@@ -80,8 +80,7 @@ int TessellationTerrain::render() {
 	glUniformMatrix4fv(m_modelView, 1, GL_FALSE, glm::value_ptr(proj));
 	glUniformMatrix4fv(m_projection, 1, GL_FALSE, glm::value_ptr(proj));
 	glUniformMatrix4fv(m_mvp, 1, GL_FALSE, glm::value_ptr(proj * mv));
-	glUniform1f(m_dmapDepth, 10.0f);
-
+	glUniform1f(m_dmapDepth, 10.0f);	
 
 	if (m_wireframe) {
 		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -92,7 +91,6 @@ int TessellationTerrain::render() {
 	glPatchParameteri(GL_PATCH_VERTICES, 4);
 	glDrawArraysInstanced(GL_PATCHES, 0, 4, 64*64);
 	//glDrawArraysInstanced(GL_PATCHES, 0, 4, 32 * 32);
-
 
 	// Unset program
 	glUseProgram(0);
